@@ -1,25 +1,26 @@
-{
-  "name": "SSGPT6",
-  "short_name": "SSGPT6",
-  "description": "SSGPT6 Intelligent Digital Access Platform",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#0b1b3f",
-  "theme_color": "#0b1b3f",
-  "icons": [
-    {
-      "src": "/tradehub-icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
-}
+name: NodeJS with Next.js Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Next.js
+      run: npm run build
