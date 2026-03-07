@@ -1,0 +1,30 @@
+name: Sovereign AI Agent Builder
+on:
+  push:
+    branches: [ "main" ]
+  check_run:
+    types: [ "completed" ] # Wakes up if a build fails
+
+jobs:
+  autonomous-fix-and-deploy:
+    runs-on: ubuntu-latest
+    if: github.event.check_run.conclusion == 'failure' || github.event_name == 'push'
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: AI Error Scanner & Rewriter
+        uses: vercel/ai-sdk-action@v6 # 2026 Autonomous Agent
+        with:
+          agent-id: "ssgpt6-black-box"
+          mode: "self-healing" # Automatically fixes SyntaxErrors
+          auth-token: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Multi-Platform Sync
+        run: |
+          # Syncs files from Server (GitHub) to Server (Vercel)
+          vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+          
+          # Adjusts DNS & SSL on Cloudflare Shield automatically
+          npx cloudflare-sync --zone ssgpt6.com --token ${{ secrets.CLOUDFLARE_API_KEY }}
