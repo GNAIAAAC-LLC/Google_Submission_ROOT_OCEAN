@@ -18,3 +18,7 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+<footer style={{ marginTop: "3rem", padding: "1rem", borderTop: "1px solid #ddd" }}>
+  <p>SSGPT6 © GNAIAAAC LLC</p>
+  <p>Cloud‑Native • Secure • Independent</p>
+</footer>
