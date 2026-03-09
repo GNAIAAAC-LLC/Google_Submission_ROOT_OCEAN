@@ -1,20 +1,14 @@
-import type { Metadata } from "next";
-import "./globals.css";
-
-export const metadata: Metadata = {
+export const metadata = {
   title: "SSGPT6",
-  description: "GNAIAAAC LLC — Architect: Arifur Shanta (USA)",
-  applicationName: "SSGPT6",
-};
+  description: "Simple AI for Real Life"
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body style={{ margin: 0, fontFamily: "sans-serif" }}>
+        {children}
+      </body>
     </html>
-  );
+  )
 }
