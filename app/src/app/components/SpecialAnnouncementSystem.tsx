@@ -1,3 +1,10 @@
+Use this one file only.
+
+File name: src/app/components/SpecialAnnouncementSystem.tsx
+Where to paste: Open src/app/components/SpecialAnnouncementSystem.tsx, delete everything, and paste this exact code.
+
+This version keeps your current system and adds the 1 through 5 gameplay sections from your uploaded PDF: core game design, automation features, technical architecture, automation workflow, and example automation engine. The PDF also describes SS Solitaire as a classic Klondike game with auto-move, auto-play, drag-and-drop, replay, speed control, stats, and customization.  ￼  ￼
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -335,10 +342,7 @@ export default function SpecialAnnouncementSystem() {
     if (!birthday) return false;
     const today = new Date();
     const birth = new Date(birthday);
-    return (
-      today.getMonth() === birth.getMonth() &&
-      today.getDate() === birth.getDate()
-    );
+    return today.getMonth() === birth.getMonth() && today.getDate() === birth.getDate();
   }, [birthday]);
 
   const fullMessage = useMemo(() => {
@@ -724,7 +728,8 @@ export default function SpecialAnnouncementSystem() {
           background: "#111827",
           borderRadius: "14px",
           padding: "16px",
-          border: "1px solid #1f2937"
+          border: "1px solid #1f2937",
+          marginBottom: "18px"
         }}
       >
         <h3 style={{ color: "#f5c542", marginBottom: "12px" }}>Command Features</h3>
@@ -736,6 +741,155 @@ export default function SpecialAnnouncementSystem() {
           <li>Voice greeting playback</li>
           <li>Voice command navigation</li>
           <li>Birthday greeting support</li>
+        </ul>
+      </div>
+
+      <div
+        style={{
+          background: "#111827",
+          borderRadius: "14px",
+          padding: "16px",
+          border: "1px solid #1f2937",
+          marginBottom: "18px"
+        }}
+      >
+        <h3 style={{ color: "#f5c542", marginBottom: "12px" }}>
+          SS Solitaire Gameplay System
+        </h3>
+
+        <div style={{ display: "grid", gap: "14px" }}>
+          <div
+            style={{
+              background: "#0f172a",
+              padding: "16px",
+              borderRadius: "12px",
+              border: "1px solid #1f2937"
+            }}
+          >
+            <h4 style={{ color: "#f5c542", marginTop: 0, marginBottom: "10px" }}>
+              1. Core Game Design
+            </h4>
+            <ul style={{ paddingLeft: "18px", margin: 0 }}>
+              <li>Classic Klondike Solitaire</li>
+              <li>52-card deck</li>
+              <li>7 tableau piles, stock, waste, and foundations</li>
+              <li>Alternating colors and descending order</li>
+              <li>Win by moving all cards to foundations</li>
+            </ul>
+          </div>
+
+          <div
+            style={{
+              background: "#0f172a",
+              padding: "16px",
+              borderRadius: "12px",
+              border: "1px solid #1f2937"
+            }}
+          >
+            <h4 style={{ color: "#f5c542", marginTop: 0, marginBottom: "10px" }}>
+              2. Autonomous Automation Features
+            </h4>
+            <ul style={{ paddingLeft: "18px", margin: 0 }}>
+              <li>Auto-move to foundations</li>
+              <li>Suggest best legal moves</li>
+              <li>Auto-play mode to complete the game</li>
+              <li>Rule-based decision engine</li>
+              <li>Optional future Monte Carlo simulation</li>
+            </ul>
+          </div>
+
+          <div
+            style={{
+              background: "#0f172a",
+              padding: "16px",
+              borderRadius: "12px",
+              border: "1px solid #1f2937"
+            }}
+          >
+            <h4 style={{ color: "#f5c542", marginTop: 0, marginBottom: "10px" }}>
+              3. Technical Architecture
+            </h4>
+            <ul style={{ paddingLeft: "18px", margin: 0 }}>
+              <li>Cross-platform web or mobile interface</li>
+              <li>Drag-and-drop card interaction</li>
+              <li>Auto-play toggle button</li>
+              <li>Game state manager for deck, tableau, and foundations</li>
+              <li>Autonomous module runs until no legal moves remain</li>
+            </ul>
+          </div>
+
+          <div
+            style={{
+              background: "#0f172a",
+              padding: "16px",
+              borderRadius: "12px",
+              border: "1px solid #1f2937"
+            }}
+          >
+            <h4 style={{ color: "#f5c542", marginTop: 0, marginBottom: "10px" }}>
+              4. Automation Workflow
+            </h4>
+            <ol style={{ paddingLeft: "18px", margin: 0 }}>
+              <li>Initialize game state</li>
+              <li>Shuffle deck and deal tableau</li>
+              <li>Choose manual mode or auto mode</li>
+              <li>Scan tableau, stock, and waste</li>
+              <li>Apply best move until win or no move remains</li>
+            </ol>
+          </div>
+
+          <div
+            style={{
+              background: "#0f172a",
+              padding: "16px",
+              borderRadius: "12px",
+              border: "1px solid #1f2937"
+            }}
+          >
+            <h4 style={{ color: "#f5c542", marginTop: 0, marginBottom: "10px" }}>
+              5. Example Automation Engine
+            </h4>
+            <pre
+              style={{
+                background: "#020617",
+                color: "#93c5fd",
+                padding: "14px",
+                borderRadius: "10px",
+                overflowX: "auto",
+                fontSize: "13px",
+                margin: 0
+              }}
+            >
+{`def auto_play(game_state):
+    while not game_state.is_over():
+        moves = game_state.get_legal_moves()
+        if not moves:
+            break
+        best_move = select_best_move(moves)
+        game_state.apply(best_move)
+    return game_state.result()`}
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{
+          background: "#111827",
+          borderRadius: "14px",
+          padding: "16px",
+          border: "1px solid #1f2937"
+        }}
+      >
+        <h3 style={{ color: "#f5c542", marginBottom: "12px" }}>
+          Extra Game Features
+        </h3>
+        <ul style={{ paddingLeft: "18px", margin: 0 }}>
+          <li>Replay mode</li>
+          <li>Speed control</li>
+          <li>Statistics tracking</li>
+          <li>Theme and card customization</li>
+          <li>Future game app and subdomain expansion</li>
         </ul>
       </div>
 
