@@ -1,4 +1,5 @@
 import Header from "./header";
+import Footer from "./footer";
 
 export default function Home() {
   return (
@@ -30,6 +31,8 @@ export default function Home() {
         <h2>Contact</h2>
         <p>Email: ssgpt6@aol.com</p>
       </main>
+
+      <Footer />
     </>
   );
 }
