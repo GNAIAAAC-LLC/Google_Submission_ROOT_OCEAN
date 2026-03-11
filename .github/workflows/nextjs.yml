@@ -1,4 +1,4 @@
-name: Build Check
+name: Build Next.js Site
 
 on:
   push:
@@ -13,33 +13,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Enable Corepack
+      - name: Enable pnpm
         run: corepack enable
 
-      - name: Install pnpm
-        run: corepack prepare pnpm@10 --activate
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Build Project
+      - name: Build Next.js
         run: pnpm build
