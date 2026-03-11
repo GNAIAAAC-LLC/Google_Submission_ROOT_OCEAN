@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-module.exports = nextConfig;
+// Remove or comment out these lines:
+// serverActionsTimeout: 60000,
+// serverActions: true,
