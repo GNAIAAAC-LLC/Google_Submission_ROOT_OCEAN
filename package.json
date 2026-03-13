@@ -1,5 +1,4 @@
-- name: Install dependencies
-  run: npm ci
-
-- name: Run Tests
-  run: npm test
+"packageManager": "pnpm@9.0.0" 
+"engines": {
+  "node": "20.x"
+}
