@@ -1,44 +1,22 @@
-<div id="admin-gate" class="hidden fixed inset-0 bg-black flex items-center justify-center z-[9999]">
-    <div class="border-2 border-green-500 p-8 max-w-sm w-full bg-zinc-900 mx-4">
-        <h2 class="text-2xl font-bold mb-6 tracking-tighter text-green-500">ROOT ACCESS</h2>
-        <input type="password" id="master-key" placeholder="ACCESS CODE..." 
-               class="w-full bg-black border border-zinc-700 p-4 text-green-500 mb-6 text-xl outline-none focus:border-green-500">
-        <button onclick="verifyRoot()" class="w-full bg-green-500 text-black font-bold py-4 text-lg">ACTIVATE</button>
-        <p id="error-msg" class="text-red-500 text-sm mt-4 hidden text-center uppercase">Identity Mismatch</p>
-    </div>
-</div>
-
-<div id="touch-trigger" style="position:fixed; top:0; left:0; width:100%; height:80px; z-index:999; background: rgba(0,255,0,0.01);"></div>
-
 <script>
-    let tapCount = 0;
-    let lastTap = 0;
-    const trigger = document.getElementById('touch-trigger');
-
-    trigger.addEventListener('touchstart', (e) => {
-        const currentTime = new Date().getTime();
-        const tapInterval = currentTime - lastTap;
+    // GHOST TRIGGER: The Secret Link Logic
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
         
-        if (tapInterval < 500 && tapInterval > 0) {
-            tapCount++;
-        } else {
-            tapCount = 1;
-        }
-        
-        lastTap = currentTime;
-
-        if (tapCount === 3) {
+        // If the URL contains ?access=root, show the login box
+        if (urlParams.get('access') === 'root') {
             document.getElementById('admin-gate').classList.remove('hidden');
-            tapCount = 0;
+            // Clean the URL so nobody else sees the 'root' tag if they look at your phone
+            window.history.replaceState({}, document.title, "/");
         }
-    });
+    };
 
     function verifyRoot() {
         const key = document.getElementById('master-key').value;
         if (key === 'SHANTA-2026') { 
             localStorage.setItem('root_access', 'true');
             alert('CITADEL UNLOCKED');
-            location.reload(); 
+            location.href = "/"; // Refresh to show admin dashboard
         } else {
             document.getElementById('error-msg').classList.remove('hidden');
         }
