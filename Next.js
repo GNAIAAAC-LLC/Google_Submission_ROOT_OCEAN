@@ -1,1 +1,0 @@
-GitHub → Vercel → Cloudflare DNS
