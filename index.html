@@ -1,97 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Citadel Gate</title>
-
-<style>
-    body { margin: 0; font-family: sans-serif; background: #0b0f14; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; }
-    
-    /* Use !important to ensure the gate stays hidden until we say so */
-    .gate-hidden { display: none !important; }
-
-    #admin-gate {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.95);
-        display: flex; /* This will only apply when .gate-hidden is removed */
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-    }
-
-    #admin-gate > div { background: #111; padding: 30px; border: 1px solid #333; border-radius: 12px; text-align: center; width: 85%; max-width: 320px; }
-    
-    input { 
-        padding: 15px; 
-        font-size: 16px; /* Critical for iOS: prevents auto-zoom */
-        width: 100%; 
-        box-sizing: border-box; 
-        background: #000; 
-        color: #0f0; 
-        border: 1px solid #444;
-        margin-bottom: 15px;
-    }
-
-    button { width: 100%; padding: 15px; background: #0f0; color: #000; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; }
-    
-    #error-msg { color: #ff4444; margin-top: 15px; font-size: 14px; }
-    .hidden { display: none; }
-</style>
+  <meta charset="UTF-8">
+  <title>SSGPT6 Core – Media & Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { margin:0; font-family:system-ui,sans-serif; background:#05060a; color:#f5f5f5; }
+    header, footer { padding:1rem 1.5rem; border-bottom:1px solid #222; }
+    footer { border-top:1px solid #222; border-bottom:none; text-align:center; font-size:.85rem; color:#888; }
+    nav a { color:#e5e7eb; margin-right:1rem; text-decoration:none; font-size:.95rem; }
+    nav a:hover { color:#60a5fa; }
+    main { max-width:900px; margin:2rem auto; padding:0 1.5rem 3rem; }
+    .hero { margin-bottom:2rem; }
+    .hero h1 { font-size:2rem; margin-bottom:.5rem; }
+    .btn-row a { display:inline-block; margin:.5rem .5rem .5rem 0; padding:.7rem 1.4rem; border-radius:999px; text-decoration:none; font-weight:600; font-size:.95rem; }
+    .btn-primary { background:#2563eb; color:#fff; }
+    .btn-primary:hover { background:#1d4ed8; }
+    .btn-ghost { border:1px solid #374151; color:#e5e7eb; }
+    .btn-ghost:hover { border-color:#60a5fa; color:#60a5fa; }
+    .section { background:#0b0d16; border:1px solid #111827; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; }
+  </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/media.html">Media</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
 
-<h1>Main Site Content</h1>
+  <main>
+    <section class="hero">
+      <h1>SSGPT6 Core Media & Projects</h1>
+      <p>135+ AI‑driven projects, media assets, and services under one unified platform.</p>
+      <div class="btn-row">
+        <a class="btn-primary" href="/services.html">Start with a Paid Service</a>
+        <a class="btn-ghost" href="/projects.html">Browse All Projects</a>
+      </div>
+    </section>
 
-<div id="admin-gate" class="gate-hidden">
-    <div>
-        <h2 style="letter-spacing:-1px">CITADEL ACCESS</h2>
-        <input id="master-key" type="password" placeholder="ENTER KEY" autocomplete="off">
-        <button onclick="verifyRoot()">ACTIVATE</button>
-        <div id="error-msg" class="hidden">INVALID SECURITY KEY</div>
-    </div>
-</div>
+    <section class="section">
+      <h2>Quick Earning Services</h2>
+      <p>Book fast, done‑for‑you work you can resell, bundle, or deploy immediately.</p>
+      <ul>
+        <li>Website fix & upgrade</li>
+        <li>AI content packs</li>
+        <li>Landing page builds</li>
+        <li>Automation & chatbot setup</li>
+      </ul>
+      <a class="btn-primary" href="/services.html">View Services & Pricing</a>
+    </section>
 
-<script>
-(function () {
-    const gate = document.getElementById('admin-gate');
-    const input = document.getElementById('master-key');
+    <section class="section">
+      <h2>Project Library</h2>
+      <p>Explore 135 structured projects with clear scope, outcomes, and implementation notes.</p>
+      <a class="btn-ghost" href="/projects.html">Open Project Library</a>
+    </section>
+  </main>
 
-    function bootCitadel() {
-        const urlParams = new URLSearchParams(window.location.search);
-        
-        // Check for ?access=root
-        if (urlParams.get('access') === 'root') {
-            gate.classList.remove('gate-hidden');
-            
-            // iPhone Safari Fix: Requires a tiny delay for the keyboard to trigger
-            setTimeout(() => {
-                input.focus();
-            }, 500);
+  <footer>
+    &copy; <span id="year"></span> SSGPT6 Core Media
+  </footer>
 
-            // Hide the 'root' from the URL bar immediately
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
-    }
-
-    // Run immediately and on load for iOS reliability
-    bootCitadel();
-    window.addEventListener('load', bootCitadel);
-
-    window.verifyRoot = function () {
-        if (input.value === 'SHANTA-2026') {
-            localStorage.setItem('ssgpt6_root', 'true');
-            alert('CITADEL UNLOCKED');
-            window.location.href = window.location.origin + window.location.pathname;
-        } else {
-            document.getElementById('error-msg').classList.remove('hidden');
-            // Shake effect
-            gate.firstElementChild.style.transform = 'translateX(10px)';
-            setTimeout(() => gate.firstElementChild.style.transform = 'translateX(0)', 100);
-        }
-    };
-})();
-</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
