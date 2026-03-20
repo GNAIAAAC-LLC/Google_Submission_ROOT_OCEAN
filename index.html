@@ -1,46 +1,54 @@
 <script>
-    // MOBILE-OPTIMIZED GHOST TRIGGER
-    function initializeCitadel() {
-        const urlParams = new URLSearchParams(window.location.search);
+    // 1. MOBILE-FIRST HANDSHAKE
+    function bootCitadel() {
+        const params = new URLSearchParams(window.location.search);
         
-        // Use 'access' or 'root' as the trigger for iOS reliability
-        if (urlParams.get('access') === 'root' || window.location.search.includes('root')) {
+        // Detect "root" in URL for iPhone/iPad reliability
+        if (params.has('access') && params.get('access') === 'root') {
             const gate = document.getElementById('admin-gate');
             const input = document.getElementById('master-key');
             
             if (gate) {
                 gate.classList.remove('hidden');
-                // Automatically focus the keyboard for iPhone/iPad users
-                setTimeout(() => input.focus(), 300);
+                // iPhone Keyboard Fix: Delay focus slightly so the OS allows the popup
+                setTimeout(() => {
+                    input.focus();
+                    input.click(); // Extra "click" force for iPadOS
+                }, 400);
             }
             
-            // Instantly clean the URL bar for security
+            // Ghost Cleanup: Wipe the URL so the secret stays secret
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     }
 
-    // iOS/Safari compatibility: Trigger as soon as the DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeCitadel);
+    // 2. APPLE COMPATIBILITY LAYER
+    // iOS Safari sometimes skips window.onload. We use this "ReadyState" check instead.
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        bootCitadel();
     } else {
-        initializeCitadel();
+        document.addEventListener('DOMContentLoaded', bootCitadel);
     }
 
+    // 3. MASTER KEY VERIFICATION
     function verifyRoot() {
         const key = document.getElementById('master-key').value;
-        const msg = document.getElementById('error-msg');
+        const errorMsg = document.getElementById('error-msg');
         
         if (key === 'SHANTA-2026') { 
-            localStorage.setItem('root_access', 'true');
+            // Secure Local Storage for Persistent Login
+            localStorage.setItem('ssgpt6_root', 'true');
             alert('CITADEL UNLOCKED');
-            // Force a clean reload to bypass Safari's cache
-            window.location.href = window.location.origin + window.location.pathname;
+            
+            // Force a Hard Refresh to bypass Apple's "Back-Forward Cache"
+            window.location.href = window.location.origin + window.location.pathname + '?auth=success';
         } else {
-            msg.classList.remove('hidden');
-            // Shake effect for mobile feedback
-            const gateBox = document.querySelector('#admin-gate div');
-            gateBox.style.transform = 'translateX(10px)';
-            setTimeout(() => gateBox.style.transform = 'translateX(0)', 100);
+            errorMsg.classList.remove('hidden');
+            // Haptic Feedback Simulation (Visual Shake)
+            const box = document.querySelector('#admin-gate > div');
+            box.style.transform = 'translateX(10px)';
+            setTimeout(() => box.style.transform = 'translateX(-10px)', 50);
+            setTimeout(() => box.style.transform = 'translateX(0)', 100);
         }
     }
 </script>
