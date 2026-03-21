@@ -1,758 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@ssgpt6 | Global AI Governance Platform</title>
-  <meta
-    name="description"
-    content="@ssgpt6 Global AI Governance Platform powered by GNAIAAAC LLC. Professional digital services, payment options, and customer support."
-  />
-  <style>
-    :root {
-      --bg: #081120;
-      --bg-soft: #0d1b2f;
-      --panel: #12233d;
-      --panel-2: #162b49;
-      --text: #eef4ff;
-      --muted: #b8c6db;
-      --gold: #d9b34b;
-      --gold-dark: #b68d22;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 16px 40px rgba(0,0,0,0.28);
-      --radius: 18px;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #081120 0%, #0b1730 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8, 17, 32, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding: 16px 0;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo-box {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-      font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: var(--shadow);
-    }
-
-    .brand {
-      margin: 0;
-      font-size: 1.06rem;
-      line-height: 1.2;
-    }
-
-    .brand-sub {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: var(--text);
-      font-weight: 700;
-      font-size: 0.96rem;
-    }
-
-    .hero {
-      padding: 78px 0 50px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.95fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(217, 179, 75, 0.12);
-      color: var(--gold);
-      border: 1px solid rgba(217, 179, 75, 0.25);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
-
-    .hero-title {
-      margin: 18px 0 16px;
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      line-height: 1.08;
-    }
-
-    .hero-text {
-      margin: 0;
-      color: var(--muted);
-      max-width: 760px;
-      font-size: 1.04rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin: 28px 0 24px;
-    }
-
-    .btn {
-      display: inline-block;
-      border-radius: 12px;
-      padding: 13px 18px;
-      font-weight: 800;
-      text-align: center;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      border-color: var(--line);
-      background: transparent;
-    }
-
-    .full {
-      width: 100%;
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .point-card,
-    .card,
-    .hero-panel,
-    .step,
-    .notice {
-      background: rgba(18, 35, 61, 0.88);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .point-card {
-      padding: 16px;
-    }
-
-    .point-card strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .point-card span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .hero-panel {
-      padding: 26px;
-    }
-
-    .hero-panel h3 {
-      margin-top: 0;
-      margin-bottom: 14px;
-    }
-
-    .hero-panel ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .section {
-      padding: 72px 0;
-    }
-
-    .section.alt {
-      background: rgba(255,255,255,0.02);
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 10px;
-      font-size: 2rem;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .cards {
-      display: grid;
-      gap: 20px;
-    }
-
-    .cards.three {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cards.two {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-      padding: 24px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .pricing-card {
-      position: relative;
-    }
-
-    .featured {
-      border-color: rgba(217, 179, 75, 0.35);
-      transform: scale(1.02);
-    }
-
-    .plan {
-      margin: 0 0 8px;
-      color: var(--gold);
-      font-weight: 800;
-      letter-spacing: 0.3px;
-    }
-
-    .price {
-      margin: 0 0 10px;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .notice {
-      margin-top: 24px;
-      padding: 18px 20px;
-      color: var(--muted);
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      padding: 24px;
-    }
-
-    .step span {
-      display: inline-grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      background: linear-gradient(145deg, var(--gold), var(--gold-dark));
-      color: #111;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .step h3 {
-      margin: 0 0 8px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .contact-box p {
-      margin: 8px 0;
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      background: rgba(5, 10, 18, 0.82);
-      padding-top: 36px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 22px;
-    }
-
-    .footer-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-list li {
-      margin: 8px 0;
-    }
-
-    .footer-bottom {
-      padding: 22px 0 28px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      margin-top: 24px;
-      text-align: center;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .cards.three,
-      .cards.two,
-      .steps,
-      .footer-grid,
-      .hero-points {
-        grid-template-columns: 1fr;
-      }
-
-      .featured {
-        transform: none;
-      }
-
-      .nav-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding-top: 60px;
-      }
-
-      .hero-title {
-        font-size: 2.1rem;
-      }
-
-      .section {
-        padding: 56px 0;
-      }
-    }
-  </style>
+  <title>SSGPT6</title>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <div class="logo-wrap">
-        <div class="logo-box">SS</div>
-        <div>
-          <h1 class="brand">@ssgpt6</h1>
-          <p class="brand-sub">Global AI Governance • Powered by GNAIAAAC LLC</p>
-        </div>
+
+<body style="margin:0; font-family:Arial;">
+
+  <!-- HOME PAGE -->
+  <div id="home" style="
+    text-align:center;
+    padding:50px;
+    background:#0b1a2f;
+    color:white;
+    min-height:100vh;
+  ">
+
+    <h1 style="font-size:40px; color:gold;">SSGPT6</h1>
+
+    <p style="font-size:18px; margin-top:20px;">
+      Intelligent Digital Access Platform
+    </p>
+
+    <button onclick="showDashboard()" style="
+      margin-top:40px;
+      padding:12px 25px;
+      background:gold;
+      border:none;
+      border-radius:8px;
+      font-weight:bold;
+      cursor:pointer;
+    ">
+      Enter Dashboard
+    </button>
+
+  </div>
+
+  <!-- DASHBOARD PAGE -->
+  <div id="dashboard" style="
+    display:none;
+    text-align:center;
+    padding:50px;
+    background:#0b1a2f;
+    color:white;
+    min-height:100vh;
+  ">
+
+    <h1 style="color:gold;">SSGPT6 Dashboard</h1>
+
+    <p>Welcome to your system</p>
+
+    <div style="margin-top:30px;">
+
+      <div style="
+        background:#122a45;
+        padding:20px;
+        margin:10px;
+        border-radius:10px;
+      ">
+        System Status: Active
       </div>
 
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#order">How It Works</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="badge">@ssgpt6 • Professional Digital Services</span>
-          <h2 class="hero-title">Global AI Governance Platform for Paid Customer Services</h2>
-          <p class="hero-text">
-            This website presents your services professionally, helps customers understand what
-            they are buying, and gives them a simple way to pay and send their project details.
-            It is designed for a clean public launch under GNAIAAAC LLC.
-          </p>
-
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="#pricing">Order Service</a>
-            <a class="btn btn-secondary" href="#about">Learn More</a>
-          </div>
-
-          <div class="hero-points">
-            <div class="point-card">
-              <strong>Brand</strong>
-              <span>@ssgpt6</span>
-            </div>
-            <div class="point-card">
-              <strong>Business</strong>
-              <span>GNAIAAAC LLC</span>
-            </div>
-            <div class="point-card">
-              <strong>Support Email</strong>
-              <span>ssgpt6@aol.com</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-panel">
-          <h3>Platform Overview</h3>
-          <ul>
-            <li>Professional public-facing website</li>
-            <li>Service packages customers can buy</li>
-            <li>Simple PayPal payment flow</li>
-            <li>Email-based order collection</li>
-            <li>Fast business launch structure</li>
-            <li>Low-cost static website setup</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>About @ssgpt6</h2>
-          <p>
-            @ssgpt6 is a business-facing digital platform designed to present services, accept
-            customer payments, and support simple order fulfillment through email. The purpose is
-            to give visitors a trustworthy, clear, and professional experience.
-          </p>
-        </div>
-
-        <div class="cards three">
-          <article class="card">
-            <h3>Mission</h3>
-            <p>
-              To provide a structured and accessible platform where customers can quickly understand
-              service options, make secure payments, and receive professional support.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Function</h3>
-            <p>
-              This website acts as a business entry point for service presentation, pricing,
-              payment collection, and customer communication under one simple system.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Identity</h3>
-            <p>
-              Operated under GNAIAAAC LLC and branded as @ssgpt6, this platform is built to support
-              service delivery, customer onboarding, and future business growth.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <h2>Services</h2>
-          <p>
-            Choose a package that matches your service needs. These can represent AI support,
-            website work, consulting, content services, or other digital deliverables.
-          </p>
-        </div>
-
-        <div class="cards three">
-          <article class="card">
-            <h3>Basic Service</h3>
-            <p>Affordable starter package for simple requests and quick delivery needs.</p>
-            <ul class="list">
-              <li>1 focused service request</li>
-              <li>Email-based delivery</li>
-              <li>Clear and simple workflow</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Standard Service</h3>
-            <p>Balanced package for customers who need more scope and stronger support.</p>
-            <ul class="list">
-              <li>Expanded service coverage</li>
-              <li>Priority handling</li>
-              <li>Better value and flexibility</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Full Service</h3>
-            <p>Professional premium package for higher-value or more complete project needs.</p>
-            <ul class="list">
-              <li>Full-service level support</li>
-              <li>Priority delivery workflow</li>
-              <li>Best for advanced requests</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Pricing & Payment</h2>
-          <p>
-            Customers can click a payment button below and complete payment using PayPal.
-            Update these links if your PayPal username or payment method changes.
-          </p>
-        </div>
-
-        <div class="cards three">
-          <article class="card pricing-card">
-            <p class="plan">Basic</p>
-            <h3 class="price">$50</h3>
-            <p>Good for starter service requests and simple deliverables.</p>
-            <ul class="list">
-              <li>Entry-level package</li>
-              <li>Simple request scope</li>
-              <li>Email support included</li>
-            </ul>
-            <p>
-              <a
-                class="btn btn-primary full"
-                href="https://www.paypal.me/ssgpt6/50"
-                target="_blank"
-                rel="noopener"
-              >
-                Pay Basic – $50
-              </a>
-            </p>
-          </article>
-
-          <article class="card pricing-card featured">
-            <p class="plan">Standard</p>
-            <h3 class="price">$100</h3>
-            <p>Best fit for customers who want more complete service support.</p>
-            <ul class="list">
-              <li>Expanded service package</li>
-              <li>Priority attention</li>
-              <li>More complete delivery</li>
-            </ul>
-            <p>
-              <a
-                class="btn btn-primary full"
-                href="https://www.paypal.me/ssgpt6/100"
-                target="_blank"
-                rel="noopener"
-              >
-                Pay Standard – $100
-              </a>
-            </p>
-          </article>
-
-          <article class="card pricing-card">
-            <p class="plan">Full Service</p>
-            <h3 class="price">$150</h3>
-            <p>Premium package for advanced or full-scope customer requests.</p>
-            <ul class="list">
-              <li>Highest-value package</li>
-              <li>Full-service positioning</li>
-              <li>Priority workflow support</li>
-            </ul>
-            <p>
-              <a
-                class="btn btn-primary full"
-                href="https://www.paypal.me/ssgpt6/150"
-                target="_blank"
-                rel="noopener"
-              >
-                Pay Full Service – $150
-              </a>
-            </p>
-          </article>
-        </div>
-
-        <div class="notice">
-          <strong>Customer instructions:</strong> After payment, email your order details to
-          <a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a> and include your name, selected
-          package, payment screenshot or receipt, and full request details.
-        </div>
-      </div>
-    </section>
-
-    <section id="order" class="section alt">
-      <div class="container">
-        <div class="section-head">
-          <h2>How Customer Ordering Works</h2>
-          <p>Simple workflow for a low-cost business launch.</p>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <span>1</span>
-            <h3>Select a Package</h3>
-            <p>Customer chooses Basic, Standard, or Full Service.</p>
-          </div>
-
-          <div class="step">
-            <span>2</span>
-            <h3>Complete Payment</h3>
-            <p>Customer pays using the PayPal link for the selected package.</p>
-          </div>
-
-          <div class="step">
-            <span>3</span>
-            <h3>Send Order Details</h3>
-            <p>Customer emails name, receipt, and project details to ssgpt6@aol.com.</p>
-          </div>
-
-          <div class="step">
-            <span>4</span>
-            <h3>Receive Service</h3>
-            <p>You review the order and send the final service output by email.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Business identity and customer support information.</p>
-        </div>
-
-        <div class="cards two">
-          <article class="card contact-box">
-            <h3>@ssgpt6 Business Info</h3>
-            <p><strong>Brand:</strong> @ssgpt6</p>
-            <p><strong>Platform:</strong> Global AI Governance</p>
-            <p><strong>Company:</strong> GNAIAAAC LLC</p>
-            <p><strong>Email:</strong> <a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a></p>
-          </article>
-
-          <article class="card contact-box">
-            <h3>Order Submission</h3>
-            <p>
-              After payment, send your full request by email. Include your name, package,
-              payment proof, and service details.
-            </p>
-            <p>
-              <a
-                class="btn btn-primary full"
-                href="mailto:ssgpt6@aol.com?subject=New%20Customer%20Order%20for%20@ssgpt6"
-              >
-                Email Order Details
-              </a>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>@ssgpt6</h3>
-        <p>Global AI Governance Platform</p>
-        <p>Powered by GNAIAAAC LLC</p>
+      <div style="
+        background:#122a45;
+        padding:20px;
+        margin:10px;
+        border-radius:10px;
+      ">
+        Users: 0
       </div>
 
-      <div>
-        <h4>Quick Links</h4>
-        <ul class="footer-list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#order">How It Works</a></li>
-        </ul>
+      <div style="
+        background:#122a45;
+        padding:20px;
+        margin:10px;
+        border-radius:10px;
+      ">
+        Services: Ready
       </div>
 
-      <div>
-        <h4>Contact</h4>
-        <ul class="footer-list">
-          <li><a href="mailto:ssgpt6@aol.com">ssgpt6@aol.com</a></li>
-          <li>GNAIAAAC LLC</li>
-          <li>@ssgpt6 Branding</li>
-        </ul>
-      </div>
     </div>
 
-    <div class="container footer-bottom">
-      © 2026 @ssgpt6 • Powered by GNAIAAAC LLC • All rights reserved.
-    </div>
-  </footer>
+    <button onclick="showHome()" style="
+      margin-top:30px;
+      padding:10px 20px;
+      background:gold;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    ">
+      Back Home
+    </button>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function showDashboard() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+    }
+
+    function showHome() {
+      document.getElementById("dashboard").style.display = "none";
+      document.getElementById("home").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
