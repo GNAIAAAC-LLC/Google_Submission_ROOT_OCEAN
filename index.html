@@ -10,32 +10,22 @@
 
     <header>
         <h1>SSGPT6 Marketplace</h1>
-        <p>Explore our 135+ AI & Automation Solutions</p>
-        <input type="text" id="projectSearch" onkeyup="searchProjects()" placeholder="Search projects (e.g. 'Energy', 'SaaS', 'AI')...">
+        <p>Global Digital Access & AI SaaS Platform</p>
+        <input type="text" id="projectSearch" onkeyup="searchProjects()" placeholder="Search 135+ projects...">
     </header>
 
     <div id="projects-container">
         </div>
 
     <script>
-        /** * This function filters the 135 projects in real-time.
-         * It looks at the title and description of each project 
-         * and hides those that don't match your search.
-         */
         function searchProjects() {
             let input = document.getElementById('projectSearch').value.toLowerCase();
             let sections = document.getElementsByClassName('section');
-            
             for (let i = 0; i < sections.length; i++) {
                 let text = sections[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    sections[i].style.display = "";
-                } else {
-                    sections[i].style.display = "none";
-                }
+                sections[i].style.display = text.includes(input) ? "" : "none";
             }
         }
     </script>
-
 </body>
 </html>
