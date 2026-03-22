@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GN-AI Financial Intelligence</title>
+</head>
+
+<body style="margin:0;font-family:Arial;background:#07111f;color:white;">
+
+<!-- HEADER -->
+<div style="padding:20px;text-align:center;background:#0c1b31;">
+  <h1 style="color:gold;">GN-AI Financial Intelligence</h1>
+  <p>Educational • Analytical • Protected System</p>
+</div>
+
+<!-- WARNING BAR -->
+<div style="background:#8b0000;padding:12px;text-align:center;">
+  <strong>
+  ⚠️ NO TRADING AVAILABLE — This platform does NOT allow buying or selling.
+  </strong>
+</div>
+
+<!-- DISCLAIMER -->
+<div style="background:#132b4a;padding:15px;text-align:center;">
+  <p style="margin:0;font-size:14px;">
+    This system provides educational market analysis only. 
+    GN-AI does NOT provide financial advice, investment recommendations, 
+    or trading services.
+  </p>
+</div>
+
+<!-- DASHBOARD -->
+<div style="padding:30px;text-align:center;">
+
+  <h2 style="color:gold;">Live Market Overview</h2>
+
+  <div style="background:#132b4a;padding:20px;border-radius:10px;margin:20px auto;width:300px;">
+
+    <h3>Apple (AAPL)</h3>
+    <p id="price">Loading price...</p>
+
+    <p>Trend: <span style="color:lightgreen;">Uptrend</span></p>
+    <p>Volatility: Medium</p>
+    <p>Sentiment: Neutral</p>
+
+    <p style="font-size:14px;">
+      GN-AI Insight: Market shows stable behavior. Monitor conditions carefully.
+    </p>
+
+    <!-- PROTECTION -->
+    <div style="margin-top:15px;padding:10px;background:#000;border-radius:6px;">
+      🚫 Trading Disabled
+    </div>
+
+  </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+async function loadPrice() {
+  const apiKey = "YOUR_API_KEY"; // 🔑 paste your key here
+  const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${apiKey}`;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const price = data["Global Quote"]["05. price"];
+    document.getElementById("price").innerText = "Price: $" + price;
+
+  } catch (error) {
+    document.getElementById("price").innerText = "Error loading data";
+  }
+}
+
+loadPrice();
+</script>
+
+<!-- FOOTER -->
+<div style="padding:20px;text-align:center;background:#06101d;">
+  <p>© 2026 GN-AI • GNAIAAAC LLC</p>
+</div>
+
+</body>
+</html>
