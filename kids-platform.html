@@ -4,692 +4,262 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SSGPT6 Kids Learning Center</title>
-  <style>
-    :root{
-      --bg:#081426;
-      --panel:#10233f;
-      --panel2:#173257;
-      --panel3:#1d3f6b;
-      --text:#eef4ff;
-      --muted:#c0cde0;
-      --gold:#f4c542;
-      --green:#75d27a;
-      --blue:#6ec1ff;
-      --pink:#ff8fb1;
-      --purple:#b99cff;
-      --red:#ff8b8b;
-      --radius:18px;
-    }
-
-    *{box-sizing:border-box}
-
-    html{scroll-behavior:smooth}
-
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(180deg,#081426 0%, #0d1c33 100%);
-      color:var(--text);
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(8,20,38,.96);
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-
-    .nav{
-      max-width:1200px;
-      margin:auto;
-      padding:16px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      font-size:1.2rem;
-      font-weight:800;
-      color:var(--gold);
-    }
-
-    .nav-links{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .nav-links a{
-      color:var(--text);
-      text-decoration:none;
-      font-size:.95rem;
-    }
-
-    .nav-links a:hover{
-      color:var(--gold);
-    }
-
-    .wrap{
-      max-width:1200px;
-      margin:auto;
-      padding:24px 20px 60px;
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:20px;
-      margin-top:8px;
-    }
-
-    .card,.tile,.panel{
-      background:var(--panel);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      box-shadow:0 14px 40px rgba(0,0,0,.22);
-      padding:22px;
-    }
-
-    .panel{
-      background:var(--panel3);
-    }
-
-    h1{
-      margin:0 0 12px;
-      font-size:clamp(2rem,4vw,3.1rem);
-      line-height:1.05;
-      color:var(--gold);
-    }
-
-    h2{
-      margin:0 0 12px;
-      color:var(--gold);
-      font-size:1.8rem;
-    }
-
-    h3{
-      margin-top:0;
-      margin-bottom:8px;
-    }
-
-    .muted{
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(244,197,66,.12);
-      border:1px solid rgba(244,197,66,.28);
-      color:var(--gold);
-      font-weight:700;
-      font-size:.88rem;
-      margin-bottom:12px;
-    }
-
-    .actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:18px;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:13px 18px;
-      border-radius:12px;
-      font-weight:700;
-      text-decoration:none;
-      border:none;
-      cursor:pointer;
-    }
-
-    .btn-primary{
-      background:linear-gradient(145deg,var(--gold),#ddb031);
-      color:#111;
-    }
-
-    .btn-secondary{
-      background:transparent;
-      color:var(--text);
-      border:1px solid rgba(255,255,255,.16);
-    }
-
-    .section{
-      margin-top:28px;
-    }
-
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-    }
-
-    .emoji{
-      font-size:1.9rem;
-      display:block;
-      margin-bottom:10px;
-    }
-
-    .tile p,.card p,.panel p,.tile li,.card li,.panel li{
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .mini{
-      background:var(--panel2);
-      border-radius:14px;
-      padding:16px;
-      text-align:center;
-    }
-
-    .mini-title{
-      color:var(--muted);
-      font-size:.9rem;
-      margin-bottom:6px;
-    }
-
-    .mini-value{
-      font-size:1.3rem;
-      font-weight:800;
-      color:var(--text);
-    }
-
-    .flow{
-      list-style:none;
-      padding:0;
-      margin:0;
-    }
-
-    .flow li{
-      background:var(--panel2);
-      border-radius:12px;
-      padding:12px 14px;
-      margin-bottom:10px;
-    }
-
-    .pill{
-      display:inline-block;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:700;
-      margin-right:8px;
-      margin-bottom:8px;
-    }
-
-    .pill-blue{background:rgba(110,193,255,.14); color:var(--blue);}
-    .pill-green{background:rgba(117,210,122,.14); color:var(--green);}
-    .pill-pink{background:rgba(255,143,177,.14); color:var(--pink);}
-    .pill-purple{background:rgba(185,156,255,.14); color:var(--purple);}
-
-    .list{
-      margin:0;
-      padding-left:18px;
-    }
-
-    .notice{
-      background:rgba(117,210,122,.08);
-      border:1px solid rgba(117,210,122,.2);
-      border-radius:14px;
-      padding:16px;
-    }
-
-    .warning{
-      background:rgba(255,139,139,.08);
-      border:1px solid rgba(255,139,139,.2);
-      border-radius:14px;
-      padding:16px;
-    }
-
-    .timer-box{
-      background:var(--panel2);
-      border-radius:16px;
-      padding:18px;
-      margin-top:14px;
-      text-align:center;
-    }
-
-    .timer{
-      font-size:2rem;
-      font-weight:800;
-      color:var(--gold);
-      margin-top:8px;
-    }
-
-    .lock-screen{
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      background:rgba(0,0,0,.92);
-      z-index:9999;
-      padding:20px;
-      text-align:center;
-    }
-
-    .lock-card{
-      max-width:520px;
-      background:#0c1728;
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:20px;
-      padding:28px;
-      color:#fff;
-    }
-
-    footer{
-      background:#0b1220;
-      color:#aaa;
-      padding:30px 20px;
-      margin-top:40px;
-      font-size:13px;
-      line-height:1.7;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-
-    footer .footer-wrap{
-      max-width:1200px;
-      margin:auto;
-    }
-
-    @media (max-width:980px){
-      .hero,.grid-4,.grid-3,.grid-2,.mini-grid{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
 </head>
-<body>
 
-  <header>
-    <div class="nav">
-      <div class="brand">SSGPT6 Kids Learning Center</div>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#subjects">Subjects</a>
-        <a href="#features">Features</a>
-        <a href="#safety">Safety</a>
-        <a href="#parents">Parents</a>
-      </nav>
+<body style="margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b1a2f;color:white;">
+
+  <!-- MAIN PAGE -->
+  <div id="kidsHome" style="text-align:center;padding:40px;min-height:100vh;">
+
+    <h1 style="color:gold;">SSGPT6 Kids Learning Center</h1>
+    <p>Safe AI Learning • Reading • Games • Avatar Teacher</p>
+
+    <div style="margin-top:25px;">
+      <button onclick="startKidsMode()" style="padding:12px 25px;background:gold;border:none;border-radius:8px;font-weight:bold;cursor:pointer;">
+        Start Kids Mode
+      </button>
+
+      <a href="parent-dashboard.html" style="display:inline-block;margin-left:10px;padding:12px 25px;background:#1d3f6b;color:white;border-radius:8px;text-decoration:none;font-weight:bold;">
+        Parent Dashboard
+      </a>
     </div>
-  </header>
 
-  <main class="wrap">
+    <!-- STATUS -->
+    <div style="margin:30px auto 0;max-width:500px;background:#122a45;padding:20px;border-radius:10px;">
+      <h3 style="color:gold;margin-top:0;">Kids Session Status</h3>
+      <p id="statusText">Waiting to start</p>
+      <p id="timerText">Session Timer: Not Started</p>
+      <p id="schoolText"></p>
+    </div>
 
-    <section class="hero" id="home">
-      <div class="card">
-        <span class="badge">Safe AI Learning • Reading • Games • Avatar Teacher</span>
-        <h1>Learning, Reading, and Discovery for Kids</h1>
-        <p class="muted">
-          SSGPT6 Kids Learning Center is a guided learning environment for reading,
-          science, math, history, coding, AI basics, teamwork, and discovery.
-          It is built for structured learning with voice support, avatar teaching,
-          educational games, and parent-controlled safety rules.
-        </p>
+    <!-- SUBJECTS -->
+    <h2 style="margin-top:50px;color:gold;">Learning Subjects</h2>
 
-        <div class="actions">
-          <button class="btn btn-primary" onclick="startKidsMode()">Start Kids Mode</button>
-          <a class="btn btn-secondary" href="#subjects">Explore Subjects</a>
-        </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:20px;">
 
-        <div class="mini-grid">
-          <div class="mini">
-            <div class="mini-title">Reading Goal</div>
-            <div class="mini-value">15 Min</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title">Session Limit</div>
-            <div class="mini-value">1 Hour</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title">Cooldown</div>
-            <div class="mini-value">4 Hours</div>
-          </div>
-          <div class="mini">
-            <div class="mini-title">Parent Approval</div>
-            <div class="mini-value">Required</div>
-          </div>
-        </div>
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+        <h3 style="color:gold;">Reading</h3>
+        <p>Stories, reading time, read-aloud, vocabulary</p>
       </div>
 
-      <div class="panel">
-        <h2 style="font-size:1.5rem;">AI Sleeping Agent Support</h2>
-
-        <span class="pill pill-blue">Voice Help</span>
-        <span class="pill pill-green">Hints</span>
-        <span class="pill pill-pink">Progress</span>
-        <span class="pill pill-purple">Safety</span>
-
-        <ul class="flow" style="margin-top:14px;">
-          <li>🤖 Gives calm help when a child gets stuck</li>
-          <li>📚 Repeats lessons in easier words</li>
-          <li>🎮 Opens approved educational activities only</li>
-          <li>🔒 Stops after 1 hour and locks for cooldown</li>
-        </ul>
-
-        <div class="timer-box">
-          <div class="muted">Kids Session Timer</div>
-          <div class="timer" id="sessionTimer">Not Started</div>
-        </div>
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+        <h3 style="color:gold;">Math</h3>
+        <p>Counting, patterns, arithmetic, logic</p>
       </div>
+
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+        <h3 style="color:gold;">Science</h3>
+        <p>Nature, experiments, energy, discovery</p>
+      </div>
+
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+        <h3 style="color:gold;">History</h3>
+        <p>People, places, timelines, world stories</p>
+      </div>
+
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+        <h3 style="color:gold;">Coding</h3>
+        <p>Logic, steps, loops, beginner computer ideas</p>
+      </div>
+
+      <div style="background:#122a45;padding:20px;border-radius:10px;width:220px;">
+        <h3 style="color:gold;">Cosmology</h3>
+        <p>Planets, stars, galaxies, space learning</p>
+      </div>
+
+    </div>
+
+    <!-- SAFETY -->
+    <section style="background:#05070f;color:#e6e6e6;padding:30px 20px;font-size:14px;line-height:1.7;margin-top:50px;border-radius:10px;">
+      <h2 style="margin-top:0;color:#ffffff;">Child Safety & Parent Permission Policy</h2>
+
+      <p><strong>Parent Permission Required:</strong><br>
+      Children can only use this platform with parent, guardian, or teacher approval.</p>
+
+      <p><strong>Age Verification:</strong><br>
+      Age confirmation may be required before access is granted.</p>
+
+      <p><strong>Closed System:</strong><br>
+      No external websites or search engines are allowed in child learning mode.</p>
+
+      <p><strong>Allowed Activities:</strong></p>
+      <ul style="text-align:left;display:inline-block;">
+        <li>Reading</li>
+        <li>Educational games</li>
+        <li>Avatar lessons</li>
+        <li>Voice learning tools</li>
+      </ul>
+
+      <p><strong>1 Hour Limit:</strong><br>
+      The system automatically stops after the approved session time.</p>
+
+      <p><strong>Cooldown:</strong><br>
+      Access may be locked after session end unless unlocked by a parent.</p>
+
+      <p><strong>School Hours Lock:</strong><br>
+      Access may be restricted during school time if enabled by parent.</p>
     </section>
 
-    <section class="section" id="subjects">
-      <h2>Learning Subjects</h2>
-      <div class="grid-4">
-        <div class="tile">
-          <span class="emoji">📖</span>
-          <h3>Reading Library</h3>
-          <p>Short guided reading, read-aloud mode, story lessons, and reading support.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">🧮</span>
-          <h3>Math Arena</h3>
-          <p>Counting, arithmetic, patterns, geometry, puzzles, and logic games.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">🔬</span>
-          <h3>Science Lab</h3>
-          <p>Nature, energy, observation, experiments, matter, and discovery missions.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">🌍</span>
-          <h3>History World</h3>
-          <p>Timelines, civilizations, people, places, and story-based history learning.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">💻</span>
-          <h3>Coding Lab</h3>
-          <p>Logic, sequences, loops, conditions, and beginner computer science ideas.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">🌌</span>
-          <h3>Cosmology Zone</h3>
-          <p>Planets, stars, galaxies, space exploration, and universe learning.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">🤝</span>
-          <h3>Team Missions</h3>
-          <p>Communication, collaboration, teamwork, shared challenges, and leadership.</p>
-        </div>
-        <div class="tile">
-          <span class="emoji">🤖</span>
-          <h3>AI Basics</h3>
-          <p>Patterns, examples, helpful AI, and safe ways AI can support people.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <h2>Main Features</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Avatar Teacher</h3>
-          <p>Friendly guided teaching for reading, math, science, history, coding, and AI basics.</p>
-        </div>
-        <div class="card">
-          <h3>Voice Learning</h3>
-          <p>Kids can use approved voice commands like start, pause, repeat, explain, and help.</p>
-        </div>
-        <div class="card">
-          <h3>Educational Games</h3>
-          <p>Only approved learning games and guided activities are available in child mode.</p>
-        </div>
-        <div class="card">
-          <h3>Progress Tracking</h3>
-          <p>Track reading time, learning completion, favorite subjects, and lesson progress.</p>
-        </div>
-        <div class="card">
-          <h3>Structured Sessions</h3>
-          <p>Short, focused learning blocks designed to support healthier screen routines.</p>
-        </div>
-        <div class="card">
-          <h3>Parent Oversight</h3>
-          <p>Parent approval, time controls, and child-safe restrictions are built into the system.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="safety">
-      <h2>Child Safety & Parent Permission Policy</h2>
-      <div class="grid-2">
-        <div class="card">
-          <p><strong>Parent Permission Required:</strong><br>
-          Children can only use this platform with parent, guardian, or teacher approval.</p>
-
-          <p><strong>Age Verification:</strong><br>
-          Age confirmation may be required before access is granted.</p>
-
-          <p><strong>Closed System:</strong><br>
-          No external websites or search engines are allowed in child learning mode.</p>
-
-          <p><strong>Allowed Activities:</strong></p>
-          <ul class="list">
-            <li>Reading</li>
-            <li>Educational games</li>
-            <li>Avatar lessons</li>
-            <li>Voice learning tools</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <p><strong>1 Hour Limit:</strong><br>
-          The child learning session automatically ends after 1 hour.</p>
-
-          <p><strong>Cooldown:</strong><br>
-          Access is locked for 4 hours unless unlocked by a parent or guardian.</p>
-
-          <p><strong>School Hours Lock:</strong><br>
-          Child mode can be blocked during school hours.</p>
-
-          <p><strong>Privacy:</strong><br>
-          No raw audio or biometric voice data is required for standard child learning support.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="parents">
-      <h2>Parent & School Notices</h2>
-      <div class="grid-2">
-        <div class="notice">
-          <strong>Parent Notice:</strong><br>
-          This system is designed for safe, guided educational use only. Parents and guardians should approve and supervise use where appropriate.
-        </div>
-        <div class="warning">
-          <strong>Important:</strong><br>
-          This platform is not a substitute for parental supervision, formal schooling, medical advice, legal advice, or professional care.
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="legal-protection">
-      <h2>Legal Protection, Compliance & Business Ethics Notice</h2>
-      <div class="card">
-        <p><strong>Non-Discrimination Policy:</strong><br>
-        SSGPT6 and GNAIAAAC LLC operate under a strict non-discrimination policy. We do not tolerate discrimination, harassment, or unfair treatment based on protected status.</p>
-
-        <p><strong>Respect & Conduct Requirement:</strong><br>
-        All users, clients, and partners must engage with the platform respectfully. Harmful or abusive behavior may result in restriction or termination of access.</p>
-
-        <p><strong>Business Ethics Commitment:</strong><br>
-        GNAIAAAC LLC operates with a commitment to transparency, fairness, and ethical business practices.</p>
-
-        <p><strong>Legal Compliance:</strong><br>
-        This platform operates in accordance with applicable laws and regulations, including consumer protection, privacy, commerce, tax, and digital service rules.</p>
-
-        <p><strong>Payments & Taxes:</strong><br>
-        Users are responsible for their own payment accuracy, tax reporting, and legal obligations in their jurisdiction. This platform does not provide legal or tax advice.</p>
-
-        <p><strong>Platform Rights:</strong><br>
-        GNAIAAAC LLC reserves the right to update policies, pricing, or features, and to restrict or terminate access for misuse.</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="footer-wrap">
+    <!-- FOOTER -->
+    <div style="margin-top:40px;padding:20px;color:#aaa;font-size:13px;line-height:1.6;">
       <p>© 2026 SSGPT6 Kids Learning Center — Powered by GNAIAAAC LLC</p>
-
-      <p>
-        This platform may provide AI-assisted educational tools, reading support, educational games,
-        and guided learning systems. Content is designed for structured learning and should be used
-        under appropriate parental or educational supervision where needed.
-      </p>
-
-      <p>
-        <strong>Subscription Terms:</strong>
-        Access to some services may be provided on a subscription basis. Subscriptions may be canceled at any time unless otherwise stated.
-      </p>
-
-      <p>
-        <strong>Pricing & Consumer Notice:</strong>
-        We reserve the right to update pricing, features, or service structure in the future as the platform evolves.
-      </p>
-
-      <p>
-        <strong>Responsible Use:</strong>
-        AI-generated assistance is designed to support learning and guidance. It should not replace parental, teacher, medical, legal, or other professional judgment where such judgment is required.
-      </p>
+      <p>AI-generated assistance supports learning and does not replace parental, teacher, medical, legal, or professional judgment.</p>
     </div>
-  </footer>
 
-  <div class="lock-screen" id="lockScreen">
-    <div class="lock-card">
-      <h2 style="margin-top:0;color:gold;">Break Time</h2>
-      <p id="lockMessage">Session limit reached. Please return later with parent permission.</p>
-      <button class="btn btn-primary" onclick="parentUnlock()">Parent Unlock</button>
+  </div>
+
+  <!-- LOCK SCREEN -->
+  <div id="lockScreen" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);color:white;z-index:9999;align-items:center;justify-content:center;text-align:center;padding:20px;">
+    <div style="max-width:500px;background:#0c1728;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px;">
+      <h2 style="margin-top:0;color:gold;">Access Locked</h2>
+      <p id="lockMessage">Please ask your parent for permission.</p>
+      <button onclick="parentUnlock()" style="padding:12px 22px;background:gold;border:none;border-radius:8px;font-weight:bold;cursor:pointer;">
+        Parent Unlock
+      </button>
     </div>
   </div>
 
   <script>
-    const MAX_SESSION_TIME = 60 * 60 * 1000;
-    const COOLDOWN_TIME = 4 * 60 * 60 * 1000;
+    // KEYS SHARED WITH parent-dashboard.html
+    const PARENT_PIN = "1234";
+    const lockUntilKey = "child_lock_until";
+    const sessionStartKey = "child_session_start";
+    const schoolModeKey = "school_mode";
 
-    const sessionStartKey = "kids_session_start";
-    const lockUntilKey = "kids_lock_until";
-    const parentPinKey = "kids_parent_pin";
-
+    const DEFAULT_SESSION_TIME = 60 * 60 * 1000; // 1 hour
     let timerInterval = null;
+    let autoEndTimeout = null;
 
-    if (!localStorage.getItem(parentPinKey)) {
-      localStorage.setItem(parentPinKey, "1234");
-    }
+    function updateStatus() {
+      const now = Date.now();
+      const lockUntil = localStorage.getItem(lockUntilKey);
+      const sessionStart = localStorage.getItem(sessionStartKey);
+      const schoolMode = localStorage.getItem(schoolModeKey) === "true";
 
-    function updateTimerDisplay() {
-      const start = localStorage.getItem(sessionStartKey);
-      const timerEl = document.getElementById("sessionTimer");
+      if (schoolMode) {
+        document.getElementById("schoolText").innerText = "School Mode: Enabled";
+      } else {
+        document.getElementById("schoolText").innerText = "School Mode: Disabled";
+      }
 
-      if (!start) {
-        timerEl.textContent = "Not Started";
+      if (lockUntil && now < Number(lockUntil)) {
+        const mins = Math.ceil((Number(lockUntil) - now) / 60000);
+        document.getElementById("statusText").innerText = "Locked";
+        document.getElementById("timerText").innerText = "Time remaining: " + mins + " min";
         return;
       }
 
-      const elapsed = Date.now() - Number(start);
-      const remaining = Math.max(0, MAX_SESSION_TIME - elapsed);
-      const minutes = Math.floor(remaining / 60000);
-      const seconds = Math.floor((remaining % 60000) / 1000);
-      timerEl.textContent = minutes + "m " + String(seconds).padStart(2, "0") + "s";
-
-      if (remaining <= 0) {
-        endSession();
+      if (sessionStart) {
+        const elapsed = now - Number(sessionStart);
+        const remaining = Math.max(0, DEFAULT_SESSION_TIME - elapsed);
+        const minutes = Math.floor(remaining / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        document.getElementById("statusText").innerText = "Active";
+        document.getElementById("timerText").innerText = "Session Timer: " + minutes + "m " + String(seconds).padStart(2, "0") + "s";
+      } else {
+        document.getElementById("statusText").innerText = "Waiting to start";
+        document.getElementById("timerText").innerText = "Session Timer: Not Started";
       }
     }
 
+    function isSchoolHoursBlocked() {
+      const schoolMode = localStorage.getItem(schoolModeKey) === "true";
+      if (!schoolMode) return false;
+
+      const now = new Date();
+      const hour = now.getHours();
+
+      return hour >= 8 && hour <= 15;
+    }
+
     function startKidsMode() {
+      const now = Date.now();
       const lockUntil = localStorage.getItem(lockUntilKey);
 
-      if (lockUntil && Date.now() < Number(lockUntil)) {
+      if (isSchoolHoursBlocked()) {
+        alert("Access restricted during school hours.");
+        return;
+      }
+
+      if (lockUntil && now < Number(lockUntil)) {
         showLockScreen(Number(lockUntil));
         return;
       }
 
-      if (isSchoolHours()) {
-        alert("Kids Mode may be restricted during school hours.");
-      }
-
-      localStorage.setItem(sessionStartKey, Date.now());
+      localStorage.setItem(sessionStartKey, now);
 
       if (timerInterval) clearInterval(timerInterval);
-      updateTimerDisplay();
-      timerInterval = setInterval(updateTimerDisplay, 1000);
+      if (autoEndTimeout) clearTimeout(autoEndTimeout);
 
+      timerInterval = setInterval(updateStatus, 1000);
+
+      autoEndTimeout = setTimeout(() => {
+        endSession();
+      }, DEFAULT_SESSION_TIME);
+
+      updateStatus();
       alert("Kids Mode started. Session will end automatically after 1 hour.");
     }
 
     function endSession() {
       localStorage.removeItem(sessionStartKey);
-      localStorage.setItem(lockUntilKey, Date.now() + COOLDOWN_TIME);
 
-      if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-      }
+      const lockTime = Date.now() + (4 * 60 * 60 * 1000);
+      localStorage.setItem(lockUntilKey, lockTime);
 
-      showLockScreen(Number(localStorage.getItem(lockUntilKey)));
+      if (timerInterval) clearInterval(timerInterval);
+      if (autoEndTimeout) clearTimeout(autoEndTimeout);
+
+      showLockScreen(lockTime);
+      updateStatus();
     }
 
     function showLockScreen(lockUntil) {
-      const lockScreen = document.getElementById("lockScreen");
-      const lockMessage = document.getElementById("lockMessage");
-
       const mins = Math.ceil((lockUntil - Date.now()) / 60000);
-      lockMessage.textContent = "Access is locked. Please return later with parent permission. Time remaining: " + mins + " minutes.";
-      lockScreen.style.display = "flex";
+      document.getElementById("lockMessage").innerText =
+        "This session is locked. Please return later or ask your parent. Time remaining: " + mins + " min";
+      document.getElementById("lockScreen").style.display = "flex";
     }
 
     function parentUnlock() {
-      const entered = prompt("Enter parent PIN");
-      const savedPin = localStorage.getItem(parentPinKey) || "1234";
+      const pin = prompt("Enter parent PIN:");
+      const savedPin = localStorage.getItem("kids_parent_pin") || PARENT_PIN;
 
-      if (entered === savedPin) {
+      if (pin === savedPin) {
         localStorage.removeItem(lockUntilKey);
         document.getElementById("lockScreen").style.display = "none";
         alert("Unlocked by parent.");
+        updateStatus();
       } else {
-        alert("Incorrect PIN.");
+        alert("Incorrect PIN");
       }
     }
 
-    function isSchoolHours() {
-      const now = new Date();
-      const hour = now.getHours();
-      return hour >= 8 && hour <= 15;
-    }
-
-    window.onload = function () {
+    window.onload = function() {
+      const now = Date.now();
       const lockUntil = localStorage.getItem(lockUntilKey);
-      if (lockUntil && Date.now() < Number(lockUntil)) {
+      const sessionStart = localStorage.getItem(sessionStartKey);
+
+      if (lockUntil && now < Number(lockUntil)) {
         showLockScreen(Number(lockUntil));
-      } else {
-        updateTimerDisplay();
       }
+
+      if (sessionStart) {
+        const elapsed = now - Number(sessionStart);
+        const remaining = DEFAULT_SESSION_TIME - elapsed;
+
+        if (remaining > 0) {
+          timerInterval = setInterval(updateStatus, 1000);
+          autoEndTimeout = setTimeout(() => {
+            endSession();
+          }, remaining);
+        } else {
+          endSession();
+        }
+      }
+
+      updateStatus();
+      setInterval(updateStatus, 5000);
     };
   </script>
 
