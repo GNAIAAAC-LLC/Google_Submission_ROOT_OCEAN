@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Kids Game + Research Platform</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f1d33;
+      --panel2:#142743;
+      --text:#eef4ff;
+      --muted:#b9c7dd;
+      --gold:#f4c542;
+      --blue:#6ec1ff;
+      --green:#75d27a;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#07111f 0%, #0c1930 100%);
+      color:var(--text);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(7,17,31,.95);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 20px;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:1.1rem;
+      font-weight:700;
+      color:var(--gold);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+    }
+
+    .nav-links a:hover{color:var(--gold)}
+
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      padding:28px 20px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+      margin-top:16px;
+    }
+
+    .hero-card,.card,.zone,.price,.feature-box{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+    }
+
+    .hero-card{
+      padding:28px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(244,197,66,.12);
+      border:1px solid rgba(244,197,66,.28);
+      color:var(--gold);
+      font-weight:700;
+      font-size:.88rem;
+    }
+
+    h1{
+      font-size:clamp(2rem,5vw,3.5rem);
+      line-height:1.08;
+      margin:16px 0 14px;
+    }
+
+    .hero p{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(145deg,var(--gold),#ddb031);
+      color:#111;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .hero-side{
+      padding:24px;
+    }
+
+    .hero-side h3{margin-top:0;color:var(--gold)}
+    .mini-list{padding-left:18px;color:var(--muted);line-height:1.8}
+
+    .section{
+      margin-top:34px;
+    }
+
+    .section h2{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-size:2rem;
+    }
+
+    .section p.lead{
+      color:var(--muted);
+      max-width:840px;
+      line-height:1.7;
+    }
+
+    .grid-3,.grid-4,.zones{
+      display:grid;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .zones{grid-template-columns:repeat(3,1fr)}
+
+    .card,.zone,.price,.feature-box{
+      padding:22px;
+    }
+
+    .card h3,.zone h3,.price h3,.feature-box h3{
+      margin-top:0;
+    }
+
+    .card p,.zone p,.price p,.feature-box p,
+    .card li,.zone li,.price li,.feature-box li{
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .zone{
+      background:var(--panel2);
+    }
+
+    .emoji{
+      font-size:1.9rem;
+      margin-bottom:10px;
+      display:block;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .price.featured{
+      border:1px solid rgba(244,197,66,.35);
+      transform:scale(1.02);
+    }
+
+    .amount{
+      font-size:2rem;
+      font-weight:800;
+      color:var(--text);
+      margin:8px 0 10px;
+    }
+
+    .footer{
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero,.grid-3,.grid-4,.zones,.pricing{
+        grid-template-columns:1fr;
+      }
+      .price.featured{transform:none}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="brand">SSGPT6 Kids Game + Research Platform</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#zones">Zones</a>
+        <a href="#features">Features</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="home">
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="badge">Child-safe • AI-assisted • Game-based learning</span>
+        <h1>Play, Read, Explore, and Learn in One Living Kids Platform</h1>
+        <p>
+          The SSGPT6 Kids Game + Research Platform combines 15-minute reading,
+          avatar teachers, educational games, voice support, and AI-powered learning guidance
+          into one active system for kids, parents, and teachers.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#pricing">Join Now</a>
+          <a class="btn btn-secondary" href="#zones">Explore Learning Zones</a>
+        </div>
+      </div>
+
+      <div class="hero-side hero-card">
+        <h3>What kids can do</h3>
+        <ul class="mini-list">
+          <li>Read for 15 minutes with guided support</li>
+          <li>Learn with avatar teachers</li>
+          <li>Play science, math, and history games</li>
+          <li>Use voice commands safely</li>
+          <li>Join team missions</li>
+          <li>Build confidence through active learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="zones">
+      <h2>Learning Zones</h2>
+      <p class="lead">
+        Kids enter a safe digital world with subject-based zones designed to keep learning active,
+        simple, and fun.
+      </p>
+
+      <div class="zones">
+        <div class="zone">
+          <span class="emoji">📚</span>
+          <h3>Library Zone</h3>
+          <p>15-minute guided reading, read-aloud mode, bookmarks, and avatar story support.</p>
+        </div>
+        <div class="zone">
+          <span class="emoji">🔬</span>
+          <h3>Science Lab</h3>
+          <p>Experiments, nature challenges, energy concepts, and safe hands-on discovery missions.</p>
+        </div>
+        <div class="zone">
+          <span class="emoji">🧮</span>
+          <h3>Math Arena</h3>
+          <p>Puzzles, patterns, arithmetic, and logic challenges with adaptive difficulty.</p>
+        </div>
+        <div class="zone">
+          <span class="emoji">🌍</span>
+          <h3>History World</h3>
+          <p>Story-led lessons, timelines, civilizations, and mission-based learning journeys.</p>
+        </div>
+        <div class="zone">
+          <span class="emoji">🌌</span>
+          <h3>Space & Cosmology</h3>
+          <p>Planets, stars, galaxies, exploration missions, and universe discovery activities.</p>
+        </div>
+        <div class="zone">
+          <span class="emoji">🤖</span>
+          <h3>AI & Coding Lab</h3>
+          <p>Patterns, simple coding logic, how AI works, and beginner-friendly computer science.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2>Core Features</h2>
+      <div class="grid-4">
+        <div class="feature-box">
+          <h3>15-Minute Reading</h3>
+          <p>Short daily reading sessions built for child attention spans and healthy learning habits.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Voice Control</h3>
+          <p>Child-friendly commands like start, pause, repeat, help, and next lesson.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Avatar Teachers</h3>
+          <p>Friendly AI guides for reading, science, history, math, and beginner coding.</p>
+        </div>
+        <div class="feature-box">
+          <h3>AI Sleeping Agent</h3>
+          <p>Background automation for reminders, progress tracking, lesson recommendations, and reports.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="subjects">
+      <h2>Subjects Kids Can Explore</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Science & Physics</h3>
+          <ul>
+            <li>experiments</li>
+            <li>energy</li>
+            <li>motion</li>
+            <li>light and sound</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Chemistry & Math</h3>
+          <ul>
+            <li>matter and mixtures</li>
+            <li>patterns and counting</li>
+            <li>logic and geometry</li>
+            <li>problem solving</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>History & Cosmology</h3>
+          <ul>
+            <li>civilizations</li>
+            <li>timelines and stories</li>
+            <li>space exploration</li>
+            <li>stars and galaxies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the Platform Works</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Step 1</h3>
+          <p>Kids begin with voice start or one-click entry and open a reading or learning mission.</p>
+        </div>
+        <div class="card">
+          <h3>Step 2</h3>
+          <p>They read, learn with avatars, and play an educational mission in a safe learning zone.</p>
+        </div>
+        <div class="card">
+          <h3>Step 3</h3>
+          <p>The AI system saves progress, recommends the next lesson, and prepares reports for adults.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Parent & Teacher Support</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Parent Dashboard</h3>
+          <p>See reading summaries, favorite subjects, weekly progress, and gentle recommendations.</p>
+        </div>
+        <div class="card">
+          <h3>Teacher Dashboard</h3>
+          <p>Track class activity, assignments, subject performance, and group participation.</p>
+        </div>
+        <div class="card">
+          <h3>Research Dashboard</h3>
+          <p>Use anonymized learning trends to improve lessons without storing sensitive child data.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <h2>Pricing</h2>
+      <p class="lead">
+        Simple entry pricing for families, with deeper plans for advanced learning and school use.
+      </p>
+
+      <div class="pricing">
+        <div class="price">
+          <h3>Starter</h3>
+          <div class="amount">$5/mo</div>
+          <ul>
+            <li>15-minute reading library</li>
+            <li>selected games</li>
+            <li>basic avatar lessons</li>
+            <li>weekly progress summary</li>
+          </ul>
+        </div>
+
+        <div class="price featured">
+          <h3>Core</h3>
+          <div class="amount">$10/mo</div>
+          <ul>
+            <li>expanded lessons</li>
+            <li>more subjects</li>
+            <li>team activities</li>
+            <li>parent dashboard</li>
+            <li>teacher mode</li>
+          </ul>
+        </div>
+
+        <div class="price">
+          <h3>Plus</h3>
+          <div class="amount">$29/mo</div>
+          <ul>
+            <li>advanced labs</li>
+            <li>premium avatars</li>
+            <li>extra case studies</li>
+            <li>deeper research tools</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <h3>Admission Fee</h3>
+        <p><strong>$25 one-time</strong> for onboarding, account setup, orientation, and starter materials.</p>
+      </div>
+    </section>
+
+    <div class="footer">
+      SSGPT6 Kids Game + Research Platform • Powered by GNAIAAAC LLC
+    </div>
+
+  </main>
+</body>
+</html>
