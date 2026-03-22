@@ -1,25 +1,856 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>AAEA System</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AAEA Energy System | Media & Innovation Platform</title>
+  <meta name="description" content="Professional innovation platform for media, video generation, podcast, blog, webinar, and partnership access." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #061a3a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(4, 16, 36, 0.95);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ffd700, #b8860b);
+      color: #061a3a;
+      font-size: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      color: #ffd700;
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: #dbe5ff;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu a {
+      color: #ffffff;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .menu a:hover {
+      color: #ffd700;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ffd700;
+      color: #061a3a;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.25s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #ffea61;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: #ffd700;
+      color: #061a3a;
+    }
+
+    .hero {
+      padding: 70px 0 50px;
+      background:
+        radial-gradient(circle at top right, rgba(255,215,0,0.12), transparent 25%),
+        radial-gradient(circle at left center, rgba(255,255,255,0.06), transparent 20%),
+        #061a3a;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.15;
+      color: #ffd700;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #d8e2ff;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,215,0,0.25);
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,215,0,0.22);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .hero-card h3 {
+      color: #ffd700;
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .hero-card ul {
+      padding-left: 18px;
+      color: #e8efff;
+    }
+
+    .hero-card li {
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 65px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 36px;
+      color: #ffd700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 38px;
+      color: #d8e2ff;
+      font-size: 17px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,0,0.18);
+      border-radius: 18px;
+      padding: 24px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,215,0,0.38);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .card h3 {
+      color: #ffd700;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #d8e2ff;
+      font-size: 15px;
+    }
+
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,215,0,0.2);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .featured {
+      border: 2px solid #ffd700;
+      transform: scale(1.02);
+    }
+
+    .tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: #ffd700;
+      color: #061a3a;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .plan {
+      font-size: 24px;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .price small {
+      font-size: 15px;
+      color: #d8e2ff;
+    }
+
+    .price-list {
+      list-style: none;
+      margin: 18px 0 24px;
+    }
+
+    .price-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #e8efff;
+      font-size: 15px;
+    }
+
+    .platform-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .platform {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,0,0.18);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .platform h4 {
+      color: #ffd700;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .platform p {
+      color: #d8e2ff;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .video-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,0,0.18);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, #0a2d5f, #123d7d, #061a3a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffd700;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .video-content {
+      padding: 18px;
+    }
+
+    .video-content h4 {
+      color: #ffd700;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .video-content p {
+      color: #d8e2ff;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .contact-box,
+    .about-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,0,0.18);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .about-box h3,
+    .contact-box h3 {
+      color: #ffd700;
+      margin-bottom: 14px;
+      font-size: 26px;
+    }
+
+    .about-box p,
+    .contact-box p {
+      color: #d8e2ff;
+      margin-bottom: 12px;
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 13px 14px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,215,0,0.2);
+      background: rgba(255,255,255,0.95);
+      color: #061a3a;
+      font-size: 15px;
+    }
+
+    form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,215,0,0.18);
+      padding: 30px 0;
+      background: #041024;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-wrap p {
+      color: #d8e2ff;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #ffd700;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .two-col,
+      .grid-3,
+      .pricing-wrap,
+      .video-grid,
+      .platform-links,
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h2 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero-grid,
+      .two-col,
+      .grid-3,
+      .pricing-wrap,
+      .video-grid,
+      .platform-links,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero h2 {
+        font-size: 31px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .menu {
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body style="background:#0b1a2f;color:white;text-align:center;font-family:Arial;padding:40px;">
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">AE</div>
+        <div class="brand-text">
+          <h1>AAEA Energy System</h1>
+          <p>Innovation • Media • Licensing • Creator Platform</p>
+        </div>
+      </div>
 
-<h1 style="color:gold;">AAEA Energy System</h1>
+      <div class="menu">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#media">Media</a>
+        <a href="#videos">Videos</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#contact" class="btn">Contact</a>
+      </div>
+    </div>
+  </div>
 
-<p>AI Air Energy Optimization & Licensing Platform</p>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h2>Professional Innovation Platform for Media, Video, Podcast, Blog, and Licensing</h2>
+        <p>
+          Build a modern digital brand with premium presentation, creative tools, video generator services,
+          podcast publishing, webinar access, media distribution, and official streaming connections.
+        </p>
 
-<h2>Partnership Inquiry</h2>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn">View Pricing</a>
+          <a href="#contact" class="btn-outline">Partnership Inquiry</a>
+        </div>
 
-<form action="https://formsubmit.co/ssgpt6@aol.com" method="POST">
-<input type="text" name="company" placeholder="Company Name" required><br><br>
-<input type="text" name="name" placeholder="Your Name" required><br><br>
-<input type="email" name="email" placeholder="Email" required><br><br>
-<textarea name="message" placeholder="Message" required></textarea><br><br>
+        <div class="hero-badges">
+          <div class="badge">Professional Homepage</div>
+          <div class="badge">Video Generator Ready</div>
+          <div class="badge">Podcast & Media</div>
+          <div class="badge">Official Platform Links</div>
+        </div>
+      </div>
 
-<button style="background:gold;padding:10px;border:none;">Send</button>
-</form>
+      <div class="hero-card">
+        <h3>Platform Highlights</h3>
+        <ul>
+          <li>Professional logo and premium business design</li>
+          <li>Innovative media and creator service sections</li>
+          <li>Pricing board for packages and partnerships</li>
+          <li>Podcast, blog, webinar, and YouTube channel areas</li>
+          <li>Official music and streaming platform link section</li>
+          <li>Scalable structure for future automation and payments</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Innovative Services</h2>
+      <p class="section-subtitle">
+        A professional digital platform designed for creative media growth, branded publishing, and future business expansion.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Video Generator</h3>
+          <p>Create branded video services, marketing videos, AI-assisted production, promotional shorts, and channel-ready content presentation.</p>
+        </div>
+        <div class="card">
+          <h3>Podcast & Audio</h3>
+          <p>Launch podcast episodes, audio interviews, voice storytelling, music talk shows, and creator-based publishing workflows.</p>
+        </div>
+        <div class="card">
+          <h3>Media & Blog</h3>
+          <p>Share articles, company news, feature posts, release notes, editorial content, and branded updates in a polished media format.</p>
+        </div>
+        <div class="card">
+          <h3>Webinar Hub</h3>
+          <p>Promote upcoming webinars, founder sessions, educational events, partner calls, and premium presentation broadcasts.</p>
+        </div>
+        <div class="card">
+          <h3>YouTube Growth</h3>
+          <p>Showcase your YouTube channel, playlist collections, official videos, and highlight reels with direct audience access.</p>
+        </div>
+        <div class="card">
+          <h3>Licensing & Partnerships</h3>
+          <p>Present your business offers, media collaboration opportunities, enterprise deals, and technology licensing inquiry flow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Professional Price Board</h2>
+      <p class="section-subtitle">
+        Simple package structure for creators, brands, and enterprise-level partners.
+      </p>
+
+      <div class="pricing-wrap">
+        <div class="price-card">
+          <h3 class="plan">Starter</h3>
+          <div class="price">$99 <small>/ one-time</small></div>
+          <ul class="price-list">
+            <li>Professional landing page</li>
+            <li>Logo header section</li>
+            <li>Basic pricing board</li>
+            <li>Contact inquiry form</li>
+            <li>Official link buttons</li>
+          </ul>
+          <a href="#contact" class="btn">Get Starter</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="tag">Most Popular</div>
+          <h3 class="plan">Pro Media</h3>
+          <div class="price">$299 <small>/ one-time</small></div>
+          <ul class="price-list">
+            <li>Everything in Starter</li>
+            <li>Video gallery section</li>
+            <li>Podcast / blog / webinar cards</li>
+            <li>YouTube channel showcase</li>
+            <li>Platform-ready professional layout</li>
+          </ul>
+          <a href="#contact" class="btn">Get Pro Media</a>
+        </div>
+
+        <div class="price-card">
+          <h3 class="plan">Enterprise</h3>
+          <div class="price">$999 <small>/ custom</small></div>
+          <ul class="price-list">
+            <li>Custom branding and page expansion</li>
+            <li>Business partnership area</li>
+            <li>Media monetization structure</li>
+            <li>Automation-ready scaling layout</li>
+            <li>Priority implementation planning</li>
+          </ul>
+          <a href="#contact" class="btn">Request Enterprise</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <div class="container">
+      <h2 class="section-title">Podcast, Media, Blog, Webinar</h2>
+      <p class="section-subtitle">
+        Use these sections to guide visitors into your content network and business media ecosystem.
+      </p>
+
+      <div class="grid-4">
+        <div class="card">
+          <h3>Podcast</h3>
+          <p>Add your official podcast page, audio episodes, interviews, founder voice messages, or business discussions.</p>
+          <br>
+          <a class="btn-outline" href="#">Open Podcast</a>
+        </div>
+        <div class="card">
+          <h3>Media Blog</h3>
+          <p>Publish regular updates, project announcements, features, editorial articles, and company media stories.</p>
+          <br>
+          <a class="btn-outline" href="#">Read Blog</a>
+        </div>
+        <div class="card">
+          <h3>Webinar</h3>
+          <p>Promote webinars, training sessions, virtual events, investor presentations, or public education broadcasts.</p>
+          <br>
+          <a class="btn-outline" href="#">Join Webinar</a>
+        </div>
+        <div class="card">
+          <h3>YouTube Channel</h3>
+          <p>Drive traffic to your official YouTube channel, playlists, long-form content, shorts, and feature premieres.</p>
+          <br>
+          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Visit YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="container">
+      <h2 class="section-title">Featured Video Area</h2>
+      <p class="section-subtitle">
+        Showcase promo videos, music projects, interviews, trailers, or branded YouTube content.
+      </p>
+
+      <div class="video-grid">
+        <div class="video-box">
+          <div class="video-thumb">VIDEO 01</div>
+          <div class="video-content">
+            <h4>Promo Video</h4>
+            <p>Use this area for your main brand trailer or featured professional intro video.</p>
+            <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Watch</a>
+          </div>
+        </div>
+
+        <div class="video-box">
+          <div class="video-thumb">VIDEO 02</div>
+          <div class="video-content">
+            <h4>YouTube Feature</h4>
+            <p>Add your official YouTube video, public presentation, or creator content highlight.</p>
+            <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open Video</a>
+          </div>
+        </div>
+
+        <div class="video-box">
+          <div class="video-thumb">VIDEO 03</div>
+          <div class="video-content">
+            <h4>Music / Media Spot</h4>
+            <p>Showcase licensed music releases, artist features, interviews, or public campaign media.</p>
+            <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Play Media</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platforms">
+    <div class="container">
+      <h2 class="section-title">Official Platform Links</h2>
+      <p class="section-subtitle">
+        Connect visitors to official streaming, music, and entertainment platforms. Replace these links with your own official pages later.
+      </p>
+
+      <div class="platform-links">
+        <div class="platform">
+          <h4>Apple Music</h4>
+          <p>Official artist, music, or playlist link.</p>
+          <a class="btn-outline" href="https://music.apple.com/" target="_blank">Open</a>
+        </div>
+
+        <div class="platform">
+          <h4>Amazon Music</h4>
+          <p>Official audio and artist page.</p>
+          <a class="btn-outline" href="https://music.amazon.com/" target="_blank">Open</a>
+        </div>
+
+        <div class="platform">
+          <h4>Spotify</h4>
+          <p>Official artist or podcast profile.</p>
+          <a class="btn-outline" href="https://open.spotify.com/" target="_blank">Open</a>
+        </div>
+
+        <div class="platform">
+          <h4>Netflix</h4>
+          <p>Official streaming destination.</p>
+          <a class="btn-outline" href="https://www.netflix.com/" target="_blank">Open</a>
+        </div>
+
+        <div class="platform">
+          <h4>YouTube</h4>
+          <p>Official channel, shorts, and videos.</p>
+          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open</a>
+        </div>
+
+        <div class="platform">
+          <h4>Hollywood</h4>
+          <p>Use for official film or studio links.</p>
+          <a class="btn-outline" href="#" target="_blank">Add Link</a>
+        </div>
+
+        <div class="platform">
+          <h4>Bollywood</h4>
+          <p>Use for official film or music links.</p>
+          <a class="btn-outline" href="#" target="_blank">Add Link</a>
+        </div>
+
+        <div class="platform">
+          <h4>Hindi Music Video</h4>
+          <p>Add official public or licensed content only.</p>
+          <a class="btn-outline" href="https://www.youtube.com/" target="_blank">Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container two-col">
+      <div class="about-box">
+        <h3>About This Platform</h3>
+        <p>
+          AAEA Energy System can also serve as a professional digital media and innovation platform for branded publishing,
+          creator showcases, webinar promotion, video presentation, and partnership access.
+        </p>
+        <p>
+          This layout is designed to help you present your business more professionally while staying ready for future upgrades
+          such as payment links, automation, private client portals, blog posting, and embedded media.
+        </p>
+        <p>
+          For movies, music, and streaming, use official links, public domain content, or properly licensed media.
+        </p>
+      </div>
+
+      <div class="contact-box" id="contact">
+        <h3>Contact / Partnership Form</h3>
+        <p>Use this form for inquiries, media partnerships, pricing, and creator opportunities.</p>
+
+        <form action="mailto:ssgpt6@aol.com" method="post" enctype="text/plain">
+          <input type="text" name="company" placeholder="Company Name" required />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <select name="interest" required>
+            <option value="">Select Interest</option>
+            <option>Starter Package</option>
+            <option>Pro Media Package</option>
+            <option>Enterprise Package</option>
+            <option>Podcast / Blog / Webinar</option>
+            <option>YouTube / Video</option>
+            <option>Music / Media Partnership</option>
+          </select>
+          <textarea name="message" placeholder="Write your message"></textarea>
+          <button type="submit" class="btn">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© 2026 AAEA Energy System. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
