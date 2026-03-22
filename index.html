@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSGPT6 Security Hub | SSL Protection</title>
+<title>SSGPT6 Security Hub</title>
 
 <style>
 body {
   margin:0;
   font-family:Arial, sans-serif;
-  background:#0b1a2f;
-  color:white;
+  background:#f5f5f5;
+  color:#111;
 }
 
 /* NAV /
@@ -18,40 +18,62 @@ body {
   display:flex;
   justify-content:space-between;
   padding:15px 20px;
-  background:#071224;
+  background:white;
+  border-bottom:1px solid #ddd;
 }
-.nav h2 { color:gold; }
-.nav a { color:white; margin-left:15px; text-decoration:none; }
+.nav h2 { color:#111; }
+.nav a { color:#333; margin-left:15px; text-decoration:none; }
 
 / HERO /
 .hero {
-  text-align:center;
   padding:60px 20px;
+  background:linear-gradient(to right,#f3f3f3,#ffffff);
 }
 .hero h1 {
-  color:gold;
-  font-size:32px;
+  font-size:36px;
+  max-width:600px;
 }
 .hero p {
-  max-width:600px;
-  margin:auto;
-  color:#ccc;
+  max-width:500px;
+  color:#555;
 }
 
+/ BUTTONS /
 .btn {
   display:inline-block;
   margin-top:20px;
-  padding:12px 25px;
-  background:gold;
-  color:black;
+  padding:14px 25px;
+  border-radius:30px;
   font-weight:bold;
-  border-radius:6px;
   text-decoration:none;
+}
+
+.btn-main {
+  background:#111;
+  color:white;
+}
+
+.btn-light {
+  background:#eee;
+  color:#111;
+  margin-left:10px;
+}
+
+/ STATS /
+.stats {
+  text-align:center;
+  padding:40px 20px;
+}
+.stats h1 {
+  font-size:40px;
+}
+.stats p {
+  color:#666;
 }
 
 / SECTION /
 .section {
-  padding:50px 20px;
+  padding:60px 20px;
   text-align:center;
 }
 
@@ -63,33 +85,26 @@ body {
 }
 
 .card {
-  background:#132b4f;
-  padding:20px;
-  border-radius:10px;
-  width:280px;
-}
-
-/ PRICING /
-.pricing {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-}
-
-.price {
-  background:#132b4f;
+  background:white;
   padding:25px;
-  border-radius:10px;
-  width:250px;
+  border-radius:12px;
+  width:280px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/ CTA /
+.cta {
+  background:#111;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
 }
 
 / FOOTER */
 .footer {
   text-align:center;
-  padding:30px;
-  background:#071224;
-  color:#aaa;
+  padding:20px;
+  color:#777;
 }
 </style>
 </head>
@@ -101,80 +116,75 @@ body {
   <h2>SSGPT6</h2>
   <div>
     <a href="#">Home</a>
-    <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#features">Solutions</a>
+    <a href="#cta">Start</a>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Secure Your Website Today 🔐</h1>
-  <p>Protect your website, improve SEO, and gain customer trust using SSL certificates.</p>
+  <h1>Powering Digital Trust in Business</h1>
+  <p>Certificate solutions, enterprise security, and SSL protection for modern websites.</p>
 
-  <a class="btn" href="https://www.ssl.com/?idev_id=2046" target="_blank">
-    Get SSL Now
+  <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046" target="_blank">
+    Explore Solutions →
   </a>
+
+  <a class="btn btn-light" href="https://www.ssl.com/?idev_id=2046" target="_blank">
+    Speak to Expert →
+  </a>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <h1>500,000+</h1>
+  <p>Trusted Certificates Issued Daily</p>
+
+  <br>
+
+  <h1>20+</h1>
+  <p>Years Trusted Certificate Authority</p>
 </div>
 
 <!-- FEATURES -->
 <div class="section" id="features">
-  <h2 style="color:gold;">Why SSL is Important</h2>
+  <h2>Security Solutions</h2>
 
   <div class="cards">
+
     <div class="card">
-      <h3>🔒 Security</h3>
-      <p>Encrypt user data and protect your website.</p>
+      <h3>SSL Certificates</h3>
+      <p>Secure your website with HTTPS encryption.</p>
+      <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046">Get SSL</a>
     </div>
 
     <div class="card">
-      <h3>🚀 SEO Boost</h3>
-      <p>Google ranks HTTPS websites higher.</p>
+      <h3>Code Signing</h3>
+      <p>Verify software and protect users.</p>
+      <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046">Learn More</a>
     </div>
 
     <div class="card">
-      <h3>💼 Trust</h3>
-      <p>Visitors trust secure websites more.</p>
+      <h3>Enterprise Security</h3>
+      <p>Advanced solutions for businesses.</p>
+      <a class="btn btn-main" href="https://www.ssl.com/?idev_id=2046">Explore</a>
     </div>
+
   </div>
 </div>
 
-<!-- PRICING STYLE -->
-<div class="section" id="pricing">
-  <h2 style="color:gold;">Choose Your Solution</h2>
-
-  <div class="pricing">
-    <div class="price">
-      <h3>Basic SSL</h3>
-      <p>For personal websites</p>
-      <a class="btn" href="https://www.ssl.com/?idev_id=2046">Buy Now</a>
-    </div>
-
-    <div class="price">
-      <h3>Business SSL</h3>
-      <p>For companies & startups</p>
-      <a class="btn" href="https://www.ssl.com/?idev_id=2046">Buy Now</a>
-    </div>
-
-    <div class="price">
-      <h3>Enterprise SSL</h3>
-      <p>Advanced security solutions</p>
-      <a class="btn" href="https://www.ssl.com/?idev_id=2046">Buy Now</a>
-    </div>
-  </div>
-</div>
-
-<!-- FINAL CTA -->
-<div class="section">
-  <h2 style="color:gold;">Start Securing Your Website Now</h2>
-  <a class="btn" href="https://www.ssl.com/?idev_id=2046">
-    Activate SSL Protection
+<!-- CTA -->
+<div class="cta" id="cta">
+  <h2>Start Securing Your Website Today</h2>
+  <a class="btn btn-light" href="https://www.ssl.com/?idev_id=2046">
+    Activate SSL →
   </a>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
   <p>© 2026 SSGPT6 | GNAIAAAC LLC</p>
-  <p>Affiliate Disclosure: We may earn commission from purchases.</p>
+  <p>Affiliate Disclosure: We may earn commission.</p>
 </div>
 
 </body>
