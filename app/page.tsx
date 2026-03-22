@@ -27,7 +27,10 @@ export default function Home() {
         fontWeight: "bold",
         cursor: "pointer"
       }}
-      onClick={() => window.location.href="#buy"}>
+      onClick={() => {
+        const el = document.getElementById("buy");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }}>
         Buy Now
       </button>
 
@@ -65,7 +68,7 @@ export default function Home() {
           margin: "0 auto"
         }}>
           <h3>AAEA Basic</h3>
-          <p>$99</p>
+          <p style={{ fontSize: "24px", color: "gold" }}>$99</p>
 
           <a
             href="https://www.paypal.com/paypalme/YOURUSERNAME/99"
@@ -73,7 +76,7 @@ export default function Home() {
             style={{
               display: "inline-block",
               marginTop: "10px",
-              padding: "10px 20px",
+              padding: "12px 25px",
               background: "gold",
               color: "black",
               borderRadius: "10px",
@@ -81,7 +84,7 @@ export default function Home() {
               fontWeight: "bold"
             }}
           >
-            Buy Now
+            Pay with PayPal
           </a>
         </div>
       </section>
@@ -91,6 +94,11 @@ export default function Home() {
         <h2 style={{ color: "gold" }}>Contact</h2>
         <p>Email: ssgpt6@aol.com</p>
       </section>
+
+      {/* FOOTER */}
+      <footer style={{ marginTop: "60px", opacity: 0.7 }}>
+        <p>© GNAIAAAC LLC — AAEA System</p>
+      </footer>
 
     </main>
   );
