@@ -440,3 +440,42 @@ It becomes the educational engine inside the wider SSGPT6 digital civilization f
 > It is a recursive learning civilization  
 > where humans learn to build the very intelligence  
 > that will help humanity endure, evolve, and flourish.
+## Academy Access & Pricing
+
+### Admission Fee
+- Standard Admission Fee: $25 one-time
+- Purpose: onboarding, account setup, orientation access, and starter academy materials
+
+### Monthly Subscription Plans
+- Starter: $5/month
+- Core: $10/month
+- Plus: $29/month
+- Institutional: custom pricing
+
+### Starter Plan ($5/month)
+Includes:
+- Basic academy access
+- Selected learning modules
+- Introductory AI automation lessons
+- Community updates
+- Limited resource library access
+
+### Core Plan ($10/month)
+Includes:
+- Full core learning access
+- Financial AI and automation modules
+- Video library access
+- Practical lab walkthroughs
+- Expanded academy tools
+
+### Plus Plan ($29/month)
+Includes:
+- Advanced labs
+- Recursive AI systems coursework
+- Premium templates and resources
+- Priority support
+- Founder-grade project tracks
+
+### Institutional Pricing
+- For schools, universities, governments, and partner organizations
+- Custom onboarding, reporting, and integration support
