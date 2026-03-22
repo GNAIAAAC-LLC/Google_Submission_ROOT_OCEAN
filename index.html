@@ -1,200 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSGPT6 Security Hub</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 Affiliate Security Hub</title>
+  <meta
+    name="description"
+    content="SSGPT6 affiliate security hub for SSL solutions, trusted website security, and safe automation funnel management."
+  />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: #111827;
+      background: #f7f7f8;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 16px;
+    }
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand span { color: #6d28d9; }
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+    .hero {
+      background: linear-gradient(120deg, #f8f8fb 0%, #fffdf6 100%);
+      padding: 72px 0 56px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.3rem);
+      max-width: 720px;
+    }
+    .subtext {
+      color: #4b5563;
+      font-size: 1.08rem;
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #111827;
+      color: #fff;
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-secondary {
+      background: #fff;
+      color: #111827;
+      border-color: #e5e7eb;
+    }
+    .affiliate-note {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+    .panel {
+      background: #fff;
+      border: 1px solid #ececf1;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 35px rgba(17,24,39,0.06);
+    }
+    .panel h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: #065f46;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+    .metric-grid,
+    .card-grid,
+    .step-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-grid { grid-template-columns: repeat(3, 1fr); }
+    .step-grid { grid-template-columns: repeat(3, 1fr); }
+    .metric,
+    .card,
+    .step,
+    .safe-box {
+      background: #fff;
+      border: 1px solid #ececf1;
+      border-radius: 22px;
+      padding: 22px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+    .section {
+      padding: 58px 0;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 10px;
+    }
+    .section-copy {
+      color: #4b5563;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .card h3, .step h3 { font-size: 1.1rem; }
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #5b21b6;
+      background: #f3e8ff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .dark-cta {
+      background: #111827;
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px 28px;
+    }
+    .dark-cta p {
+      color: #d1d5db;
+      max-width: 760px;
+    }
+    .footer {
+      padding: 28px 0 48px;
+      color: #6b7280;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+    .small {
+      font-size: 0.92rem;
+      color: #6b7280;
+    }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: #f3f4f6;
+      border-radius: 10px;
+      padding: 2px 8px;
+    }
 
-<style>
-body {
-  margin:0;
-  font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-  background:#ffffff;
-  color:#111;
-}
-
-/* NAV /
-.nav {
-  display:flex;
-  justify-content:space-between;
-  padding:15px 20px;
-  border-bottom:1px solid #eee;
-}
-.nav h2 {
-  font-weight:700;
-}
-.nav a {
-  margin-left:15px;
-  text-decoration:none;
-  color:#333;
-}
-
-/ HERO /
-.hero {
-  padding:80px 20px;
-  max-width:900px;
-  margin:auto;
-}
-.hero h1 {
-  font-size:42px;
-  line-height:1.2;
-  margin-bottom:20px;
-}
-.hero p {
-  color:#555;
-  font-size:18px;
-}
-
-/ BUTTONS /
-.buttons {
-  margin-top:25px;
-}
-.btn-dark {
-  background:#111;
-  color:white;
-  padding:14px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-}
-.btn-light {
-  background:#eee;
-  color:#111;
-  padding:14px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  margin-left:10px;
-}
-
-/ STATS /
-.stats {
-  text-align:center;
-  padding:50px 20px;
-}
-.stats h1 {
-  font-size:42px;
-  margin-bottom:5px;
-}
-.stats p {
-  color:#666;
-}
-
-/ CARDS /
-.section {
-  padding:60px 20px;
-  text-align:center;
-}
-.cards {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-}
-.card {
-  width:280px;
-  border:1px solid #eee;
-  border-radius:10px;
-  padding:25px;
-}
-.card h3 {
-  margin-bottom:10px;
-}
-
-/ CTA /
-.cta {
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:60px 20px;
-}
-
-/ FOOTER */
-.footer {
-  text-align:center;
-  padding:25px;
-  color:#888;
-}
-</style>
+    @media (max-width: 920px) {
+      .hero-grid,
+      .card-grid,
+      .step-grid,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+      .topbar-inner {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav { gap: 12px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <h2>SSGPT6</h2>
-  <div>
-    <a href="#">Home</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#start">Start</a>
-  </div>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <h1>Powering Digital Trust in Business</h1>
-  <p>Certificate solutions, enterprise PKI, and signing services for modern websites.</p>
-
-  <div class="buttons">
-    <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046" target="_blank">
-      Explore solutions →
-    </a>
-
-    <a class="btn-light" href="https://www.ssl.com/?idev_id=2046" target="_blank">
-      Speak to an expert →
-    </a>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats">
-  <h1>500,000+</h1>
-  <p>Publicly Trusted Certificates Issued a Day</p>
-
-  <br>
-
-  <h1>20+</h1>
-  <p>Years as a Trusted Certificate Authority</p>
-</div>
-
-<!-- SOLUTIONS -->
-<div class="section" id="solutions">
-  <h2>Solutions</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>SSL Certificates</h3>
-      <p>Secure your website with HTTPS encryption.</p>
-      <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046">Get SSL</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">SSGPT6 <span>Affiliate Hub</span></div>
+      <nav class="nav">
+        <a href="#affiliate">Affiliate</a>
+        <a href="#automation">Automation</a>
+        <a href="#funnel">Funnel</a>
+        <a href="#safe-growth">Safe Growth</a>
+        <a href="#start">Start</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>Code Signing</h3>
-      <p>Protect your software and users.</p>
-      <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046">Learn More</a>
+  <section class="hero" id="affiliate">
+    <div class="container hero-grid">
+      <div>
+        <h1>Powering Digital Trust With Smart Affiliate Automation</h1>
+        <p class="subtext">
+          Launch your SSL affiliate section with a clean business design, direct call-to-action,
+          lead funnel entry points, and a safe “AI Sleeping Agent” operations layer for tracking,
+          maintenance, and growth.
+        </p>
+
+        <div class="button-row">
+          <a
+            class="btn btn-primary"
+            href="https://www.ssl.com/?idev_id=2046"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            onclick="trackAffiliateClick('hero-primary')"
+          >
+            Explore SSL Solutions →
+          </a>
+
+          <a class="btn btn-secondary" href="#automation">
+            Open Automation Panel
+          </a>
+        </div>
+
+        <p class="affiliate-note">
+          Affiliate disclosure: This page includes referral links. A commission may be earned from qualifying purchases.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="status"><span class="dot"></span> Sleeping Agent Status: Active</div>
+        <h3>Black Box Operations Panel</h3>
+        <p class="small">
+          Safe operating mode for monitoring, content refresh reminders, internal click tracking,
+          CTA maintenance, and lead funnel health checks.
+        </p>
+        <div class="metric-grid" style="margin-top:18px;">
+          <div class="metric">
+            <strong id="clickCount">0</strong>
+            <span>Tracked CTA Clicks</span>
+          </div>
+          <div class="metric">
+            <strong>24/7</strong>
+            <span>Monitoring Design</span>
+          </div>
+          <div class="metric">
+            <strong>SEO</strong>
+            <span>Content Refresh Ready</span>
+          </div>
+          <div class="metric">
+            <strong>Safe</strong>
+            <span>No Fake Traffic Bots</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Enterprise PKI</h3>
-      <p>Advanced security for organizations.</p>
-      <a class="btn-dark" href="https://www.ssl.com/?idev_id=2046">Explore</a>
+  <section class="section">
+    <div class="container">
+      <div class="metric-grid">
+        <div class="metric">
+          <strong>HTTPS</strong>
+          <span>Build trust with secure website recommendations</span>
+        </div>
+        <div class="metric">
+          <strong>Funnels</strong>
+          <span>Guide visitors from awareness to action</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- CTA -->
-<div class="cta" id="start">
-  <h2>Start Securing Your Website Today</h2>
-  <br>
-  <a class="btn-light" href="https://www.ssl.com/?idev_id=2046">
-    Activate SSL →
-  </a>
-</div>
+  <section class="section" id="automation">
+    <div class="container">
+      <h2 class="section-title">AI Sleeping Agent Automation</h2>
+      <p class="section-copy">
+        This section is designed as a safe automation layer for your affiliate website. It does not create fake users
+        or fraudulent traffic. Instead, it helps you manage site health, content freshness, calls-to-action, and
+        real visitor conversion paths.
+      </p>
 
-<!-- FOOTER -->
-<div class="footer">
-  <p>© 2026 SSGPT6 | GNAIAAAC LLC</p>
-  <p>Affiliate Disclosure: We may earn commission from purchases.</p>
-</div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="tag">Monitor</div>
+          <h3>Uptime Watch</h3>
+          <p>
+            Check whether your page is reachable, whether affiliate buttons are still working,
+            and whether your core sections load correctly.
+          </p>
+        </div>
 
+        <div class="card">
+          <div class="tag">Maintain</div>
+          <h3>CTA Health Check</h3>
+          <p>
+            Review button positions, broken links, and top click zones to keep the affiliate section working properly.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="tag">Optimize</div>
+          <h3>Lead Funnel Signals</h3>
+          <p>
+            Measure real clicks, newsletter signups, and consultation requests to improve legitimate conversions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="funnel">
+    <div class="container">
+      <h2 class="section-title">Safe Funnel Structure</h2>
+      <p class="section-copy">
+        Use a real funnel instead of bots. This gives you a lawful, durable growth system that can actually scale.
+      </p>
+
+      <div class="step-grid">
+        <div class="step">
+          <h3>1. Traffic Source</h3>
+          <p>
+            Bring visitors from search, YouTube, blog posts, your homepage, social posts, and direct outreach.
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>2. Trust Layer</h3>
+          <p>
+            Explain why SSL matters: website security, customer trust, browser warnings, and business credibility.
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>3. Conversion</h3>
+          <p>
+            Send qualified visitors to your affiliate link after they understand the value and are ready to act.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="safe-growth">
+    <div class="container">
+      <h2 class="section-title">What the Sleeping Agent Can Do Safely</h2>
+      <p class="section-copy">
+        These are the automation jobs you can use without risking fraud, fake traffic, or affiliate abuse.
+      </p>
+
+      <div class="card-grid">
+        <div class="safe-box">
+          <h3>Content Reminders</h3>
+          <p>Remind you to publish SEO posts like “How to fix Not Secure website” and “Why HTTPS matters.”</p>
+        </div>
+        <div class="safe-box">
+          <h3>Link Validation</h3>
+          <p>Regularly verify that your affiliate buttons still open the correct destination.</p>
+        </div>
+        <div class="safe-box">
+          <h3>Analytics Logging</h3>
+          <p>Track real on-site button clicks and section performance using your own analytics tools.</p>
+        </div>
+        <div class="safe-box">
+          <h3>Email Capture</h3>
+          <p>Collect interested visitors for follow-up newsletters, guides, and security consultations.</p>
+        </div>
+        <div class="safe-box">
+          <h3>A/B Testing</h3>
+          <p>Test different headlines and button wording to improve real conversions.</p>
+        </div>
+        <div class="safe-box">
+          <h3>Alert System</h3>
+          <p>Notify you when the page is down, when the button fails, or when content needs updating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="start">
+    <div class="container">
+      <div class="dark-cta">
+        <h2 class="section-title" style="color:#fff;">Open the Affiliate Section Now</h2>
+        <p>
+          Your affiliate page is ready for real traffic, real trust, and real conversion tracking.
+          Use the button below to open the SSL offer through your referral link.
+        </p>
+        <div class="button-row" style="margin-top: 18px;">
+          <a
+            class="btn btn-secondary"
+            href="https://www.ssl.com/?idev_id=2046"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            onclick="trackAffiliateClick('cta-bottom')"
+          >
+            Activate SSL Affiliate Link →
+          </a>
+        </div>
+        <p class="affiliate-note" style="color:#d1d5db;">
+          Your affiliate destination: <span class="mono">https://www.ssl.com/?idev_id=2046</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 SSGPT6 | GNAIAAAC LLC</p>
+      <p>Safe automation only. No fake traffic bots, no false clicks, no affiliate manipulation.</p>
+    </div>
+  </footer>
+
+  <script>
+    function trackAffiliateClick(source) {
+      try {
+        const current = Number(localStorage.getItem("ssgpt6_affiliate_clicks") || "0");
+        const next = current + 1;
+        localStorage.setItem("ssgpt6_affiliate_clicks", String(next));
+        localStorage.setItem("ssgpt6_last_click_source", source);
+        updateClickDisplay();
+      } catch (e) {
+        console.log("Tracking unavailable", e);
+      }
+    }
+
+    function updateClickDisplay() {
+      try {
+        const count = Number(localStorage.getItem("ssgpt6_affiliate_clicks") || "0");
+        const counter = document.getElementById("clickCount");
+        if (counter) counter.textContent = count;
+      } catch (e) {
+        console.log("Display unavailable", e);
+      }
+    }
+
+    updateClickDisplay();
+  </script>
 </body>
 </html>
