@@ -2,111 +2,86 @@
 <html>
 <body style="margin:0;font-family:Arial;background:#07111f;color:white;">
 
-<div style="text-align:center;padding:20px;background:#0c1b31;">
-<h1 style="color:gold;">GN-AI Financial Intelligence</h1>
+<!-- HEADER -->
+<div style="text-align:center;padding:25px;background:#0c1b31;">
+<h1 style="color:gold;">GN-AI Market Terminal</h1>
 <p>Educational • Protected • No Trading</p>
 </div>
 
-<div style="background:#8b0000;text-align:center;padding:10px;">
-⚠️ Analysis Only — No Trading Allowed
+<!-- WARNING -->
+<div style="background:#8b0000;text-align:center;padding:12px;">
+⚠️ NO TRADING — Intelligence Only
 </div>
 
+<!-- GRID -->
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px;">
+
+<!-- CARD -->
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Apple</h2>
+<p id="aapl-price">Loading...</p>
+<p id="aapl-signal"></p>
+</div>
+
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Tesla</h2>
+<p id="tsla-price">Loading...</p>
+<p id="tsla-signal"></p>
+</div>
+
+<div style="background:#132b4a;padding:20px;border-radius:12px;text-align:center;">
+<h2>Bitcoin</h2>
+<p id="btc-price">$Demo</p>
+<p id="btc-signal">🟡 Watch</p>
+</div>
+
+</div>
+
+<!-- MARKET PANEL -->
 <div style="padding:20px;text-align:center;">
-
-<h2>Apple (AAPL)</h2>
-<p id="price">Loading...</p>
-<p id="status"></p>
-
-<h3>GN-AI Signal</h3>
-<p id="signal">Analyzing...</p>
-
-<h3>Sentiment</h3>
-<p id="sentiment">Loading...</p>
-
-</div>
-
-<div style="padding:20px;">
-<h2 style="color:gold;text-align:center;">Market News</h2>
-<div id="news"></div>
+<h2 style="color:gold;">GN-AI Insight Panel</h2>
+<p id="global-signal">Analyzing global market...</p>
 </div>
 
 <script>
-const STOCK_API = "ZD88CFMC438XC7Q8";
-const NEWS_API = "96bc9d3cc53f49abb2d8ebfd87b886e1";
+const API_KEY = "ZD88CFMC438XC7Q8";
 
-// PRICE
-async function loadPrice() {
+// LOAD STOCK
+async function load(symbol, priceId, signalId) {
   try {
-    const res = await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${STOCK_API}`);
+    const res = await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${API_KEY}`);
     const data = await res.json();
 
     if (data["Global Quote"] && data["Global Quote"]["05. price"]) {
       const price = parseFloat(data["Global Quote"]["05. price"]);
-      document.getElementById("price").innerText = "$" + price;
-      document.getElementById("status").innerText = "Live data";
 
-      generateSignal(price);
+      document.getElementById(priceId).innerText = "$" + price;
+
+      // SIGNAL LOGIC
+      if (price > 200) {
+        document.getElementById(signalId).innerText = "🟢 Stable";
+      } else if (price > 150) {
+        document.getElementById(signalId).innerText = "🟡 Watch";
+      } else {
+        document.getElementById(signalId).innerText = "🔴 Risk";
+      }
+
     } else throw new Error();
 
   } catch {
-    document.getElementById("price").innerText = "$Demo";
-    document.getElementById("status").innerText = "Safe mode";
-    document.getElementById("signal").innerText = "🟡 Stable";
+    document.getElementById(priceId).innerText = "$Demo";
+    document.getElementById(signalId).innerText = "🟡 Safe Mode";
   }
 }
 
-// SIGNAL LOGIC (SAFE)
-function generateSignal(price) {
-  if (price > 200) {
-    document.getElementById("signal").innerText = "🟢 Stable";
-  } else if (price > 150) {
-    document.getElementById("signal").innerText = "🟡 Watch";
-  } else {
-    document.getElementById("signal").innerText = "🔴 Risk";
-  }
-}
+// LOAD DATA
+load("AAPL", "aapl-price", "aapl-signal");
+load("TSLA", "tsla-price", "tsla-signal");
 
-// NEWS + SENTIMENT
-async function loadNews() {
-  try {
-    const res = await fetch(`https://newsapi.org/v2/everything?q=Apple&apiKey=${NEWS_API}`);
-    const data = await res.json();
+// GLOBAL SIGNAL
+document.getElementById("global-signal").innerText =
+"Market Condition: 🟢 Stable • Volatility Low • Sentiment Neutral";
 
-    let positive = 0;
-    let negative = 0;
-
-    const container = document.getElementById("news");
-    container.innerHTML = "";
-
-    data.articles.slice(0,5).forEach(article => {
-      const text = article.title.toLowerCase();
-
-      if (text.includes("growth") || text.includes("profit")) positive++;
-      if (text.includes("loss") || text.includes("drop")) negative++;
-
-      const div = document.createElement("div");
-      div.style.background="#132b4a";
-      div.style.margin="10px";
-      div.style.padding="10px";
-      div.innerText = article.title;
-
-      container.appendChild(div);
-    });
-
-    let sentiment = "Neutral";
-    if (positive > negative) sentiment = "Positive";
-    if (negative > positive) sentiment = "Negative";
-
-    document.getElementById("sentiment").innerText = sentiment;
-
-  } catch {
-    document.getElementById("news").innerHTML = "<p style='text-align:center;'>Safe mode news</p>";
-    document.getElementById("sentiment").innerText = "Neutral";
-  }
-}
-
-loadPrice();
-loadNews();
 </script>
 
 </body>
