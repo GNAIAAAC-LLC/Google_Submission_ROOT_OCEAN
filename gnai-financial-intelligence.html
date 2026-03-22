@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
-<body style="background:black;color:white;text-align:center;padding:50px;">
-<h1>GN-AI TEST WORKING</h1>
+<body style="background:#07111f;color:white;text-align:center;font-family:Arial;padding:40px;">
+
+<h1 style="color:gold;">GN-AI Financial Intelligence</h1>
+<p>Educational • Protected • No Trading</p>
+
+<h2>Apple (AAPL)</h2>
+<p id="price">Loading...</p>
+
+<div id="news"></div>
+
+<script>
+document.getElementById("price").innerText = "Price: $Demo (Safe Mode)";
+
+document.getElementById("news").innerHTML = `
+<div style="background:#132b4a;padding:10px;margin:10px;">
+• System running in safe mode (no API crash)
+</div>
+`;
+</script>
+
 </body>
 </html>
