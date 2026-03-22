@@ -1,56 +1,95 @@
 <!DOCTYPE html>
-<html>
-<body style="background:#07111f;color:white;text-align:center;font-family:Arial;padding:40px;">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GN-AI Financial Intelligence</title>
+</head>
 
-<h1 style="color:gold;">GN-AI Financial Intelligence</h1>
-<p>Educational • Protected • No Trading</p>
+<body style="margin:0;font-family:Arial;background:#07111f;color:white;">
 
-<h2>Apple (AAPL)</h2>
-<p id="price">Loading...</p>
+<!-- HEADER -->
+<div style="padding:20px;text-align:center;background:#0c1b31;">
+  <h1 style="color:gold;">GN-AI Financial Intelligence</h1>
+  <p>Educational • Protected • No Trading</p>
+</div>
 
-<div id="status" style="margin-top:10px;color:#ccc;"></div>
+<!-- WARNING -->
+<div style="background:#8b0000;padding:10px;text-align:center;">
+  ⚠️ NO TRADING — Analysis Only
+</div>
 
-<div id="news" style="margin-top:20px;"></div>
+<!-- DASHBOARD -->
+<div style="display:flex;flex-wrap:wrap;justify-content:center;padding:20px;gap:20px;">
 
+  <!-- CARD TEMPLATE -->
+  <div style="background:#132b4a;padding:20px;border-radius:10px;width:250px;text-align:center;">
+    <h3>Apple (AAPL)</h3>
+    <p id="aapl">Loading...</p>
+    <p id="aapl-status" style="font-size:12px;color:#ccc;"></p>
+  </div>
+
+  <div style="background:#132b4a;padding:20px;border-radius:10px;width:250px;text-align:center;">
+    <h3>Tesla (TSLA)</h3>
+    <p id="tsla">Loading...</p>
+    <p id="tsla-status" style="font-size:12px;color:#ccc;"></p>
+  </div>
+
+  <div style="background:#132b4a;padding:20px;border-radius:10px;width:250px;text-align:center;">
+    <h3>Bitcoin (BTC)</h3>
+    <p id="btc">Loading...</p>
+    <p id="btc-status" style="font-size:12px;color:#ccc;"></p>
+  </div>
+
+</div>
+
+<!-- NEWS -->
+<div style="padding:20px;text-align:center;">
+  <h2 style="color:gold;">Market Intelligence</h2>
+  <div style="background:#132b4a;padding:10px;margin:10px;">
+    • GN-AI Market Brain Active (Safe Mode)
+  </div>
+</div>
+
+<!-- SCRIPT -->
 <script>
 const API_KEY = "ZD88CFMC438XC7Q8";
 
-// SAFE PRICE LOADER
-async function loadPrice() {
+// SAFE FETCH FUNCTION
+async function loadStock(symbol, elementId, statusId) {
   try {
-    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${API_KEY}`;
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${API_KEY}`;
     const res = await fetch(url);
     const data = await res.json();
 
     if (data["Global Quote"] && data["Global Quote"]["05. price"]) {
-      document.getElementById("price").innerText =
-        "Price: $" + data["Global Quote"]["05. price"];
-      document.getElementById("status").innerText = "Live data connected";
+      document.getElementById(elementId).innerText =
+        "$" + data["Global Quote"]["05. price"];
+      document.getElementById(statusId).innerText = "Live";
     } else {
-      throw new Error("No data");
+      throw new Error();
     }
 
-  } catch (error) {
-    document.getElementById("price").innerText =
-      "Price: $Demo (Safe Mode)";
-    document.getElementById("status").innerText =
-      "Live API unavailable — safe mode active";
+  } catch {
+    document.getElementById(elementId).innerText = "$Demo";
+    document.getElementById(statusId).innerText = "Safe Mode";
   }
 }
 
-// SIMPLE NEWS (STATIC SAFE MODE)
-function loadNews() {
-  document.getElementById("news").innerHTML = `
-    <div style="background:#132b4a;padding:10px;margin:10px;">
-      • Market intelligence module active (safe mode)
-    </div>
-  `;
-}
+// LOAD ALL
+loadStock("AAPL", "aapl", "aapl-status");
+loadStock("TSLA", "tsla", "tsla-status");
 
-// RUN
-loadPrice();
-loadNews();
+// BTC (fallback demo since AlphaVantage crypto limited)
+document.getElementById("btc").innerText = "$Demo";
+document.getElementById("btc-status").innerText = "Safe Mode";
+
 </script>
+
+<!-- FOOTER -->
+<div style="padding:20px;text-align:center;background:#06101d;">
+  <p>© 2026 GN-AI • GNAIAAAC LLC</p>
+</div>
 
 </body>
 </html>
