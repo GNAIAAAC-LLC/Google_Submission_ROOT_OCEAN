@@ -1,43 +1,97 @@
-export default function Dashboard() {
+export default function Home() {
   return (
     <main style={{
-      padding: "40px",
-      fontFamily: "Arial",
       background: "#0b1a2f",
       color: "white",
-      minHeight: "100vh"
+      minHeight: "100vh",
+      fontFamily: "Arial, sans-serif",
+      textAlign: "center",
+      padding: "20px"
     }}>
-      <h1 style={{ color: "gold" }}>SSGPT6 Dashboard</h1>
 
-      <p>Welcome to your AI control panel.</p>
+      {/* HERO */}
+      <h1 style={{ color: "gold", fontSize: "32px" }}>
+        AAEA Smart Energy Module
+      </h1>
 
-      <div style={{ marginTop: "30px" }}>
+      <p style={{ fontSize: "18px" }}>
+        AI-Powered Air & Heat Energy Optimization System
+      </p>
+
+      <button style={{
+        marginTop: "20px",
+        padding: "15px 25px",
+        background: "gold",
+        border: "none",
+        borderRadius: "10px",
+        fontWeight: "bold",
+        cursor: "pointer"
+      }}
+      onClick={() => window.location.href="#buy"}>
+        Buy Now
+      </button>
+
+      {/* FEATURES */}
+      <section style={{ marginTop: "50px" }}>
+        <h2 style={{ color: "gold" }}>Features</h2>
+
+        <ul style={{ listStyle: "none", padding: 0 }}>
+          <li>✔ Converts airflow & heat into usable energy</li>
+          <li>✔ AI-controlled efficiency optimization</li>
+          <li>✔ Battery backup for outage protection</li>
+          <li>✔ Low-cost and scalable system</li>
+        </ul>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section style={{ marginTop: "50px" }}>
+        <h2 style={{ color: "gold" }}>How It Works</h2>
+
+        <p>
+          The system captures airflow and temperature differences, converts them into electrical energy,
+          stores it in a battery, and uses AI to optimize performance automatically.
+        </p>
+      </section>
+
+      {/* PRICING */}
+      <section id="buy" style={{ marginTop: "50px" }}>
+        <h2 style={{ color: "gold" }}>Pricing</h2>
+
         <div style={{
-          background: "#122a45",
+          background: "#142b4d",
           padding: "20px",
-          borderRadius: "10px",
-          marginBottom: "15px"
+          borderRadius: "15px",
+          maxWidth: "300px",
+          margin: "0 auto"
         }}>
-          System Status: Active
-        </div>
+          <h3>AAEA Basic</h3>
+          <p>$99</p>
 
-        <div style={{
-          background: "#122a45",
-          padding: "20px",
-          borderRadius: "10px",
-          marginBottom: "15px"
-        }}>
-          Users: 0
+          <a
+            href="https://www.paypal.com/paypalme/YOURUSERNAME/99"
+            target="_blank"
+            style={{
+              display: "inline-block",
+              marginTop: "10px",
+              padding: "10px 20px",
+              background: "gold",
+              color: "black",
+              borderRadius: "10px",
+              textDecoration: "none",
+              fontWeight: "bold"
+            }}
+          >
+            Buy Now
+          </a>
         </div>
+      </section>
 
-        <div style={{
-          background: "#122a45",
-          padding: "20px",
-          borderRadius: "10px"
-        }}>
-          Services: Ready
-        </div>
-      </div>
+      {/* CONTACT */}
+      <section style={{ marginTop: "50px" }}>
+        <h2 style={{ color: "gold" }}>Contact</h2>
+        <p>Email: ssgpt6@aol.com</p>
+      </section>
+
     </main>
   );
 }
