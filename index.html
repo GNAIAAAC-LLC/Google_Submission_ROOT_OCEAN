@@ -1,248 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNAIAAAC LLC | SSGPT6-CORE Platform</title>
-    <style>
-        :root {
-            --bg: #060d18;
-            --panel: #0c1728;
-            --un-blue: #009edb;
-            --gold: #d4af37;
-            --text: #e8edf5;
-            --muted: #9aa8bd;
-            --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
-            --border: rgba(212, 175, 55, 0.2);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GN-AI Financial & Zero-Carbon Terminal | GNAIAAAC LLC</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #0c1b31;
+      --gold: #d4af37;
+      --un-blue: #009edb;
+      --text: #ffffff;
+      --muted: #9fb7d6;
+      --rainbow: linear-gradient(90deg, #009edb, #00ffcc, #ffeb3b, #ff5722, #e91e63);
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
 
-        .container { width: min(94%, 1250px); margin: 0 auto; }
+    /* ZERO CARBON RAINBOW HEADER */
+    header {
+      padding: 15px 0;
+      background: rgba(12, 27, 49, 0.9);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
 
-        /* HEADER: RAINBOW & NAVIGATION */
-        header {
-            padding: 20px 0;
-            background: rgba(6, 13, 24, 0.98);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 2000;
-        }
+    .container { width: min(94%, 1100px); margin: 0 auto; }
+    
+    .header-flex { display: flex; justify-content: space-between; align-items: center; }
+    .un-banner {
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      background: var(--rainbow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .header-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 15px; }
-        
-        .brand-box { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 50px; }
-        
-        .un-alignment-banner {
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            background: var(--rainbow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    /* HERO SECTION */
+    .hero {
+      padding: 80px 20px;
+      background: linear-gradient(180deg, #0c1b31 0%, #07111f 100%);
+      text-align: center;
+    }
 
-        nav { display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
-        nav a {
-            font-weight: 900;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--gold);
-            text-decoration: none;
-            letter-spacing: 1.5px;
-            transition: 0.2s;
-        }
-        nav a:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-        /* HERO SECTION */
-        .hero { padding: 100px 0 60px; text-align: center; border-bottom: 1px solid var(--border); background: radial-gradient(circle at center, #101d31 0%, #060d18 100%); }
-        .hero h1 { font-weight: 900; font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; color: #fff; }
-        .hero-mission { color: var(--gold); font-size: 1.3rem; font-weight: bold; max-width: 900px; margin: 0 auto 30px; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 15px; }
 
-        /* DYNAMIC GRID SYSTEM (FOR 135 PROJECTS) */
-        .grid-section { padding: 80px 0; }
-        .section-label { color: var(--un-blue); font-weight: bold; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; display: block; font-size: 1.5rem; }
+    /* PAYMENT TERMINAL GRID */
+    .payment-section { padding: 60px 0; background: #081423; }
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
+    .payment-card {
+      background: #102038;
+      border: 1px solid #1e3454;
+      border-radius: 18px;
+      padding: 35px;
+      transition: 0.3s;
+    }
+    .payment-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+    
+    .price-tag { font-size: 2.5rem; font-weight: 900; color: var(--gold); display: block; margin: 15px 0; }
 
-        .card {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            padding: 30px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card:hover { border-color: var(--un-blue); transform: translateY(-5px); background: #0e1a2d; }
-        .card h3 { color: var(--gold); margin-bottom: 15px; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; }
-        .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+    .pay-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
 
-        .btn {
-            background: var(--gold);
-            color: #000;
-            text-decoration: none;
-            padding: 12px;
-            text-align: center;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-        }
+    .stripe-btn { background: #635bff; color: white; }
+    .paypal-btn { background: #ffc439; color: #111; }
 
-        /* PRICING TABLE */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 40px; }
-        .price-card { background: #101d31; border: 1px solid var(--un-blue); padding: 25px; text-align: center; }
-        .price-card h4 { color: #fff; margin-bottom: 10px; }
-        .price-card .cost { font-size: 2rem; color: var(--gold); font-weight: 900; display: block; margin-bottom: 15px; }
+    /* FINANCIAL MODULES */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px 0;
+    }
 
-        footer { padding: 60px 0; border-top: 1px solid var(--gold); text-align: center; font-size: 0.8rem; color: var(--muted); }
-        .policy-links { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .policy-links a { color: var(--un-blue); text-decoration: none; font-weight: bold; }
+    .module-card {
+      background: #132b4a;
+      border: 1px solid #24486e;
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .module-card h3 { color: var(--gold); margin-bottom: 10px; }
 
-        @media (max-width: 768px) { nav { gap: 10px; } .hero { padding: 60px 0; } }
-    </style>
+    footer {
+      padding: 40px 20px;
+      background: #06101d;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .tag-zero { color: #00ffcc; font-weight: bold; }
+  </style>
 </head>
 <body>
 
 <header>
-    <div class="container">
-        <div class="header-top">
-            <div class="brand-box">
-                <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" alt="GNAIAAAC LLC" class="logo-img">
-                <span style="font-weight: 900; color: #fff;">GNAIAAAC LLC</span>
-            </div>
-            <div class="un-alignment-banner">UN CLIMATE ALIGNMENT</div>
-        </div>
-        <nav>
-            <a href="#platform">Platform</a>
-            <a href="#governance">World First Digital Governance</a>
-            <a href="#zero-carbon">Zero Carbon Solutions</a>
-            <a href="#media">Media Network</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#support">Support</a>
-            <a href="#chat" style="background: var(--gold); color: #000; padding: 2px 8px; border-radius: 4px;">ChatSSGPT6</a>
-        </nav>
-    </div>
+  <div class="container header-flex">
+    <div style="font-weight: 900; letter-spacing: 1px;">GNAIAAAC <span style="color:var(--gold)">LLC</span></div>
+    <div class="un-banner">UN CLIMATE ALIGNMENT</div>
+  </div>
 </header>
 
 <section class="hero">
-    <div class="container">
-        <h1>GLOBAL BAILOUT INITIATIVE</h1>
-        <p class="hero-mission">Driving sustainable development through decentralized monitoring and autonomous operations.</p>
-        <p style="color: var(--muted); max-width: 800px; margin: 0 auto;">Human-centered digital infrastructure for services, media, and global solution development.</p>
-    </div>
+  <div class="container">
+    <div class="badge">GN-AI Financial Knowledge Framework</div>
+    <h1>Secure Sovereign Payments</h1>
+    <p style="color: var(--muted); max-size: 800px; margin: 0 auto;">
+      Connect your local operations to the global economy. Supporting <span class="tag-zero">Zero Carbon Initiatives</span> through transparent, auditable financial governance.
+    </p>
+  </div>
 </section>
 
-<main class="container">
+<section class="payment-section">
+  <div class="container">
+    <h2 style="text-align:center; color: var(--gold);">Global Access Tiers</h2>
     
-    <section class="grid-section" id="governance">
-        <span class="section-label">Institutional Services</span>
-        <div class="app-grid">
-            <div class="card">
-                <h3>Digital Governance</h3>
-                <p>Structured digital platform design and communication architecture for evolving systems.</p>
-                <a href="#" class="btn">Access Service</a>
-            </div>
-            <div class="card">
-                <h3>AI Media Production</h3>
-                <p>Automated content planning, publishing support, and branded communication pathways.</p>
-                <a href="#" class="btn">View Media</a>
-            </div>
-            <div class="card">
-                <h3>Climate Research</h3>
-                <p>Strategic modeling for zero-carbon energy and water sustainability models.</p>
-                <a href="#" class="btn">Review Data</a>
-            </div>
-        </div>
-    </section>
+    <div class="payment-grid">
+      <div class="payment-card">
+        <h3>CORE MEMBER</h3>
+        <p style="color: var(--muted);">Foundational access to GN-AI tools & research.</p>
+        <span class="price-tag">$100.00</span>
+        <button class="pay-btn stripe-btn">Pay with Stripe</button>
+        <button class="pay-btn paypal-btn">Pay with PayPal</button>
+      </div>
 
-    <section class="grid-section" id="platform">
-        <span class="section-label">Active Project Portfolio</span>
-        <div class="app-grid">
-            <div class="card">
-                <h3>SSGPT6-CORE</h3>
-                <p>The central infrastructure layer for global service delivery and project management.</p>
-                <a href="#" class="btn">Explore Core</a>
-            </div>
-            <div class="card">
-                <h3>GNAI TV</h3>
-                <p>Global media network for company updates, video releases, and digital storytelling.</p>
-                <a href="#" class="btn">Watch TV</a>
-            </div>
-            <div class="card">
-                <h3>Fashion Showcase</h3>
-                <p>Creative campaign support and visual storytelling for branded fashion movements.</p>
-                <a href="#" class="btn">Open Showcase</a>
-            </div>
-            <div class="card">
-                <h3>Learning Academy</h3>
-                <p>Structured knowledge paths for AI automation and founder intelligence.</p>
-                <a href="#" class="btn">Start Learning</a>
-            </div>
-        </div>
-    </section>
+      <div class="payment-card" style="border-color: var(--gold);">
+        <h3>EXECUTIVE</h3>
+        <p style="color: var(--muted);">Full Strategic Infrastructure & Priority Support.</p>
+        <span class="price-tag">$150.00</span>
+        <button class="pay-btn stripe-btn">Pay with Stripe</button>
+        <button class="pay-btn paypal-btn">Pay with PayPal</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="grid-section" id="pricing">
-        <span class="section-label">Membership & Access</span>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h4>FOUNDATION</h4>
-                <span class="cost">$50</span>
-                <p>Entry-level access to selected modules.</p>
-                <a href="#" class="btn">Purchase</a>
-            </div>
-            <div class="price-card">
-                <h4>CORE MEMBER</h4>
-                <span class="cost">$100</span>
-                <p>Expanded access and strategic material.</p>
-                <a href="#" class="btn">Purchase</a>
-            </div>
-            <div class="price-card" style="border-color: var(--gold);">
-                <h4>EXECUTIVE</h4>
-                <span class="cost">$150</span>
-                <p>Premium founder-level direction.</p>
-                <a href="#" class="btn">Purchase</a>
-            </div>
-            <div class="price-card">
-                <h4>ENTERPRISE</h4>
-                <span class="cost">Custom</span>
-                <p>Full institutional partnership.</p>
-                <a href="#" class="btn">Contact Sales</a>
-            </div>
-        </div>
-    </section>
+<section class="container" style="padding: 60px 0;">
+  <h2 style="color: var(--gold); text-align: center;">Core Knowledge Domains</h2>
+  <div class="module-grid">
+    <div class="module-card">
+      <h3>1) Bookkeeping</h3>
+      <p>Clean recordkeeping as the base layer of financial truth.</p>
+    </div>
+    <div class="module-card">
+      <h3>2) Advanced Accounting</h3>
+      <p>Complex treatment of accruals, assets, and liability logic.</p>
+    </div>
+    <div class="module-card">
+      <h3>3) Managerial Intelligence</h3>
+      <p>Unit economics and operational decision support.</p>
+    </div>
+    <div class="module-card">
+      <h3>4) Zero Carbon Costing</h3>
+      <p>Lifecycle tracking for sustainable energy investments.</p>
+    </div>
+  </div>
+</section>
 
-</main>
+<section style="background: #0c1b31; padding: 50px 0;">
+  <div class="container" style="text-align: center;">
+    <h2 style="color: var(--gold); margin-bottom: 20px;">Zero Carbon Logic</h2>
+    <p style="max-width: 800px; margin: 0 auto; color: var(--muted);">
+      Every transaction processed through the SSGPT6-CORE framework is mapped to our global sustainability ledger. 
+      We prioritize <span style="color:#00ffcc">Zero-Emission Energy Research</span> and <span style="color:#009edb">Pure Water Sustainability</span> as our core ROI metrics.
+    </p>
+  </div>
+</section>
 
 <footer>
-    <div class="container">
-        <p>GNAIAAAC LLC © 2026 | SSGPT6-CORE | SOVEREIGN STRATEGIC SYSTEMS</p>
-        <div class="policy-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Refund Policy</a>
-            <a href="#">Anti-Fraud</a>
-            <a href="#">Accessibility</a>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.65rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-            NOTICE: This platform does not provide direct medical treatment or emergency rescue services. D2D phone services are officially decommissioned.
-        </p>
-    </div>
+  <div class="container">
+    <p>© 2026 GN-AI World • Powered by GNAIAAAC LLC</p>
+    <p style="margin-top: 10px; font-size: 11px; opacity: 0.6;">
+      Sovereign Strategic Systems | UN Climate Aligned | Zero Carbon Sourcing
+    </p>
+  </div>
 </footer>
+
+<script>
+  // Placeholder for real Stripe/PayPal Logic
+  document.querySelectorAll('.stripe-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      alert('Connecting to Stripe Secure Gateway... (Replace with your Stripe API Key in Replit secrets)');
+    });
+  });
+
+  document.querySelectorAll('.paypal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      alert('Redirecting to PayPal... (Replace with your Client ID in Replit secrets)');
+    });
+  });
+</script>
 
 </body>
 </html>
