@@ -185,6 +185,7 @@
       transition:.18s ease;
       text-align:center;
       cursor:pointer;
+      font-family:Arial,Helvetica,sans-serif;
     }
 
     .btn.gold{background:var(--gold);color:#111}
@@ -318,15 +319,29 @@
     }
 
     .unit-card h3{
-      margin:0 0 22px;
+      margin:0 0 14px;
       font-size:clamp(1.8rem,3vw,2.7rem);
       line-height:1.18;
+    }
+
+    .unit-price{
+      color:var(--gold);
+      font-family:Arial,Helvetica,sans-serif;
+      font-weight:700;
+      font-size:1.1rem;
+      margin-bottom:16px;
     }
 
     .unit-card p{
       color:#d8dfeb;
       font-size:1.05rem;
       margin:0 0 28px;
+    }
+
+    .button-stack{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
     .request-section{
@@ -402,6 +417,15 @@
       color:var(--muted);
       font-size:1.04rem;
       margin:0 0 28px;
+    }
+
+    .notice{
+      max-width:860px;
+      margin:20px auto 0;
+      color:var(--muted);
+      text-align:center;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:0.92rem;
     }
 
     footer{
@@ -522,7 +546,10 @@
           <div class="mini-access">
             <div class="small">Financial Analysis Access</div>
             <div class="price">$1 / Week</div>
-            <a class="btn gold" href="#request-access">Review Access Tier</a>
+            <div class="button-stack">
+              <a class="btn gold" href="https://www.paypal.com/paypalme/YOURPAYPALUSERNAME/1" target="_blank" rel="noopener noreferrer">Pay with PayPal</a>
+              <a class="btn outline" href="#request-access">Request Info</a>
+            </div>
           </div>
         </div>
 
@@ -532,7 +559,10 @@
             SSGPT6 AI is positioned to identify transboundary water debt and systemic liquidity stress, while
             linking governance, pure water strategy, and automated operational management through a black-box framework.
           </p>
-          <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=UN%20Water%20Solutions%20Request">View Full UN Water Solutions</a>
+          <div class="button-stack">
+            <a class="btn gold" href="mailto:ssgpt6@aol.com?subject=UN%20Water%20Solutions%20Request">View Full UN Water Solutions</a>
+            <a class="btn outline" href="#request-access">Request Access</a>
+          </div>
         </div>
       </div>
 
@@ -550,21 +580,33 @@
       <div class="unit-grid">
         <article class="unit-card">
           <h3>Unit 001: Pharma Vault</h3>
+          <div class="unit-price">$150 Access</div>
           <p>
             Managed through AI Sleeping Agent Black Box Automation. Secure IP acquisition and royalty tracking
             can be structured as a controlled digital service workflow.
           </p>
-          <a class="btn gold" href="#request-access">Request Pharma Vault Access</a>
+          <div class="button-stack">
+            <a class="btn gold" href="https://www.paypal.com/paypalme/YOURPAYPALUSERNAME/150" target="_blank" rel="noopener noreferrer">Pay $150 via PayPal</a>
+            <a class="btn outline" href="#request-access">Request Details</a>
+          </div>
         </article>
 
         <article class="unit-card">
           <h3>Unit 012: Hydrol-Stasis</h3>
+          <div class="unit-price">$100 Access</div>
           <p>
             Pure water sustainability monitoring and black-box operational management designed for more efficient
             execution and structured project oversight.
           </p>
-          <a class="btn gold" href="#request-access">Request Hydrol-Stasis Access</a>
+          <div class="button-stack">
+            <a class="btn gold" href="https://www.paypal.com/paypalme/YOURPAYPALUSERNAME/100" target="_blank" rel="noopener noreferrer">Pay $100 via PayPal</a>
+            <a class="btn outline" href="#request-access">Request Details</a>
+          </div>
         </article>
+      </div>
+
+      <div class="notice">
+        Replace <strong>YOURPAYPALUSERNAME</strong> with your real PayPal username or full PayPal payment link.
       </div>
     </div>
   </section>
@@ -593,10 +635,10 @@
               <label for="projectUnit">Project Unit</label>
               <select id="projectUnit" name="projectUnit" required>
                 <option value="">Select a unit</option>
-                <option value="Pharma Vault">Pharma Vault</option>
-                <option value="Hydrol-Stasis">Hydrol-Stasis</option>
+                <option value="Pharma Vault">$150 - Pharma Vault</option>
+                <option value="Hydrol-Stasis">$100 - Hydrol-Stasis</option>
                 <option value="Water Bankruptcy Solutions">Water Bankruptcy Solutions</option>
-                <option value="Financial Analysis Access">Financial Analysis Access</option>
+                <option value="Financial Analysis Access">$1 / Week - Financial Analysis Access</option>
                 <option value="General Matrix Inquiry">General Matrix Inquiry</option>
               </select>
             </div>
