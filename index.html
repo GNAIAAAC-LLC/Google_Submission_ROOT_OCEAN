@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNAIAAAC LLC | Miracle Magical AI & SSGPT6 Sovereign Hub</title>
+    <title>SSGPT6 | Miracle Magical AI Sovereign Hub</title>
     <style>
         :root {
             --bg: #060d18; --panel: #0c1728; --text: #e8edf5;
@@ -22,42 +22,43 @@
         .un-strip { background: var(--rainbow); height: 6px; width: 100%; }
         .topbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         
-        .brand { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 60px; filter: drop-shadow(0 0 10px var(--gold)); }
+        .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-img { height: 65px; filter: drop-shadow(0 0 10px var(--gold)); }
 
         nav { display: flex; gap: 10px; align-items: center; }
         nav a { padding: 10px 18px; text-decoration: none; font-family: Arial, sans-serif; font-weight: 900; font-size: 0.75rem; border-radius: 4px; transition: 0.3s; color: #fff; text-transform: uppercase; }
         
-        /* 2. RIGHT CORNER DIFFERENT TABS */
+        /* RIGHT CORNER COLORED TABS */
         .tab-gov { background: #1a3a5a; } 
         .tab-matrix { background: #3a1a5a; } 
         .tab-pricing { background: #1a5a3a; } 
         .tab-chat { background: var(--gold); color: #000 !important; }
 
-        /* 3. HERO & MIDDLE GAP TEXT */
-        .hero { padding: 80px 0; text-align: center; border-bottom: 1px solid var(--line); }
+        /* HERO & MIDDLE GAP */
+        .hero { padding: 60px 0; text-align: center; border-bottom: 1px solid var(--line); }
         .miracle-text { font-family: 'Arial Black', sans-serif; font-size: 1.4rem; color: var(--gold); text-transform: uppercase; margin: 20px 0; letter-spacing: 2px; }
-        h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 900; }
-
-        /* 4. LEFT SIDE: LIVE TRADING & ANALYTICAL BOARD */
+        
+        /* SOVEREIGN LIVE STATION */
         .dual-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; margin-top: 50px; }
         .trading-board { background: #000; border: 2px solid var(--un-blue); padding: 30px; font-family: monospace; }
-        .trading-item { color: #00ff00; margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #111; padding-bottom: 5px; }
+        .trading-item { color: #00ff00; margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #111; padding-bottom: 5px; cursor: pointer; }
+        .trading-item:hover { background: rgba(0,255,0,0.1); }
 
-        /* 5. RIGHT SIDE: UN PROJECT SUMMARY */
-        .doc-side { border: 2px solid var(--gold); background: var(--panel); padding: 40px; }
-        .doc-title { color: var(--gold); text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
+        .doc-side { border: 2px solid var(--gold); background: var(--panel); padding: 40px; border-radius: 8px; }
+        
+        /* BUTTONS */
+        .btn-gold { display: inline-block; background: var(--gold); color: #000; padding: 15px 30px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-family: Arial; border: none; cursor: pointer; transition: 0.3s; border-radius: 2px; }
+        .btn-gold:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        /* 6. SOVEREIGN BOX: LEARN & EARN */
+        /* MATRIX BOX */
         .matrix-section { padding: 80px 0; }
         .sovereign-header { background: var(--gold); color: #000; padding: 20px; font-family: 'Arial Black'; text-align: center; margin-bottom: 30px; letter-spacing: 2px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .card { background: var(--panel); border: 1px solid var(--line); padding: 35px; transition: 0.3s; }
-        
-        .btn-gold { display: inline-block; background: var(--gold); color: #000; padding: 15px 30px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-family: Arial; border: none; cursor: pointer; transition: 0.3s; }
-        .btn-gold:hover { background: #fff; transform: scale(1.05); }
+        .card { background: var(--panel); border: 1px solid var(--line); padding: 35px; border-radius: 8px; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); }
 
         footer { padding: 50px 0; text-align: center; border-top: 1px solid var(--gold); color: #8b949e; font-size: 0.8rem; }
+        .footer-links a { color: var(--gold); text-decoration: none; margin: 0 15px; }
     </style>
 </head>
 <body>
@@ -65,16 +66,16 @@
 <header>
     <div class="un-strip"></div>
     <div class="container topbar">
-        <div class="brand">
-            <img src="logo.png" alt="GNAI Logo" class="logo-img">
+        <a href="index.html" class="brand">
+            <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" alt="GNAI Logo" class="logo-img">
             <div>
                 <div style="color: #fff; font-size: 1.5rem; font-weight: 700;">SSGPT6</div>
                 <div style="color: var(--gold); font-size: 0.7rem; text-transform: uppercase;">GNAIAAAC LLC</div>
             </div>
-        </div>
+        </a>
         <nav>
-            <a href="index.html" class="tab-gov">GOVERNANCE</a>
-            <a href="projects.html" class="tab-matrix">135 MATRIX</a>
+            <a href="governance.html" class="tab-gov">GOVERNANCE</a>
+            <a href="matrix.html" class="tab-matrix">135 MATRIX</a>
             <a href="pricing.html" class="tab-pricing">ACCESS TIERS</a>
             <a href="chat.html" class="tab-chat">CHATSSGPT6: The AI that Thinks for the Future</a>
         </nav>
@@ -83,56 +84,71 @@
 
 <section class="hero">
     <div class="container">
-        <div class="miracle-text">Miracle Magical AI & Tiny AI Sleeping Agent Black Box Automation</div>
-        <h1>Operational Management Solutions</h1>
-        <p style="color:var(--un-blue); font-weight:900;">Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Satellite Coil Grid Energy</p>
-        <a href="governance-info.html" class="btn-gold">Informational: First Digital Governance</a>
+        <div class="miracle-text">Miracle Magical AI & Tiny AI sleeping agent black box Automation operational management solutions</div>
+        <h1 style="font-size: 3rem; margin-bottom: 10px;">World-First Digital Governance & AI</h1>
+        <p style="color:var(--un-blue); font-weight:900; font-size: 1.2rem;">Global Pure Water | Water Bankruptcy solutions | Zero carbon satellite Coil grid Energy</p>
+        
+        <a href="info.html" class="btn-gold" style="margin-top: 30px;">Informational: First Digital Governance</a>
     </div>
 </section>
 
 <section class="container dual-grid">
     <div class="trading-board">
         <h3 style="color:#fff; text-transform: uppercase; margin-bottom: 20px;">135 Projects Live Trading Display</h3>
-        <div class="trading-item">● BTC/SSC INDEX: +4.24%</div>
-        <div class="trading-item">● WATER EQUITY NODES: STABLE</div>
-        <div class="trading-item">● 0-CARBON GRID YIELD: 14.2M T</div>
-        <div class="trading-item">● PHARMA ROYALTY STREAM: ACTIVE</div>
-        <div style="margin-top:30px; border: 1px dashed var(--un-blue); padding: 15px;">
-            <p style="color:#fff; font-size: 0.8rem;">Financial Analysis: Paid Access</p>
-            <p style="color:var(--gold); font-size: 1.1rem; font-weight: 900;">$1 / WEEK</p>
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUSINESS_ID" class="btn-gold" style="padding: 10px 20px; font-size: 0.7rem;">Subscribe via PayPal</a>
+        <div class="trading-item" onclick="location.href='trading.html'">● BTC/SSC INDEX: +4.24% [View Analysis]</div>
+        <div class="trading-item" onclick="location.href='trading.html'">● WATER EQUITY NODES: STABLE [Live Data]</div>
+        <div class="trading-item" onclick="location.href='trading.html'">● 0-CARBON GRID YIELD: 14.2M T [Verified]</div>
+        
+        <div style="margin-top:30px; border: 1px dashed var(--un-blue); padding: 20px; background: rgba(0,0,0,0.5);">
+            <p style="color:#fff; font-size: 1rem; font-weight: bold;">Financial Analysis Access</p>
+            <p style="color:var(--gold); font-size: 1.5rem; font-weight: 900;">$1 / WEEK</p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                <input type="hidden" name="business" value="ssgpt6@aol.com">
+                <input type="hidden" name="item_name" value="Weekly Financial Analysis">
+                <input type="hidden" name="a3" value="1.00">
+                <input type="hidden" name="p3" value="1">
+                <input type="hidden" name="t3" value="W">
+                <input type="hidden" name="src" value="1">
+                <button type="submit" class="btn-gold" style="width: 100%;">Pay $1 via PayPal Account</button>
+            </form>
         </div>
     </div>
 
     <div class="doc-side">
-        <h2 class="doc-title">UN Pure Water & Water Bankruptcy</h2>
-        <p style="color:#9fb7d6; font-size: 0.95rem;">
-            SSGPT6 AI autonomously identifies transboundary water debt, preventing economic resource collapse through automated liquidity redistribution. All insights are operated through Black Box Automation software—the most efficient way to get the job done. The company is very good for the job.
+        <h2 style="color:var(--gold); text-transform: uppercase; margin-top: 0;">Water Bankruptcy Project Summary</h2>
+        <p style="color:#9fb7d6; font-size: 1rem;">
+            SSGPT6 AI autonomously identifies transboundary water debt, preventing economic resource collapse through automated liquidity redistribution. Our black box automation manages pure water solutions efficiently, ensuring the company gets the job done at the highest standard.
         </p>
-        <ul style="list-style:none; padding:0; color:var(--un-blue); font-size: 0.85rem; margin-top:20px;">
-            <li>● National Water-Debt Monitoring</li>
-            <li>● Transboundary Asset Recovery</li>
-            <li>● Zero-Carbon Energy Grid Dividends</li>
-        </ul>
-        <a href="contact.html" class="btn-gold" style="width:100%; text-align:center; margin-top:20px;">Request Consultation</a>
+        <a href="water-full.html" class="btn-gold" style="width:100%; text-align:center;">View Full UN Water Solutions</a>
     </div>
 </section>
 
 <section class="matrix-section">
     <div class="container">
-        <div class="sovereign-header">LEARN & EARN THROUGH 135 PROJECTS</div>
+        <div class="sovereign-header">LEARN EARN THROUGH 135 PROJECTS</div>
         <div class="grid">
-            <div class="card" style="border: 2px solid var(--gold);">
+            <div class="card">
                 <h3>UNIT 001: PHARMA VAULT</h3>
-                <p style="font-size: 0.85rem; color:#8b949e;">Managed through AI Sleeping Agent Black Box Automation. Efficiently securing $75M acquisitions.</p>
-                <div style="color:var(--gold); font-weight:900; margin: 15px 0;">$150.00 / ACCESS</div>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUSINESS_ID" class="btn-gold">Pay via PayPal</a>
+                <p>Managed through AI Sleeping Agent Black Box Automation. Secure IP acquisition and royalty tracking automatically generated by the software.</p>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="ssgpt6@aol.com">
+                    <input type="hidden" name="item_name" value="Unit 001 Pharma Vault Access">
+                    <input type="hidden" name="amount" value="150.00">
+                    <button type="submit" class="btn-gold" style="width: 100%; margin-top: 15px;">Pay $150 via PayPal</button>
+                </form>
             </div>
             <div class="card">
                 <h3>UNIT 012: HYDROL-STASIS</h3>
-                <p style="font-size: 0.85rem; color:#8b949e;">Strategic monitoring of water bankruptcy solutions. The software gets the job done efficiently.</p>
-                <div style="color:var(--gold); font-weight:900; margin: 15px 0;">$100.00 / ACCESS</div>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUSINESS_ID" class="btn-gold">Pay via PayPal</a>
+                <p>Pure water sustainability monitoring. Black box automation ensures efficient execution. The company is very good for the job.</p>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="ssgpt6@aol.com">
+                    <input type="hidden" name="item_name" value="Unit 012 Hydrol-Stasis Access">
+                    <input type="hidden" name="amount" value="100.00">
+                    <button type="submit" class="btn-gold" style="width: 100%; margin-top: 15px;">Pay $100 via PayPal</button>
+                </form>
             </div>
         </div>
     </div>
@@ -140,13 +156,19 @@
 
 <section class="container" style="padding: 60px 0; border-top: 1px solid var(--line); text-align: center;">
     <h2 style="color: var(--gold); text-transform: uppercase;">AI Customer Service</h2>
-    <p style="color: var(--muted);">Chat / Phone: 24/7 Managed by Sleeping Agent Black Box Software.</p>
-    <p style="font-size: 0.85rem; max-width: 700px; margin: 20px auto;">All insights and operations are managed through AI sleeping agent black box Automation software. This company is very good for the job and the software gets the job done in the most efficient way possible.</p>
+    <p style="color: var(--un-blue); font-weight: bold; font-size: 1.2rem;">Chat / Phone: 24/7 Managed by Black Box</p>
+    <p style="max-width: 800px; margin: 20px auto; color: #8b949e;">
+        All insights and content are managed through AI sleeping agent black box automation. This software is a very good way to get the job done in an efficient way. The company is highly efficient at getting the job done for you automatically.
+    </p>
+    <a href="tel:3478852494" class="btn-gold">Call AI Support</a>
 </section>
 
 <footer>
-    <div class="container">
+    <div class="container footer-links">
         <p>© 2026 GNAIAAAC LLC | SSGPT6-CORE | Managed by Miracle Magical AI</p>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="fraud.html">Anti-Fraud Policy</a>
     </div>
 </footer>
 
