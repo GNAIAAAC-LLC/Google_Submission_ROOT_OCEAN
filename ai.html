@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SSGPT6 AI</title>
+<style>
+body{
+  background:#060d18;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:40px;
+}
+input{
+  padding:10px;
+  width:250px;
+}
+button{
+  padding:10px 20px;
+  background:#c7a85a;
+  border:none;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>SSGPT6 AI Assistant</h1>
+
+<input id="q" placeholder="Ask something..." />
+<button onclick="ask()">Send</button>
+
+<p id="res"></p>
+
+<script>
+function ask(){
+  let q = document.getElementById("q").value;
+
+  if(q === ""){
+    document.getElementById("res").innerText = "Type something first.";
+    return;
+  }
+
+  document.getElementById("res").innerText =
+  "Processing: " + q + " ... (AI coming next step)";
+}
+</script>
+
+</body>
+</html>
