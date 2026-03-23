@@ -8,9 +8,7 @@
   <style>
     :root{
       --bg:#06101d;
-      --bg-2:#0a1728;
       --panel:#0d1d33;
-      --panel-2:#10233d;
       --text:#ecf1f8;
       --muted:#aab6c8;
       --gold:#c7a85a;
@@ -35,15 +33,8 @@
       line-height:1.65;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
 
     .container{
       width:min(92%, var(--max));
@@ -122,10 +113,7 @@
       border:1px solid rgba(255,255,255,0.05);
     }
 
-    .nav a:hover{
-      transform:translateY(-2px);
-    }
-
+    .nav a:hover{transform:translateY(-2px)}
     .nav .blue{background:var(--blue)}
     .nav .green{background:var(--green)}
     .nav .purple{background:var(--purple)}
@@ -466,12 +454,10 @@
         flex-direction:column;
         align-items:flex-start;
       }
-
       .nav{
         width:100%;
         justify-content:flex-start;
       }
-
       .overview-grid,
       .units-grid,
       .function-grid,
@@ -485,20 +471,16 @@
         width:56px;
         height:56px;
       }
-
       .brand-text h1{
         font-size:1.7rem;
       }
-
       .hero{
         padding:56px 0 36px;
       }
-
       .card,
       .request-form{
         padding:22px;
       }
-
       .nav a{
         padding:10px 13px;
         font-size:0.88rem;
@@ -640,11 +622,11 @@
         </div>
         <div class="card function-card">
           <h3>2. Payment Layer</h3>
-          <p>Replace invoice-only flow later with Stripe payment links, hosted checkout, or approved manual billing.</p>
+          <p>Use invoice requests now, then later replace with Stripe payment links or hosted checkout.</p>
         </div>
         <div class="card function-card">
           <h3>3. Delivery Layer</h3>
-          <p>After payment or approval, route access to email delivery, dashboard content, or protected documents.</p>
+          <p>After approval, route access to email delivery, dashboard content, or protected documents.</p>
         </div>
       </div>
     </div>
@@ -705,7 +687,7 @@
       </div>
 
       <div class="notice">
-        Payment is currently handled by invoice request for cleaner review, founder approval, and manual confirmation.
+        Payment is currently handled by invoice request only. No PayPal checkout links are active on this page.
       </div>
     </div>
   </section>
