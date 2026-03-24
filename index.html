@@ -1,307 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SSGPT6 | Global Pure Water & AI Governance</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSGPT6 | Global Pure Water & AI Governance</title>
+  <meta name="description" content="SSGPT6 platform for global pure water, water bankruptcy solutions, zero carbon energy, governance, services, and project systems." />
+  <link rel="icon" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
 
-<style>
-:root{
-  --bg:#060d18;
-  --panel:#0c1728;
-  --text:#eef3fb;
-  --muted:#c8d3e3;
-  --gold:#c7a85a;
-  --blue:#009edb;
-  --green:#1a5a3a;
-  --line:rgba(255,255,255,0.08);
-  --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
-}
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --blue:#009edb;
+      --green:#1a5a3a;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+    }
 
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
+    *{
+      box-sizing:border-box;
+    }
 
-header{
-  position:sticky;
-  top:0;
-  background:#060d18;
-  border-bottom:1px solid var(--line);
-}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-.strip{
-  height:6px;
-  background:var(--rainbow);
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.container{
-  width:92%;
-  margin:auto;
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:#060d18;
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
 
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  padding:15px 0;
-}
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
 
-nav a{
-  padding:10px 14px;
-  border-radius:6px;
-  font-weight:bold;
-  text-decoration:none;
-  color:white;
-}
+    .container{
+      width:92%;
+      max-width:1200px;
+      margin:auto;
+    }
 
-.nav-home{background:#1a3a5a}
-.nav-about{background:#3a1a5a}
-.nav-services{background:#21405f}
-.nav-projects{background:#1a5a3a}
-.nav-pricing{background:#8a5b15}
-.nav-contact{background:#0b5a3a}
-.nav-support{background:#004d40}
-.nav-gov{background:var(--gold);color:black}
+    .topnav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:15px 0;
+      flex-wrap:wrap;
+    }
 
-.hero{
-  text-align:center;
-  padding:60px 20px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
 
-.hero h1{
-  font-size:40px;
-  color:var(--gold);
-}
+    .brand img{
+      height:54px;
+      width:auto;
+      display:block;
+      border-radius:8px;
+      background:#fff;
+      object-fit:contain;
+    }
 
-.rainbow{
-  font-weight:bold;
-  background:var(--rainbow);
-  -webkit-background-clip:text;
-  color:transparent;
-}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
 
-.section{
-  padding:50px 20px;
-  border-top:1px solid var(--line);
-}
+    .brand-text strong{
+      color:var(--gold);
+      font-size:24px;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+    .brand-text span{
+      color:var(--muted);
+      font-size:13px;
+    }
 
-.card{
-  background:var(--panel);
-  padding:20px;
-  border-radius:12px;
-  border:1px solid var(--line);
-}
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
 
-.card h3{
-  color:var(--gold);
-}
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:bold;
+      color:white;
+      font-size:14px;
+    }
 
-.btn{
-  display:inline-block;
-  margin-top:10px;
-  padding:12px 16px;
-  border-radius:8px;
-  background:var(--gold);
-  color:black;
-  font-weight:bold;
-  text-decoration:none;
-}
+    .nav-home{background:#1a3a5a}
+    .nav-about{background:#3a1a5a}
+    .nav-services{background:#21405f}
+    .nav-projects{background:#1a5a3a}
+    .nav-pricing{background:#8a5b15}
+    .nav-contact{background:#0b5a3a}
+    .nav-support{background:#004d40}
+    .nav-gov{background:var(--gold);color:black}
 
-.video-container{
-  position:relative;
-  padding-bottom:56.25%;
-  height:0;
-}
+    .hero{
+      text-align:center;
+      padding:64px 20px 56px;
+    }
 
-.video-container iframe{
-  position:absolute;
-  width:100%;
-  height:100%;
-}
+    .hero h1{
+      font-size:clamp(2.3rem, 6vw, 4rem);
+      margin:0 0 14px;
+      color:var(--gold);
+    }
 
-.voice{
-  text-align:center;
-  padding:40px;
-  background:#10203a;
-}
+    .rainbow{
+      font-weight:bold;
+      font-size:clamp(1rem, 2.2vw, 1.35rem);
+      background:var(--rainbow);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:16px;
+    }
 
-.voice button{
-  margin:10px;
-  padding:12px 20px;
-  border:none;
-  border-radius:8px;
-  font-weight:bold;
-  background:var(--gold);
-  cursor:pointer;
-}
+    .hero p{
+      margin:10px auto;
+      max-width:900px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
 
-footer{
-  text-align:center;
-  padding:30px;
-  color:#aaa;
-}
-</style>
+    .hero-buttons{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn-main{
+      display:inline-block;
+      padding:14px 20px;
+      border-radius:10px;
+      background:var(--gold);
+      color:#000;
+      font-weight:bold;
+    }
+
+    .btn-alt{
+      display:inline-block;
+      padding:14px 20px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.15);
+      color:#fff;
+      font-weight:bold;
+      background:transparent;
+    }
+
+    .section{
+      padding:50px 20px;
+      border-top:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 20px;
+      font-size:clamp(1.6rem, 4vw, 2.5rem);
+      color:#fff;
+    }
+
+    .section-intro{
+      color:var(--muted);
+      max-width:900px;
+      margin-bottom:28px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--panel);
+      padding:20px;
+      border-radius:12px;
+      border:1px solid var(--line);
+    }
+
+    .card h3{
+      color:var(--gold);
+      margin-top:0;
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:12px 16px;
+      border-radius:8px;
+      background:var(--gold);
+      color:black;
+      font-weight:bold;
+    }
+
+    .video-container{
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#000;
+    }
+
+    .video-container iframe{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    }
+
+    .voice{
+      text-align:center;
+      padding:40px 20px;
+      background:var(--panel2);
+      border-top:1px solid var(--line);
+    }
+
+    .voice button{
+      margin:10px;
+      padding:12px 20px;
+      border:none;
+      border-radius:8px;
+      font-weight:bold;
+      background:var(--gold);
+      color:#000;
+      cursor:pointer;
+    }
+
+    #voiceOutput{
+      margin:20px auto 0;
+      max-width:900px;
+      background:#000;
+      padding:14px;
+      border-radius:10px;
+      border:1px solid var(--blue);
+      min-height:56px;
+      color:#dbe7f6;
+      text-align:left;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 20px 50px;
+      color:#aaa;
+      border-top:1px solid var(--line);
+    }
+
+    footer p{
+      margin:10px 0;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media (max-width: 768px){
+      .topnav{
+        align-items:flex-start;
+      }
+
+      .brand{
+        width:100%;
+      }
+
+      .brand img{
+        height:46px;
+      }
+
+      nav{
+        width:100%;
+      }
+
+      nav a{
+        font-size:13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<div class="strip"></div>
-<div class="container">
-<nav>
-  <a class="nav-home" href="index.html">Home</a>
-  <a class="nav-about" href="about.html">About</a>
-  <a class="nav-services" href="services.html">Services</a>
-  <a class="nav-projects" href="projects.html">Projects</a>
-  <a class="nav-pricing" href="pricing.html">Pricing</a>
-  <a class="nav-contact" href="contact.html">Contact</a>
-  <a class="nav-support" href="support-center.html">Support</a>
-  <a class="nav-gov" href="governance.html">Governance</a>
-</nav>
-</div>
-</header>
+  <header>
+    <div class="strip"></div>
+    <div class="container topnav">
 
-<section class="hero">
-<h1>SSGPT6 Platform</h1>
-<p class="rainbow">
-Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
-</p>
-<p>
-Open Digital Governance • View 135 Projects
-</p>
-</section>
+      <div class="brand">
+        <img src="logo.png" alt="SSGPT6 Logo">
+        <div class="brand-text">
+          <strong>SSGPT6</strong>
+          <span>GNAIAAAC LLC</span>
+        </div>
+      </div>
 
-<section class="section">
-<div class="container">
-<h2>Core System</h2>
+      <nav>
+        <a class="nav-home" href="index.html">Home</a>
+        <a class="nav-about" href="about.html">About</a>
+        <a class="nav-services" href="services.html">Services</a>
+        <a class="nav-projects" href="projects.html">Projects</a>
+        <a class="nav-pricing" href="pricing.html">Pricing</a>
+        <a class="nav-contact" href="contact.html">Contact</a>
+        <a class="nav-support" href="support-center.html">Support</a>
+        <a class="nav-gov" href="governance.html">Governance</a>
+      </nav>
 
-<div class="grid">
+    </div>
+  </header>
 
-<div class="card">
-<h3>🌍 Global Pure Water</h3>
-<p>AI-driven water intelligence and sustainability systems.</p>
-<a href="projects.html" class="btn">View Projects</a>
-</div>
+  <section class="hero">
+    <div class="container">
+      <h1>SSGPT6 Platform</h1>
+      <p class="rainbow">
+        Global Pure Water | Water Bankruptcy Solutions | Zero Carbon Energy
+      </p>
+      <p>
+        AI-driven governance, service pathways, accessibility support, structured projects, and resilient infrastructure direction.
+      </p>
+      <div class="hero-buttons">
+        <a href="governance.html" class="btn-main">Open Digital Governance</a>
+        <a href="projects.html" class="btn-alt">View 135 Projects</a>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>💧 Water Bankruptcy</h3>
-<p>Economic and governance solutions for water crisis management.</p>
-<a href="governance.html" class="btn">Open Governance</a>
-</div>
+  <section class="section">
+    <div class="container">
+      <h2>Core System</h2>
+      <p class="section-intro">
+        SSGPT6 combines governance, service structure, project organization, accessibility-aware tools, and resilient systems thinking into one connected platform.
+      </p>
 
-<div class="card">
-<h3>⚡ Zero Carbon Energy</h3>
-<p>Clean energy systems powered by AI optimization.</p>
-<a href="services.html" class="btn">View Services</a>
-</div>
+      <div class="grid">
 
-<div class="card">
-<h3>🤖 AI Sleeping Agent</h3>
-<p>Automated monitoring, recovery, and submission system.</p>
-<a href="submission-engine.html" class="btn">Activate</a>
-</div>
+        <div class="card">
+          <h3>🌍 Global Pure Water</h3>
+          <p>AI-driven water intelligence and sustainability systems.</p>
+          <a href="projects.html" class="btn">View Projects</a>
+        </div>
 
-</div>
-</div>
-</section>
+        <div class="card">
+          <h3>💧 Water Bankruptcy</h3>
+          <p>Economic and governance solutions for water crisis management.</p>
+          <a href="governance.html" class="btn">Open Governance</a>
+        </div>
 
-<section class="section">
-<div class="container">
-<h2>Video Overview</h2>
+        <div class="card">
+          <h3>⚡ Zero Carbon Energy</h3>
+          <p>Clean energy systems powered by AI optimization.</p>
+          <a href="services.html" class="btn">View Services</a>
+        </div>
 
-<div class="grid">
+        <div class="card">
+          <h3>🤖 AI Sleeping Agent</h3>
+          <p>Automated monitoring, recovery, and submission workflow support.</p>
+          <a href="submission-engine.html" class="btn">Activate</a>
+        </div>
 
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/kTnVihXppg0" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-</div>
+      </div>
+    </div>
+  </section>
 
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/fYOYlTrtOlI" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-</div>
+  <section class="section">
+    <div class="container">
+      <h2>Video Overview</h2>
+      <p class="section-intro">
+        Watch featured platform videos directly from YouTube.
+      </p>
 
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/U30D_Yv3IU8" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-</div>
+      <div class="grid">
 
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/gk6gNgq-r2Y" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
-</div>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/kTnVihXppg0"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
 
-</div>
-</div>
-</section>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/fYOYlTrtOlI"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
 
-<section class="voice">
-<h2>♿ Voice + Typing Support</h2>
-<p>Accessible for seniors & disabled users</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/U30D_Yv3IU8"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
 
-<button onclick="startVoice()">🎤 Start</button>
-<button onclick="stopVoice()">⏹ Stop</button>
-<button onclick="speak()">🔊 Speak</button>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/gk6gNgq-r2Y"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
 
-<div id="voiceOutput" style="margin-top:20px;background:black;padding:10px;"></div>
-</section>
+      </div>
+    </div>
+  </section>
 
-<footer>
-<p>© 2026 GNAIAAAC LLC</p>
-<p>
-<a href="about.html">About</a> |
-<a href="contact.html">Contact</a> |
-<a href="support-center.html">Support</a> |
-<a href="privacy.html">Privacy</a> |
-<a href="terms.html">Terms</a> |
-<a href="refund-policy.html">Refund Policy</a> |
-<a href="faq.html">FAQ</a>
-| <a href="cookies-policy.html">Cookies</a>
-</p>
-</footer>
+  <section class="voice">
+    <h2>♿ Voice + Typing Support</h2>
+    <p>Accessible for seniors & disabled users</p>
 
-<script>
-let recognition;
+    <button onclick="startVoice()">🎤 Start</button>
+    <button onclick="stopVoice()">⏹ Stop</button>
+    <button onclick="speak()">🔊 Speak</button>
 
-function startVoice(){
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if(!SpeechRecognition){
-    alert("Voice not supported");
-    return;
-  }
-  recognition = new SpeechRecognition();
-  recognition.onresult = function(e){
-    document.getElementById("voiceOutput").innerText = e.results[0][0].transcript;
-  };
-  recognition.start();
-}
+    <div id="voiceOutput">Ready for voice input.</div>
+  </section>
 
-function stopVoice(){
-  if(recognition) recognition.stop();
-}
+  <footer>
+    <p>© 2026 GNAIAAAC LLC</p>
+    <p>
+      <a href="about.html">About</a> |
+      <a href="services.html">Services</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="support-center.html">Support</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="refund-policy.html">Refund Policy</a> |
+      <a href="cookies-policy.html">Cookies</a> |
+      <a href="faq.html">FAQ</a>
+    </p>
+  </footer>
 
-function speak(){
-  const msg = new SpeechSynthesisUtterance("Welcome to SSGPT6 platform");
-  speechSynthesis.speak(msg);
-}
-</script>
+  <script>
+    let recognition;
+
+    function startVoice(){
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if(!SpeechRecognition){
+        alert("Voice not supported");
+        return;
+      }
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.onresult = function(e){
+        document.getElementById("voiceOutput").innerText = e.results[0][0].transcript;
+      };
+      recognition.start();
+    }
+
+    function stopVoice(){
+      if(recognition) recognition.stop();
+    }
+
+    function speak(){
+      const msg = new SpeechSynthesisUtterance("Welcome to SSGPT6 platform");
+      speechSynthesis.cancel();
+      speechSynthesis.speak(msg);
+    }
+  </script>
 
 </body>
 </html>
