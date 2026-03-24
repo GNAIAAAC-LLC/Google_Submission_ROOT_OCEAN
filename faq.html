@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | SSGPT6</title>
+  <meta name="description" content="Frequently asked questions for SSGPT6 and GNAIAAAC LLC." />
+  <style>
+    :root{
+      --bg:#060d18;
+      --panel:#0c1728;
+      --panel2:#10203a;
+      --text:#eef3fb;
+      --muted:#c8d3e3;
+      --gold:#c7a85a;
+      --line:rgba(255,255,255,0.08);
+      --rainbow:linear-gradient(90deg,#009edb,#00ffcc,#ffeb3b,#ff5722,#e91e63);
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    a{
+      color:var(--gold);
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(6,13,24,0.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+
+    .strip{
+      height:6px;
+      background:var(--rainbow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:16px 0;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      color:var(--gold);
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:6px;
+      font-weight:700;
+      font-size:14px;
+      color:#fff;
+      background:#1a3a5a;
+    }
+
+    .hero{
+      padding:54px 0 34px;
+      border-bottom:1px solid var(--line);
+      text-align:center;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem, 6vw, 3.8rem);
+      color:var(--gold);
+      font-weight:900;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:850px;
+      color:var(--muted);
+    }
+
+    .section{
+      padding:42px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .faq-item{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      margin-bottom:14px;
+      overflow:hidden;
+    }
+
+    .faq-question{
+      width:100%;
+      text-align:left;
+      background:none;
+      border:none;
+      color:#fff;
+      font:inherit;
+      font-weight:800;
+      padding:18px 20px;
+      cursor:pointer;
+    }
+
+    .faq-answer{
+      display:none;
+      padding:0 20px 20px;
+      color:var(--muted);
+    }
+
+    .faq-item.active .faq-answer{
+      display:block;
+    }
+
+    .notice{
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:16px;
+      margin-top:20px;
+      color:var(--muted);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 20px 46px;
+      color:#a6b5c8;
+      font-size:14px;
+    }
+
+    footer a{color:var(--gold)}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="strip"></div>
+    <div class="container topbar">
+      <div class="logo">FAQ</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="support-center.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Quick answers about SSGPT6 services, pricing, support, accessibility, and platform use.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What is SSGPT6?</button>
+        <div class="faq-answer">
+          SSGPT6 is a structured digital platform focused on services, projects, governance, accessibility-aware communication, and resilience-oriented system direction.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">What services do you offer?</button>
+        <div class="faq-answer">
+          Services include digital governance support, AI media direction, research support, communication systems, pricing pathways, project support, and structured consultation routes.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How do I request a service?</button>
+        <div class="faq-answer">
+          Review the Services page, then use the Contact page to send your request with your project or service details.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Where do I see pricing?</button>
+        <div class="faq-answer">
+          Open the Pricing page to review member plans, service packages, and general billing structure.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">How do I get support?</button>
+        <div class="faq-answer">
+          The best route is Support Center → Contact. This keeps support organized and easier to track.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Do voice features work for everyone?</button>
+        <div class="faq-answer">
+          Voice and speech features depend on browser and device support. Where available, they help improve accessibility for seniors and disabled users.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Can the platform submit forms automatically?</button>
+        <div class="faq-answer">
+          The platform can help prepare drafts and organize workflows, but important external submissions still require human review and confirmation.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Do you guarantee refunds?</button>
+        <div class="faq-answer">
+          No. Refund requests are reviewed case by case under the Refund Policy.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Where do I send business or partnership questions?</button>
+        <div class="faq-answer">
+          Use the Contact page and select the most relevant inquiry type, such as partnership, services, projects, or consultation.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Where can I learn about the platform structure?</button>
+        <div class="faq-answer">
+          Visit the Governance page for platform structure, accountability, and system explanation.
+        </div>
+      </div>
+
+      <div class="notice">
+        Need more help? Go to <a href="support-center.html">Support Center</a> or send a message through <a href="contact.html">Contact</a>.
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 GNAIAAAC LLC | SSGPT6 FAQ</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="pricing.html">Pricing</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="support-center.html">Support</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="refund-policy.html">Refund Policy</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleFaq(button){
+      const item = button.parentElement;
+      item.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
