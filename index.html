@@ -3,74 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSGPT6 | Sovereign SaaS</title>
+    <title>SSGPT6 | Sovereign SaaS & Asset Ledger</title>
     <style>
         :root {
-            --bg: #02060c; 
-            --panel: #08111f; 
+            --bg: #010409; 
+            --panel: #0d1117; 
             --gold: #c7a85a; 
             --rainbow: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
         }
         
         * { box-sizing: border-box; cursor: crosshair; }
-        body { margin: 0; font-family: 'Arial Black', Gadget, sans-serif; background: var(--bg); color: #fff; text-align: center; overflow-x: hidden; }
+        body { margin: 0; font-family: 'Arial Black', sans-serif; background: var(--bg); color: #fff; text-align: center; }
 
-        /* BRANDING: TOP MIDDLE */
-        .header-unit { padding: 80px 0 40px; }
-        .logo-main { font-size: clamp(4rem, 10vw, 8rem); font-weight: 900; letter-spacing: 15px; margin: 0; line-height: 0.9; }
-        .logo-sub { font-size: 2.5rem; font-weight: 900; display: block; margin: 10px 0; }
+        /* BRANDING */
+        .header-unit { padding: 60px 0; }
+        .logo-main { font-size: 7rem; font-weight: 900; letter-spacing: 15px; margin: 0; }
         .corp-id { font-size: 1.8rem; font-weight: 900; background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 8px; }
 
-        /* ACCESSIBILITY HERO: GLOBAL FIRST */
-        .accessibility-bar { background: rgba(199, 168, 90, 0.05); padding: 50px 5%; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); margin: 40px 0; }
-        .acc-title { color: var(--gold); font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 30px; }
-        .voice-controls { display: flex; justify-content: center; gap: 25px; }
-        .btn-acc { padding: 25px 50px; font-size: 1.4rem; border: none; border-radius: 4px; font-weight: 900; letter-spacing: 2px; transition: 0.2s; }
+        /* ACCESSIBILITY & VOICE */
+        .accessibility-bar { background: rgba(199, 168, 90, 0.05); padding: 40px; border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); }
+        .btn-acc { padding: 25px 45px; font-size: 1.2rem; border: none; border-radius: 4px; font-weight: 900; margin: 0 10px; cursor: pointer; }
         .start { background: #1b5e20; color: #fff; }
         .stop { background: #b71c1c; color: #fff; }
         .speak { background: #01579b; color: #fff; }
 
-        /* THE BLACK BOX & AUTOMATED BUTTONS */
-        .workstation-core { padding: 60px 5%; }
-        .black-box-frame { background: #000; border: 4px solid var(--gold); padding: 70px 40px; max-width: 1100px; margin: 0 auto; box-shadow: 0 0 100px rgba(199,168,90,0.2); }
-        .agent-status { font-family: 'Courier', monospace; color: #00e676; font-size: 0.8rem; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; }
-
-        .button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .srv-node { 
-            border: 3px solid var(--gold); 
-            padding: 30px 15px; 
-            color: var(--gold); 
-            font-weight: 900; 
-            font-size: 1.1rem; 
-            text-transform: uppercase; 
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1.2;
-        }
-
+        /* AUTOMATED AUTOGRAPH & ASSET VAULT */
+        .deep-core-ledger { padding: 60px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .ledger-box { background: #000; border: 3px solid var(--gold); padding: 40px; }
+        .ledger-title { color: var(--gold); font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase; }
+        
+        /* ASSET RECEIPT REPEAT LOGIC */
+        .asset-feed { height: 200px; overflow: hidden; font-family: 'Courier', monospace; font-size: 0.7rem; color: #00e676; text-align: left; }
+        
         /* SECURITY INFRASTRUCTURE */
-        .security-layer { background: #000; padding: 100px 5%; position: relative; overflow: hidden; }
-        .security-wall { color: #1a1a1a; font-size: 0.9rem; font-weight: 900; letter-spacing: 4px; line-height: 2.5; text-align: justify; user-select: none; }
-
-        /* SOLUTION FILES */
-        .solution-vault { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gold); border: 2px solid var(--gold); margin: 50px 5%; }
-        .file-node { background: #000; padding: 40px; text-align: left; }
-        .file-node h4 { color: var(--gold); margin: 0 0 10px; font-size: 1.5rem; }
-        .tag { font-size: 0.7rem; color: #00e676; border: 1px solid #00e676; padding: 5px 10px; font-weight: 900; }
+        .security-wall { background: #000; padding: 40px; color: #1a1a1a; font-size: 0.8rem; font-weight: 900; letter-spacing: 3px; line-height: 2; text-align: center; user-select: none; }
     </style>
 </head>
 <body>
 
 <div class="header-unit">
     <h1 class="logo-main">SSGPT6</h1>
-    <span class="logo-sub">SSGPT6</span>
     <div class="corp-id">GNAIAAAC LLC</div>
 </div>
 
 <section class="accessibility-bar">
-    <div class="acc-title">GLOBAL FIRST AUTOMATIC ACCESSIBLE INTERFACE</div>
     <div class="voice-controls">
         <button class="btn-acc start">🎤 START</button>
         <button class="btn-acc stop">⏹ STOP</button>
@@ -78,52 +54,48 @@
     </div>
 </section>
 
-<section class="workstation-core">
-    <div class="black-box-frame">
-        <div class="agent-status">AI SLEEPING AGENT MAGICAL MIRACLE BLACK BOX SYSTEM ACTIVE</div>
-        
-        <div class="button-grid">
-            <div class="srv-node">VIDEO & MUSIC GENERATOR</div>
-            <div class="srv-node">CHATSSGPT6</div>
-            <div class="srv-node">GAMEPLAY</div>
-            <div class="srv-node">LEARNING ACADEMY</div>
-            <div class="srv-node">Travel & Tourism</div>
-            <div class="srv-node">Marketing & Advertising</div>
-            <div class="srv-node">Research</div>
-            <div class="srv-node">More Projects</div>
-            <div class="srv-node">AI Intelligent learning</div>
-            <div class="srv-node">Kids Research and Learning</div>
+<section class="deep-core-ledger">
+    <div class="ledger-box">
+        <div class="ledger-title">Automated Sovereign Autograph</div>
+        <div style="border: 1px solid #333; height: 100px; display: flex; align-items: center; justify-content: center; font-style: italic; color: #888;">
+            Digital Signature: [SSGPT6_FOUNDER_AUTHENTICATED]
         </div>
+        <p style="font-size: 0.7rem; color: var(--gold); margin-top: 15px;">AUTO-AUTHORIZATION ACTIVE</p>
+    </div>
+
+    <div class="ledger-box">
+        <div class="ledger-title">Automated Asset Receipt Vault</div>
+        <div class="asset-feed">
+            [RECEIPT_001]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_002]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_003]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_004]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_005]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_006]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_007]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_008]: CAR_UNIT_CONFIRMED<br>
+            [RECEIPT_009]: CAR_UNIT_CONFIRMED<br>
+        </div>
+        <p style="font-size: 0.7rem; color: var(--gold); margin-top: 15px;">ASSET FLEET SYNCHRONIZED</p>
     </div>
 </section>
 
-<section class="solution-vault">
-    <div class="file-node">
-        <h4>Global Pure Water 💦</h4>
-        <div class="tag">CONTACT FOR APPROVAL ONLY</div>
-    </div>
-    <div class="file-node">
-        <h4>Deep Core AI / Energy</h4>
-        <div class="tag">RESTRICTED PRIVATE DOMAIN</div>
-    </div>
+<section class="security-wall">
+    SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
+    SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
+    SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
 </section>
 
-<section class="security-layer">
-    <div class="security-wall">
-        SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
-        SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
-        SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
-        SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY SECURITY 
-    </div>
-</section>
+<footer>
+    GNAIAAAC LLC © 2026 | ASSET LEDGER SECURE | DEEP CORE AUTOMATION
+</footer>
 
 <script>
-    // AUTOMATED SYSTEM TRIGGER
-    document.querySelectorAll('.btn-acc').forEach(btn => {
-        btn.addEventListener('click', () => {
-            console.log("Deep Core Signal Sent.");
-        });
-    });
+    // Asset generation logic for the automated receipts
+    const startBtn = document.querySelector('.start');
+    startBtn.onclick = () => {
+        alert("Sovereign Autograph & Asset Receipts Synchronized.");
+    };
 </script>
 
 </body>
