@@ -2,29 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SSGPT6 | Media & Amplification Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSGPT6 | Media & Broadcast Hub</title>
     <style>
-        :root { --bg: #02060c; --gold: #c7a85a; --cyan: #00ffcc; }
-        body { background: var(--bg); color: #fff; font-family: 'Arial Black', sans-serif; text-align: center; }
-        .stream-box { 
-            width: 80%; margin: 50px auto; padding: 40px; 
-            border: 2px solid var(--cyan); background: #000;
-            box-shadow: 0 0 50px rgba(0, 255, 204, 0.2);
-        }
-        .live-tag { color: #ff0000; font-size: 0.8rem; letter-spacing: 3px; }
+        :root { --bg: #02060c; --gold: #c7a85a; --cyan: #00ffcc; --text: #eef4fb; }
+        body { margin: 0; font-family: 'Georgia', serif; background: var(--bg); color: var(--text); }
+        .nav-mini { padding: 20px; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; }
+        .hero-media { padding: 80px 5%; background: radial-gradient(circle at top right, #081321, #02060c); text-align: center; }
+        .broadcast-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; }
+        .main-news { background: #0d1117; border: 1px solid #30363d; padding: 40px; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .sidebar-news { background: #080c12; border: 1px solid #1a1a1a; padding: 25px; border-radius: 8px; }
+        .live-indicator { color: #ff0000; font-family: monospace; font-weight: bold; animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .btn-gold { display: inline-block; padding: 12px 25px; background: var(--gold); color: #000; text-decoration: none; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="stream-box">
-        <div class="live-tag">● LIVE AI STREAM</div>
-        <h1 style="color:var(--gold);">Project Omniscience Podcast</h1>
-        <div id="media-stream-output">
-            <p>Waiting for Voice Command or Master Key Activation...</p>
+
+<div class="nav-mini">
+    <img src="https://raw.githubusercontent.com/shanta4100/ssgpt6.com/main/public/logo.png" height="40">
+    <span style="color:var(--gold); font-size: 0.8rem; letter-spacing: 2px;">GNAIAAAC LLC PRESS</span>
+</div>
+
+<section class="hero-media">
+    <div class="live-indicator">● LIVE SATELLITE FEED ACTIVE</div>
+    <h1 style="font-size: 3.5rem; margin: 10px 0;">Project Omniscience</h1>
+    <p style="color:var(--gold); font-style: italic;">Broadcasting Global Solutions in Water, Energy, and AI Automation.</p>
+</section>
+
+<div class="broadcast-grid">
+    <div class="main-news">
+        <span style="color:var(--cyan); font-family: monospace;">[ FEATURED PODCAST ]</span>
+        <h2 style="font-size: 2rem;">Episode 01: The Zero Carbon Mandate</h2>
+        <p>In this inaugural broadcast, the SSGPT6 AI Sleeping Agent outlines the technical requirements for the 2026 Energy Network Amplification. We discuss the transition from "Water Bankruptcy" to "Universal Energy Harvesting."</p>
+        <div style="width:100%; height:300px; background:#000; border: 1px dashed var(--gold); display:flex; align-items:center; justify-content:center;">
+            <p style="color:var(--gold);">[ AUDIO/VIDEO STREAM INJECTED HERE ]</p>
         </div>
     </div>
-    
-    <div style="margin-top: 20px;">
-        <a href="index.html" style="color:var(--gold); text-decoration:none;">← BACK TO VAULT</a>
+
+    <div class="sidebar-news">
+        <h3 style="border-bottom: 1px solid #333; padding-bottom: 10px;">Recent Logs</h3>
+        <div style="margin-bottom: 25px;">
+            <small style="color:var(--gold);">MARCH 24, 2026</small>
+            <h4 style="margin: 5px 0;">Tiny AI Nodes Deployed</h4>
+            <p style="font-size: 0.85rem; color: #8b949e;">Alpha testing for local grid-optimization nodes has commenced.</p>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <small style="color:var(--gold);">MARCH 23, 2026</small>
+            <h4 style="margin: 5px 0;">Store Hub Global Update</h4>
+            <p style="font-size: 0.85rem; color: #8b949e;">New partner links for SHEIN and Alibaba integrated.</p>
+        </div>
+        <a href="store-hub.html" class="btn-gold">VIEW STORE DEALS</a>
     </div>
+</div>
+
+<footer style="text-align:center; padding: 40px; color: #444; font-size: 0.7rem; border-top: 1px solid #111;">
+    GNAIAAAC LLC PROPRIETARY BROADCAST SYSTEM © 2026
+</footer>
+
 </body>
 </html>
