@@ -1,73 +1,639 @@
+File: index.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNAIAAAC | SOVEREIGN ENGINE</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSGPT6 | GNAIAAAC LLC | Sovereign Architecture Engine</title>
+
+    <!-- Primary Meta -->
+    <meta name="description" content="SSGPT6 by GNAIAAAC LLC — Sovereign Architecture Engine for global water, energy, and automation infrastructure." />
+    <meta name="author" content="GNAIAAAC LLC" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SSGPT6 | Sovereign Architecture Engine" />
+    <meta property="og:description" content="Tiny AI. Big Brain. Black Box. Civilization-scale infrastructure for water, energy, and automation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ssgpt6.com/" />
+    <meta property="og:image" content="https://ssgpt6.com/logo.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SSGPT6 | Sovereign Architecture Engine" />
+    <meta name="twitter:description" content="Tiny AI. Big Brain. Black Box. Civilization-scale infrastructure for water, energy, and automation." />
+    <meta name="twitter:image" content="https://ssgpt6.com/logo.png" />
+
+    <!-- Favicon (replace with your final logo path) -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
     <style>
-        :root { --gold: #c7a85a; --bg: #010409; --panel: #0d1117; --glow: #238636; }
-        body { background: var(--bg); color: #c9d1d9; font-family: 'Courier New', monospace; margin: 0; overflow-x: hidden; }
-        .top-bar { padding: 15px; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; font-size: 12px; color: var(--gold); }
-        .main-frame { padding: 20px; max-width: 1200px; margin: auto; }
-        .glitch-title { font-size: 3rem; text-align: center; letter-spacing: 15px; margin: 40px 0; color: #fff; }
-        .dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-        .module { background: var(--panel); border: 1px solid #30363d; padding: 25px; border-radius: 6px; position: relative; }
-        .module:hover { border-color: var(--gold); }
-        .label { color: var(--gold); font-size: 14px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .data-stream { background: #000; padding: 10px; font-size: 12px; color: var(--glow); height: 100px; overflow: hidden; border: 1px solid #161b22; }
-        .action-btn { margin-top: 20px; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; cursor: pointer; width: 100%; text-transform: uppercase; }
-        .action-btn:hover { background: var(--gold); color: #000; }
-        #security-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); z-index: 100; flex-direction: column; align-items: center; justify-content: center; }
+        :root {
+            --gold: #c7a85a;
+            --bg: #030712;
+            --panel: #0d1117;
+            --accent: #1f2937;
+            --glow: #22c55e;
+            --danger: #ef4444;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: #f3f4f6;
+            font-family: "Courier New", monospace;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Security Bar */
+        .status-bar {
+            background: #000;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .status-bar span {
+            white-space: nowrap;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--glow);
+            box-shadow: 0 0 8px var(--glow);
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(3, 7, 18, 0.96);
+            border-bottom: 1px solid var(--accent);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 31px;
+            z-index: 40;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-logo-mark {
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: var(--gold);
+        }
+
+        /* Hero */
+        header {
+            padding: 80px 20px 50px;
+            text-align: center;
+            background: radial-gradient(circle at top, #0d1117 0%, #030712 55%, #000 100%);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            letter-spacing: 18px;
+            color: #fff;
+            margin: 0;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--gold);
+            font-size: 14px;
+            margin-top: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .slogan {
+            margin-top: 18px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .lead-architect {
+            font-size: 12px;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        .hero-grid {
+            max-width: 900px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .hero-panel {
+            background: rgba(3, 7, 18, 0.8);
+            border: 1px solid var(--accent);
+            padding: 18px 20px;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .hero-panel h3 {
+            margin: 0 0 8px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #e5e7eb;
+        }
+
+        .hero-panel p {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px 60px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0 0 25px;
+        }
+
+        /* Infrastructure Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .module {
+            background: var(--panel);
+            border: 1px solid var(--accent);
+            padding: 35px;
+            border-radius: 4px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(199, 168, 90, 0.25);
+        }
+
+        .module::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, transparent 50%, var(--accent) 50%);
+        }
+
+        .unit-id {
+            font-size: 11px;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Terminal Display */
+        .terminal {
+            background: #000;
+            border-left: 3px solid var(--gold);
+            padding: 15px;
+            margin-top: 25px;
+            font-size: 12px;
+            color: var(--glow);
+            font-family: monospace;
+            min-height: 52px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal::after {
+            content: "";
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            width: 8px;
+            height: 14px;
+            background: var(--glow);
+            box-shadow: 0 0 8px var(--glow);
+            animation: cursorBlink 1s infinite;
+        }
+
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Action Buttons */
+        .btn {
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            padding: 12px 20px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            border-color: var(--accent);
+            color: var(--text-muted);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: transparent;
+        }
+
+        /* Academy / Contact / Footer */
+        .two-column {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--accent);
+            padding: 25px 25px 30px;
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contact-list li {
+            margin-bottom: 6px;
+        }
+
+        .contact-label {
+            color: #e5e7eb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 30px;
+            border-top: 1px solid var(--accent);
+            font-size: 10px;
+            opacity: 0.6;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-top {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-meta {
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .status-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            header {
+                padding-top: 60px;
+            }
+
+            .logo {
+                font-size: 2.6rem;
+                letter-spacing: 10px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <span>ARCHITECT: ARIFUR SHANTA</span>
-        <span>SYSTEM STATUS: ENCRYPTED</span>
-        <span>ID: 888482405311985</span>
+
+    <!-- SECURITY STATUS BAR -->
+    <div class="status-bar">
+        <span><span class="status-dot"></span>ENCRYPTION: AES-256 ACTIVE</span>
+        <span>DOMAIN: SSGPT6.COM</span>
+        <span>NODE: GLOBAL CLOUD EDGE</span>
     </div>
 
-    <div class="main-frame">
-        <h1 class="glitch-title">SSGPT6</h1>
-        
-        <div class="dashboard">
-            <div class="module">
-                <span class="label">Unit 001: Water Scarcity Protocol</span>
-                <div class="data-stream" id="water-log">Initializing Bangladesh Data...<br>Scanning Corridors...</div>
-                <button class="action-btn" onclick="startStream('water-log', 'PURIFICATION SEQUENCE ACTIVE...')">Start Scan</button>
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <div class="nav-logo-mark">6</div>
+                <div>SSGPT6 / GNAIAAAC LLC</div>
             </div>
-
-            <div class="module">
-                <span class="label">Unit 012: Satellite Energy</span>
-                <div class="data-stream" id="energy-log">Grid Frequency: 60Hz...<br>Coil Efficiency: 98%...</div>
-                <button class="action-btn" onclick="startStream('energy-log', 'SATELLITE HANDSHAKE COMPLETE...')">Sync Grid</button>
-            </div>
-
-            <div class="module">
-                <span class="label">AI Automation Academy</span>
-                <p style="font-size: 13px;">Full 135 Matrix technical repository. Authorized personnel only.</p>
-                <button class="action-btn" onclick="showAuth()">Enter Terminal</button>
+            <div class="nav-links">
+                <a href="#infrastructure">Infrastructure</a>
+                <a href="#academy">Academy</a>
+                <a href="#matrix">135 Matrix</a>
+                <a href="#contact">Access</a>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <div id="security-overlay">
-        <h2 style="color: var(--gold);">ENTER ACCESS KEY</h2>
-        <input type="password" id="pass" style="background:transparent; border:1px solid var(--gold); color:#fff; padding:10px; margin-bottom:20px;">
-        <button onclick="validate()" style="background:var(--gold); border:none; padding:10px 20px;">AUTHORIZE</button>
-    </div>
+    <!-- HERO -->
+    <header>
+        <h1 class="logo">SSGPT6</h1>
+        <div class="subtitle">Sovereign Architecture Engine</div>
+        <div class="slogan">Tiny AI. Big Brain. Black Box.</div>
+        <p class="lead-architect">LEAD ARCHITECT: ARIFUR SHANTA</p>
 
+        <div class="hero-grid">
+            <div class="hero-panel">
+                <h3>Global Mandate</h3>
+                <p>GNAIAAAC LLC operates SSGPT6 as a civilization-scale digital infrastructure for water, energy, and automation resilience.</p>
+            </div>
+            <div class="hero-panel">
+                <h3>Operational Scope</h3>
+                <p>From scarcity corridors in Bangladesh and India to global grid recovery, SSGPT6 synchronizes physical and digital systems.</p>
+            </div>
+            <div class="hero-panel">
+                <h3>Control Surface</h3>
+                <p>This interface is the black-box console for the 135 Matrix — projects, protocols, and sovereign automation clusters.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- INFRASTRUCTURE MODULES -->
+        <section id="infrastructure">
+            <div class="section-label">Protocol Layer</div>
+            <h2 class="section-title">Global Infrastructure Units</h2>
+
+            <div class="grid">
+                <!-- UNIT 001 -->
+                <div class="module">
+                    <span class="unit-id">PROTOCOL // UNIT 001</span>
+                    <h2>Water Bankruptcy</h2>
+                    <p>Deploying advanced purification and desalination infrastructure. Monitoring Bangladesh and India scarcity corridors for systemic collapse prevention and flow stabilization.</p>
+                    <div class="terminal" id="terminal-001">
+                        &gt; SCANNING AQUA-DATA...<br />
+                        &gt; STATUS: FLOW STABILIZED
+                    </div>
+                    <button class="btn" onclick="initializeUnit('001')">Initialize System</button>
+                </div>
+
+                <!-- UNIT 012 -->
+                <div class="module">
+                    <span class="unit-id">PROTOCOL // UNIT 012</span>
+                    <h2>Sovereign Energy</h2>
+                    <p>High-efficiency inverter technology and satellite-coil energy distribution for global grid recovery, redundancy, and sovereign micro-grid autonomy.</p>
+                    <div class="terminal" id="terminal-012">
+                        &gt; FREQUENCY: 60.02HZ...<br />
+                        &gt; LOAD: BALANCED
+                    </div>
+                    <button class="btn" onclick="initializeUnit('012')">Sync Grid</button>
+                </div>
+
+                <!-- ACADEMY PREVIEW -->
+                <div class="module" id="academy">
+                    <span class="unit-id">PROTOCOL // ACADEMY</span>
+                    <h2>Automation Academy</h2>
+                    <p>Professional certification for the 135 Matrix technical stack. Access to proprietary AI architecture, sovereign automation blueprints, and operational governance patterns.</p>
+                    <div class="terminal" id="terminal-ACADEMY">
+                        &gt; ACCESS: RESTRICTED...<br />
+                        &gt; KEY: REQUIRED
+                    </div>
+                    <button class="btn" onclick="enterAcademy()">Enter Portal</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 135 MATRIX + CONTACT -->
+        <section id="matrix" style="margin-top: 60px;">
+            <div class="section-label">System Overview</div>
+            <h2 class="section-title">The 135 Matrix & Access Channels</h2>
+
+            <div class="two-column">
+                <!-- 135 MATRIX CARD -->
+                <div class="card">
+                    <span class="badge">Matrix // 135 Projects</span>
+                    <h3>135 Matrix: Civilization-Scale Stack</h3>
+                    <p>
+                        The 135 Matrix is the full project lattice of SSGPT6 — spanning media, intelligence, governance, identity, commerce, infrastructure, security, social, education, research, automation, constitution, economy, territory, diplomacy, culture, and time.
+                    </p>
+                    <p>
+                        Each project is a protocol-ready unit, designed for batch activation, sovereign deployment, and founder-grade operational control.
+                    </p>
+                    <button class="btn-secondary" onclick="alert('Public project index is not yet exposed. Founder console only.')">
+                        View Public Index (Coming Soon)
+                    </button>
+                </div>
+
+                <!-- CONTACT / ACCESS CARD -->
+                <div class="card" id="contact">
+                    <span class="badge">Access // Control</span>
+                    <h3>Founder & Institutional Access</h3>
+                    <p>
+                        Direct access to SSGPT6, the 135 Matrix, and Automation Academy is restricted to verified sovereign, institutional, and regulatory partners.
+                    </p>
+                    <ul class="contact-list">
+                        <li><span class="contact-label">Operator:</span> GNAIAAAC LLC</li>
+                        <li><span class="contact-label">Platform:</span> SSGPT6 — Sovereign Architecture Engine</li>
+                        <li><span class="contact-label">Use Cases:</span> Water bankruptcy mitigation, grid recovery, automation governance, planetary resilience.</li>
+                        <li><span class="contact-label">Access Request:</span> contact [at] ssgpt6.com</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            GNAIAAAC LLC © 2026 &nbsp;|&nbsp; SSGPT6 — Tiny AI. Big Brain. Black Box.
+        </div>
+        <div class="footer-meta">
+            THE 135 MATRIX &nbsp;|&nbsp; SOVEREIGN DIGITAL INFRASTRUCTURE &nbsp;|&nbsp; ALL RIGHTS RESERVED
+        </div>
+    </footer>
+
+    <!-- BASIC INTERACTION SCRIPT -->
     <script>
-        function startStream(id, msg) {
-            const el = document.getElementById(id);
-            el.innerHTML += `<br>> ${msg}`;
+        function logToTerminal(id, lines, isError) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            var color = isError ? getComputedStyle(document.documentElement).getPropertyValue('--danger') : getComputedStyle(document.documentElement).getPropertyValue('--glow');
+            el.style.color = color;
+            el.innerHTML = lines.map(function (l) { return "&gt; " + l; }).join("<br />");
         }
-        function showAuth() { document.getElementById('security-overlay').style.display = 'flex'; }
-        function validate() {
-            if(document.getElementById('pass').value === '8888') {
-                alert('Sovereign Access Granted.');
-                window.location.reload();
-            } else { alert('Access Denied.'); }
+
+        function initializeUnit(unitId) {
+            if (unitId === "001") {
+                logToTerminal("terminal-001", [
+                    "INITIALIZING HYDRO-PROTOCOLS...",
+                    "LOCKING SCARCITY CORRIDORS: BANGLADESH / INDIA",
+                    "SENSOR GRID: ONLINE",
+                    "STATUS: FLOW STABILIZED // OVERSIGHT ACTIVE"
+                ], false);
+                alert("Unit 001: Synchronizing with regional water nodes...");
+            } else if (unitId === "012") {
+                logToTerminal("terminal-012", [
+                    "INVERTER HANDSHAKE PROTOCOL ACTIVE...",
+                    "SATELLITE-COIL LINK: STABLE",
+                    "GRID LOAD: BALANCED",
+                    "STATUS: SOVEREIGN ENERGY CHANNELS ONLINE"
+                ], false);
+                alert("Unit 012: Grid synchronization sequence engaged...");
+            }
+        }
+
+        function enterAcademy() {
+            logToTerminal("terminal-ACADEMY", [
+                "AUTHENTICATION GATEWAY: OFFLINE FOR PUBLIC ACCESS",
+                "FOUNDER / INSTITUTIONAL KEY REQUIRED",
+                "STATUS: ACADEMY IN PRIVATE COMMISSIONING PHASE"
+            ], true);
+            alert("Automation Academy: Authentication gateway offline for public access.");
         }
     </script>
 </body>
