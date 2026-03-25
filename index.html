@@ -1,32 +1,16 @@
-/* GNAIAAAC LLC | SSGPT6 SOVEREIGN IDENTITY SHIELD v.2026
-   ACTION: AUTOMATIC PURGE OF ALL PERSONAL LINKS & SUPPORT UI
-*/
-
+/* SSGPT6 SOVEREIGN IDENTITY GUARD v.2026 */
 (function() {
-    const purgeSensitiveData = () => {
-        // 1. Target and Remove the exact elements from your live site
-        const targets = [
-            'a[href*="photos.app.goo.gl"]',   // Deletes Google Photos links
-            'a[href*="wa.me"]',               // Deletes WhatsApp links
-            'a[href*="icloud.com"]',          // Deletes Shared Library links
-            'a[href*="mailto:"]',            // Deletes personal Email links
-            '.sovereign-support-banner',      // Deletes "24/7 Support" banner
-            '#ai-support-widget'              // Deletes any Support chat boxes
-        ];
-
-        targets.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(el => el.remove()); // Physically Deletes from the live view
+    const deleteSupport = () => {
+        // Find any link or button that says "Support" or "24/7" and DESTROY it
+        const elements = document.querySelectorAll('a, button, div, span, p');
+        elements.forEach(el => {
+            if (el.textContent.includes("24/7") || el.textContent.includes("Support")) {
+                el.remove(); // Physically delete from the live website
+                console.log("SSGPT6: SENSITIVE SUPPORT ASSET DELETED.");
+            }
         });
-
-        // 2. Scrub any "24/7" or "Support" text from the whole page
-        document.body.innerHTML = document.body.innerHTML
-            .replace(/24\/7 Sovereign Support/g, "SSGPT6 AUTHORIZED ACCESS ONLY")
-            .replace(/AI Sleeping Agent Support/g, "GNAIAAAC LLC PRIVATE CORE");
-
-        console.log("SSGPT6: LIVE PRIVACY SCRUB COMPLETE.");
     };
-
-    // Run every 1 second to ensure no "Ghost" data re-appears
-    setInterval(purgeSensitiveData, 1000);
+    
+    window.onload = deleteSupport;
+    setInterval(deleteSupport, 1000); // Check every second to prevent "Ghost" reappearance
 })();
