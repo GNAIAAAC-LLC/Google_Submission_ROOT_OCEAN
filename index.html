@@ -1,34 +1,32 @@
-/* GNAIAAAC LLC | SSGPT6 SOVEREIGN EMERGENCY PURGE v.2026
-   ACTION: IMMEDIATE DELETION OF LIVE PERSONAL LINKS & SUPPORT UI
+/* GNAIAAAC LLC | SSGPT6 SOVEREIGN IDENTITY SHIELD v.2026
+   ACTION: AUTOMATIC PURGE OF ALL PERSONAL LINKS & SUPPORT UI
 */
 
 (function() {
-    const purgeLiveSite = () => {
-        // 1. DELETE SENSITIVE TEXT & LINKS
-        const selectorsToDestroy = [
-            'a[href*="photos.app.goo.gl"]',   // Deletes Google Photo Links
-            'a[href*="wa.me"]',               // Deletes WhatsApp Links
-            'a[href*="t.me"]',               // Deletes Telegram Links
-            '.sovereign-support-banner',      // Deletes the Support Banner
-            '#ai-agent-contact',              // Deletes Agent Contact ID
-            'div:contains("24/7")',           // Deletes any "24/7" text blocks
-            'button:contains("Support")'      // Deletes Support Buttons
+    const purgeSensitiveData = () => {
+        // 1. Target and Remove the exact elements from your live site
+        const targets = [
+            'a[href*="photos.app.goo.gl"]',   // Deletes Google Photos links
+            'a[href*="wa.me"]',               // Deletes WhatsApp links
+            'a[href*="icloud.com"]',          // Deletes Shared Library links
+            'a[href*="mailto:"]',            // Deletes personal Email links
+            '.sovereign-support-banner',      // Deletes "24/7 Support" banner
+            '#ai-support-widget'              // Deletes any Support chat boxes
         ];
 
-        selectorsToDestroy.forEach(selector => {
+        targets.forEach(selector => {
             const elements = document.querySelectorAll(selector);
-            elements.forEach(el => {
-                el.style.display = 'none'; // Hides it from everyone
-                el.remove();               // Deletes it from the code
-            });
+            elements.forEach(el => el.remove()); // Physically Deletes from the live view
         });
 
-        // 2. OVERWRITE THE LIVE VIEW
-        document.body.style.visibility = 'visible'; 
-        console.log("SSGPT6: LIVE WEBSITE SCRUBBED. PERSONAL LINKS DELETED.");
+        // 2. Scrub any "24/7" or "Support" text from the whole page
+        document.body.innerHTML = document.body.innerHTML
+            .replace(/24\/7 Sovereign Support/g, "SSGPT6 AUTHORIZED ACCESS ONLY")
+            .replace(/AI Sleeping Agent Support/g, "GNAIAAAC LLC PRIVATE CORE");
+
+        console.log("SSGPT6: LIVE PRIVACY SCRUB COMPLETE.");
     };
 
-    // Run immediately and repeatedly to ensure no "Ghost" links reappear
-    document.addEventListener("DOMContentLoaded", purgeLiveSite);
-    setInterval(purgeLiveSite, 500); 
+    // Run every 1 second to ensure no "Ghost" data re-appears
+    setInterval(purgeSensitiveData, 1000);
 })();
