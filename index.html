@@ -1,26 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SSGPT6 PLAY — Global Family Game Hub</title>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8" />
+  <title>SSGPT6 PLAY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: -apple-system, system-ui, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f7fb;
+      color: #111827;
+    }
+    header {
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-right: 12px;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .tagline {
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+    .subtagline {
+      color: #4b5563;
+      font-size: 14px;
+    }
+    #vault-container {
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>SSGPT6 PLAY</h1>
-        <nav>
-            <a href="games.html">Games</a>
-            <a href="subscription.html">Subscribe</a>
-            <a href="accessibility.html">Accessibility</a>
-            <a href="languages.html">Languages</a>
-            <a href="ai-automation.html">AI Automation</a>
-            <a href="family-mode.html">Family Mode</a>
-        </nav>
-    </header>
+  <header>
+    <h1>SSGPT6 PLAY</h1>
+    <nav>
+      <a href="games.html">Games</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="languages.html">Languages</a>
+      <a href="ai.html">AI</a>
+      <a href="automation.html">Automation</a>
+      <a href="family-mode.html">Family Mode</a>
+      <!-- A: Public link to vault -->
+      <a href="project.html">Vault</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h2>Welcome to the Global Family Game Hub</h2>
-        <p>Safe, fun, accessible games for everyone.</p>
-    </section>
+  <main>
+    <p class="tagline">Welcome to the Global Family Game Hub</p>
+    <p class="subtagline">Safe, fun, accessible games for everyone.</p>
+
+    <!-- C: Dynamic vault loader target -->
+    <div id="vault-container"></div>
+  </main>
+
+  <!-- C: Load project.html inside the homepage -->
+  <script>
+    fetch("project.html")
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (html) {
+        document.getElementById("vault-container").innerHTML = html;
+      })
+      .catch(function (error) {
+        console.error("Error loading project.html:", error);
+      });
+  </script>
+
+  <!-- D: Hidden admin access (5 taps bottom-right opens vault) -->
+  <script>
+    let taps = 0;
+    document.addEventListener("click", function (e) {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      // bottom-right 20% zone
+      if (e.clientX > w * 0.8 && e.clientY > h * 0.8) {
+        taps++;
+        if (taps >= 5) {
+          window.location.href = "project.html";
+        }
+      } else {
+        taps = 0;
+      }
+    });
+  </script>
 </body>
 </html>
