@@ -2,8 +2,8 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+We provide security updates only for the versions listed as "Supported" in the table below.
+Versions marked as not supported do not receive security fixes; please upgrade to a supported release.
 
 | Version | Supported          |
 | ------- | ------------------ |
